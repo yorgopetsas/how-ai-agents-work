@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="max-w-3xl">
+    <div class="mb-6">
+      <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/{{ article.lang }}/">
+        ← Back to {{ article.lang | upper }}
+      </a>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+      {{ article.title }}
+    </h1>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+      {% if article.category %}
+        <span class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium">
+          {{ article.category }}
+        </span>
+      {% endif %}
+
+      {% if article.chapter_status %}
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          {{ article.chapter_status }}
+        </span>
+      {% endif %}
+
+      {% if article.tags %}
+        {% for tag in article.tags %}
+          <span class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium">
+            {{ tag }}
+          </span>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8">
+      {{ article.content }}
+    </div>
+  </div>
+{% endblock %}
+
