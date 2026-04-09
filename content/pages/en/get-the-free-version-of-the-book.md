@@ -21,7 +21,9 @@ summary: Download the free PDF and learn how modern AI agents are built, step by
     </p>
     <div class="mt-7 flex flex-wrap items-center gap-3">
       <a
-        href="https://your-cpa-tracking-link.example.com"
+        href="https://theaiagentsbook.com/downloads/TheAIAgentsBook-Introduction.pdf?utm_source=howaiagentswork&utm_medium=cpa&utm_campaign=free_book&utm_content=fragments_top_cta"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex cursor-pointer items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
         aria-label="Download free PDF now"
       >
@@ -111,7 +113,9 @@ summary: Download the free PDF and learn how modern AI agents are built, step by
     </p>
     <div class="mt-6">
       <a
-        href="https://your-cpa-tracking-link.example.com"
+        href="https://theaiagentsbook.com/downloads/TheAIAgentsBook-Introduction.pdf?utm_source=howaiagentswork&utm_medium=cpa&utm_campaign=free_book&utm_content=fragments_bottom_cta"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex cursor-pointer items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-50 dark:focus-visible:ring-offset-slate-900"
         aria-label="Claim free PDF book"
       >
@@ -119,7 +123,7 @@ summary: Download the free PDF and learn how modern AI agents are built, step by
       </a>
     </div>
     <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">
-      Replace both CTA links with your final CPA tracking URL before publishing.
+      Tracking enabled: source=howaiagentswork, medium=cpa, campaign=free_book.
     </p>
   </div>
 </section>
