@@ -9,6 +9,7 @@ category: Tutorial
 tags: [Open-Source, API, Cloude, OpenAI, ChatGPT]
 summary: A combined no-code and code-based tutorial path for developers entering AI agents.
 status: published
+template: tutorial_md
 ---
 
 # Tutorial: Build Your First AI Agent (2 Free Paths)
@@ -24,96 +25,102 @@ No frameworks, no complexity—just the core idea of an agent.
 
 ---
 
-# 🟢 PART A — No-Code AI Agent (Flowise + Ollama)
+# Copy Commands
 
-> Best for beginners, non-technical users, and fast understanding
+Use these command snippets directly.
+
+```bash
+# Ollama model
+ollama run llama3.1
+```
+
+```bash
+# Check Node.js
+node -v
+npm -v
+```
+
+```bash
+# Start Flowise
+npx flowise start
+```
+
+```bash
+# Python deps
+pip install requests
+```
 
 ---
 
+# PART A — No-Code AI Agent (Flowise + Ollama)
+
+> Best for beginners, non-technical users, and fast understanding.
+
 ## STEP 1 — Install Ollama (Local AI Model)
 
-Go to: https://ollama.com
-
-Install it for your system.
-
-Then open terminal and run:
+Go to `https://ollama.com`, install it, then run:
 
 ```bash
 ollama run llama3.1
+```
 
-You now have your first local AI model running.
+## STEP 2 — Install Node.js
 
-👉 Why this matters:
-You now have an AI running locally—no API, no cloud.
+Download and install the LTS version from `https://nodejs.org`, then verify:
 
-STEP 2 — Install Node.js
-
-Download:
-https://nodejs.org
-
-Install the LTS version.
-
-Check installation:
-
+```bash
 node -v
 npm -v
+```
 
-STEP 3 — Install Flowise
+## STEP 3 — Install Flowise
 
-Run:
+```bash
 npx flowise start
-Then open:
-http://localhost:3000
-👉 You now have a visual AI builder running locally.
+```
 
-STEP 4 — Create Your First Flow
+Open: `http://localhost:3000`
 
-In Flowise:
+## STEP 4 — Create Your First Flow
 
-Click “Create New Chat Flow”
-You will see a blank canvas
+In Flowise, create a new chat flow and add:
 
-This is your AI system workspace.
+- User Input
+- Prompt Template
+- ChatOllama
+- Output
 
-STEP 5 — Add Chat Model Node
+## STEP 5 — Add Chat Model Node
 
-Add a node:
+Use:
 
-ChatOllama
+- Base URL: `http://localhost:11434`
+- Model: `llama3.1`
 
-Configure it:
+## STEP 6 — Add Prompt Template
 
-Base URL: http://localhost:11434
-Model: llama3.1
-STEP 6 — Add Prompt Template
-
-Add a Prompt Template node and use:
-
+```text
 You are an AI Agent.
 Break tasks into steps and respond clearly.
 
 Task: {input}
+```
 
-STEP 7 — Connect the System
+## STEP 7 — Connect the System
 
-Connect the nodes like this:
-
+```text
 User Input → Prompt Template → ChatOllama → Output
+```
 
-👉 This is your first AI system pipeline.
+## STEP 8 — Test Your Agent
 
-STEP 8 — Test Your Agent
-
-Try this input:
-
+```text
 Plan a simple website structure for a coffee shop
+```
 
-You now have a working AI Agent.
+## STEP 9 — Improve Structure
 
-STEP 9 — Improve Structure
-
-Update your prompt:
-
+```text
 You are an AI Agent.
 
 Follow this structure:
@@ -122,67 +129,72 @@ Follow this structure:
 3. Provide a final structured answer
 
 Task: {input}
-STEP 10 — Add System Thinking Instruction
+```
 
-Add this line:
+## STEP 10 — Add System Thinking Instruction
 
+```text
 Always think step-by-step before answering.
-STEP 11 — Save Your Flow
-Click Save
-Name it: My First AI Agent
-STEP 12 — What You Built
+```
 
-You did NOT build a chatbot.
+## STEP 11 — Save Your Flow
 
-You built:
+Save as `My First AI Agent`.
 
-A controlled reasoning system
-A structured input/output pipeline
-A basic AI agent architecture
+## STEP 12 — What You Built
 
-👉 This is the foundation of all modern AI systems.
+You built a controlled reasoning pipeline, not just a chatbot.
 
-🟡 PART B — Code-Based AI Agent (Python + Ollama)
+---
 
-Best for people who want to understand how agents actually work
+# PART B — Code-Based AI Agent (Python + Ollama)
 
-STEP 1 — Install Python
+> Best for developers who want to understand the internals.
 
-Download Python:
-https://python.org
+## STEP 1 — Install Python
 
-Check installation:
+Install from `https://python.org`, then verify:
 
+```bash
 python --version
-STEP 2 — Install Ollama
+```
 
-Same as before:
+## STEP 2 — Install Ollama
 
+```bash
 ollama run llama3.1
-STEP 3 — Install Python Dependency
+```
+
+## STEP 3 — Install Python Dependency
+
+```bash
 pip install requests
-STEP 4 — Create Project File
+```
 
-Create a file called:
+## STEP 4 — Create Project File
 
-agent.py
-STEP 5 — Basic AI Connection
+Create `agent.py`.
 
-Paste this code:
+## STEP 5 — Basic AI Connection
 
+```python
 import requests
 
 MODEL = "llama3.1"
 URL = "http://localhost:11434/api/generate"
 
 def ask_ai(prompt):
-    response = requests.post(URL, json={
-        "model": MODEL,
-        "prompt": prompt,
-        "stream": False
-    })
+    response = requests.post(
+        URL,
+        json={"model": MODEL, "prompt": prompt, "stream": False},
+        timeout=60,
+    )
     return response.json()["response"]
-STEP 6 — Create Your Agent Logic
+```
+
+## STEP 6 — Create Your Agent Logic
+
+```python
 def agent(task):
     prompt = f"""
 You are an AI Agent.
@@ -194,15 +206,22 @@ Step 3: Provide a structured solution
 Task: {task}
 """
     return ask_ai(prompt)
-STEP 7 — Run Your Agent
+```
+
+## STEP 7 — Run Your Agent
+
+```python
 result = agent("Design a simple login system")
 print(result)
-STEP 8 — Add Simple Memory (Optional)
+```
+
+## STEP 8 — Add Simple Memory (Optional)
+
+```python
 memory = []
 
 def agent(task):
     context = "\n".join(memory[-5:])
-
     prompt = f"""
 You are an AI Agent.
 
@@ -211,50 +230,27 @@ Memory:
 
 Task: {task}
 """
-
     result = ask_ai(prompt)
-
     memory.append(task)
     memory.append(result)
-
     return result
-STEP 9 — Test Multiple Calls
+```
+
+## STEP 9 — Test Multiple Calls
+
+```python
 print(agent("Create a to-do app"))
 print(agent("Now improve it"))
-STEP 10 — What Changed?
+```
 
-Now your agent can:
+## STEP 10 — What Changed?
 
-Remember previous interactions
-Use context over time
-Improve continuity of responses
-STEP 11 — Why This Is an Agent
+The agent now maintains context across requests.
 
-Because it:
+## STEP 11 — Why This Is an Agent
 
-Receives input
-Processes instructions
-Maintains memory
-Produces structured outputs
+It receives input, runs logic, maintains memory, and returns structured output.
 
-This is the core definition of an AI Agent.
+## STEP 12 — Final Insight
 
-STEP 12 — Final Insight
-
-You just built the foundation of modern AI systems.
-
-Not a chatbot.
-
-A system that transforms input into controlled behavior.
-
-🔥 Final Summary
-
-You now have two versions of your first AI Agent:
-
-🟢 No-code version (Flowise)
-🟡 Code version (Python)
-
-Both demonstrate the same principle:
-
-An AI Agent is not the model.
-It is the system built around the model.
+An AI agent is not only the model; it is the system around the model.

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% set items = [] %}
+  {% for a in articles if a.lang == page.lang and a.section == 'agent-type' %}
+    {% set _ = items.append(a) %}
+  {% endfor %}
+
+  <section class="relative overflow-hidden rounded-3xl border border-sky-200/70 bg-gradient-to-br from-sky-50 via-white to-cyan-50 p-6 dark:border-sky-900/40 dark:from-slate-900 dark:via-slate-900/90 dark:to-cyan-950/30 md:p-10">
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
+    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600 dark:text-sky-300">Agent Taxonomy</p>
+    <h1 class="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white md:text-5xl">{{ page.title }}</h1>
+    <p class="mt-4 max-w-3xl text-sm text-slate-700 dark:text-slate-300">{{ page.summary|striptags }}</p>
+    <div class="mt-6 flex flex-wrap gap-2 text-xs">
+      <a href="#quick-start" class="rounded-full border border-sky-300/80 bg-white/80 px-3 py-1.5 font-medium text-sky-700 hover:bg-white dark:border-sky-700 dark:bg-slate-900/70 dark:text-sky-300 dark:hover:bg-slate-900">Pick by use case</a>
+      <a href="#types-grid" class="rounded-full border border-slate-300/80 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:bg-white dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-900">See all types</a>
+    </div>
+  </section>
+
+  <section id="quick-start" class="mt-6 grid gap-4 md:grid-cols-3">
+    <a href="/en/agent-type-simple-reflex/" class="group rounded-2xl border border-slate-200/70 bg-white p-4 transition hover:border-sky-400/70 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/50">
+      <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Need</p>
+      <h2 class="mt-2 text-lg font-semibold">Simple automation</h2>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use simple reflex agents for deterministic trigger/action rules.</p>
+    </a>
+    <a href="/en/agent-type-goal-based/" class="group rounded-2xl border border-slate-200/70 bg-white p-4 transition hover:border-sky-400/70 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/50">
+      <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Need</p>
+      <h2 class="mt-2 text-lg font-semibold">Multi-step planning</h2>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use goal-based agents when tasks require path-to-goal decisions.</p>
+    </a>
+    <a href="/en/agent-type-multi-agent-systems/" class="group rounded-2xl border border-slate-200/70 bg-white p-4 transition hover:border-sky-400/70 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/50">
+      <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Need</p>
+      <h2 class="mt-2 text-lg font-semibold">Team orchestration</h2>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use multi-agent systems for role specialization and parallel work.</p>
+    </a>
+  </section>
+
+  <section id="types-grid" class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    {% for a in items %}
+      <a href="/{{ a.lang }}/{{ a.slug }}/" class="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white p-5 transition hover:-translate-y-0.5 hover:border-sky-400/70 hover:shadow-lg dark:border-slate-800/70 dark:bg-slate-900/60">
+        <div class="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-sky-200/40 blur-xl dark:bg-sky-600/20"></div>
+        <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-300 bg-slate-50 text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-sky-300">
+          {% if "simple-reflex" in a.slug %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {% elif "model-based-reflex" in a.slug %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          {% elif "goal-based" in a.slug %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+          {% elif "utility-based" in a.slug %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          {% elif "learning" in a.slug %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M12 5 4 9l8 4 8-4-8-4ZM4 13l8 4 8-4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          {% else %}
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M4 8h7v7H4zM13 8h7v7h-7zM8 15h8v5H8z" stroke="currentColor" stroke-width="1.7"/></svg>
+          {% endif %}
+        </div>
+        <h3 class="text-xl font-semibold leading-snug text-slate-900 dark:text-white">{{ a.title|replace('AI Agent Type - ','') }}</h3>
+        {% if a.summary %}
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{{ a.summary|striptags }}</p>
+        {% endif %}
+        <p class="mt-4 text-sm font-medium text-sky-700 dark:text-sky-300">Read type details →</p>
+      </a>
+    {% endfor %}
+  </section>
+
+  <style>
+    .orb { position: absolute; border-radius: 9999px; filter: blur(40px); opacity: 0.35; }
+    .orb-a { width: 180px; height: 180px; right: -40px; top: -20px; background: #38bdf8; animation: drift 8s ease-in-out infinite; }
+    .orb-b { width: 140px; height: 140px; left: 15%; bottom: -30px; background: #0ea5e9; animation: drift 10s ease-in-out infinite reverse; }
+    @keyframes drift { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    @media (prefers-reduced-motion: reduce) { .orb { animation: none !important; } }
+  </style>
+{% endblock %}

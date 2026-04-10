@@ -11,32 +11,51 @@
   </section>
 
   <section class="mt-6 grid gap-4 lg:grid-cols-3">
-    <article class="rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-slate-900/50">
+    <a href="/en/news/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-news/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
       <h2 class="mt-3 text-lg font-semibold">News Stream</h2>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Breaking updates with strong visuals and short takeaways.</p>
-    </article>
-    <article class="rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-slate-900/50">
+    </a>
+    <a href="/en/blog/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-blog/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
       <h2 class="mt-3 text-lg font-semibold">Blog Analysis</h2>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Deep-dive stories in Self-hosted, Cloud, and Hybrid tracks.</p>
-    </article>
-    <article class="rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur dark:border-white/10 dark:bg-slate-900/50">
+    </a>
+    <a href="/en/tutorials/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-tutorial/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
       <h2 class="mt-3 text-lg font-semibold">Tutorial Paths</h2>
       <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Audience-separated difficulty lanes with clear onboarding.</p>
-    </article>
+    </a>
   </section>
 
   <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
     <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Visual Timeline</p>
     <div class="mt-4 grid gap-3 md:grid-cols-4">
-      {% for i in range(1,5) %}
-        <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
-          <img src="https://picsum.photos/seed/glass-time-{{ i }}/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
-          <p class="mt-2 text-sm font-medium">Milestone {{ i }}</p>
-        </article>
-      {% endfor %}
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-1/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Milestone 1 - Understand the Basics</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-2/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Milestone 2 - Build the first AI Agent</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-3/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Milestone 3 - Setup the first repetive Task</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-4/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Milestone 4 - Build the first group of AI Agents</p>
+      </article>
     </div>
+  </section>
+
+  <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">New Section</p>
+    <h2 class="mt-2 text-xl font-semibold">Types of AI Agents</h2>
+    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Understand the main agent families: simple reflex, model-based, goal-based, utility-based, learning, and multi-agent systems.</p>
+    <a href="/en/agent-types/" class="mt-4 inline-flex items-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:border-cyan-400 hover:text-cyan-700 dark:border-slate-700 dark:hover:border-cyan-500 dark:hover:text-cyan-300">
+      Explore Agent Types →
+    </a>
   </section>
 {% endblock %}

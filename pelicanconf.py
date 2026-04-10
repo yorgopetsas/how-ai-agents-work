@@ -47,7 +47,14 @@ PAGE_PATHS = ["pages"]
 # Keep URLs relative for local builds.
 RELATIVE_URLS = True
 
-# Markdown is built-in; keep defaults.
+# Markdown extensions for fenced code blocks and richer formatting.
+MARKDOWN = {
+    "extensions": [
+        "markdown.extensions.extra",
+        "markdown.extensions.codehilite",
+        "markdown.extensions.attr_list",
+    ],
+}
 
 # Simple defaults for content metadata.
 DEFAULT_METADATA = {

@@ -58,7 +58,7 @@
 
     <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
       <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-3">
+        <a href="/en/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
           <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
             AI
           </div>
@@ -66,28 +66,18 @@
             <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
             <div class="font-semibold leading-tight">{{ SITENAME }}</div>
           </div>
-        </div>
+        </a>
 
         <div class="flex items-center gap-3">
-          <nav class="hidden sm:flex items-center gap-3 text-sm">
-            <a class="hover:underline underline-offset-4" href="/en/news/">News</a>
-            <a class="hover:underline underline-offset-4" href="/en/blog/">Blog</a>
-            <a class="hover:underline underline-offset-4" href="/en/tutorials/">Tutorials</a>
-            <a class="hover:underline underline-offset-4" href="/en/design-lab/">Design Lab</a>
-            <a class="hover:underline underline-offset-4" href="/en/tags/">Tags</a>
-            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free Book</a>
-            <a class="hover:underline underline-offset-4" href="/en/">{% if (page is defined and page.lang == 'en') or (article is defined and article.lang == 'en') %}EN{% else %}English{% endif %}</a>
-            <a class="hover:underline underline-offset-4" href="/es/">{% if (page is defined and page.lang == 'es') or (article is defined and article.lang == 'es') %}ES{% else %}Español{% endif %}</a>
+          <nav class="hidden sm:flex items-center gap-2 text-sm">
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/news/">News</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tutorials/">Tutorials</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/agent-types/">Agent Types</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tags/">Tags</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/get-the-free-version-of-the-book/">AI Agents Free Book</a>
+            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/">{% if (page is defined and page.lang == 'en') or (article is defined and article.lang == 'en') %}EN{% else %}English{% endif %}</a>
           </nav>
-
-          <button
-            type="button"
-            class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"
-            onclick="window.__toggleTheme && window.__toggleTheme()"
-            aria-label="Toggle dark mode"
-          >
-            Theme
-          </button>
         </div>
       </div>
     </header>
@@ -104,12 +94,11 @@
             <a class="hover:underline underline-offset-4" href="/en/news/">News</a>
             <a class="hover:underline underline-offset-4" href="/en/blog/">Blog</a>
             <a class="hover:underline underline-offset-4" href="/en/tutorials/">Tutorials</a>
-            <a class="hover:underline underline-offset-4" href="/en/design-lab/">Design Lab</a>
+            <a class="hover:underline underline-offset-4" href="/en/agent-types/">Agent Types</a>
             <a class="hover:underline underline-offset-4" href="/en/tags/">Tags</a>
-            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free AI Agents Book</a>
             <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">The AI Agents Book</a>
             <a class="hover:underline underline-offset-4" href="/en/">EN</a>
-            <a class="hover:underline underline-offset-4" href="/es/">ES</a>
           </div>
         </div>
       </div>
