@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>How AI Agents Work - Self-hosted</title><link href="/" rel="alternate"/><link href="feeds/self-hosted.atom.xml" rel="self"/><id>/</id><updated>2026-04-09T00:00:00+02:00</updated><entry><title>Why AI Feels Smart... Until It Doesn't</title><link href="en/why-ai-feels-smart-until-it-doesnt/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/why-ai-feels-smart-until-it-doesnt/</id><summary type="html">&lt;p&gt;A practical perspective on why AI systems look brilliant in one interaction and inconsistent in the next.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Why AI Feels Smart... Until It Doesn't&lt;/h1&gt;
+&lt;p&gt;You ask AI to do something complex—debug code, explain a difficult concept, design a system—and for a moment, it delivers something surprisingly good. Clear. Structured. Even insightful.&lt;/p&gt;
+&lt;p&gt;And then… it breaks.&lt;/p&gt;
+&lt;p&gt;It forgets something obvious. Misunderstands context. Gives an answer that sounds right but clearly isn’t. The same system that felt intelligent suddenly feels unreliable.&lt;/p&gt;
+&lt;p&gt;Most people assume this is just a limitation of the technology.&lt;/p&gt;
+&lt;p&gt;It’s not.&lt;/p&gt;
+&lt;p&gt;The real reason is more interesting—and far more important if you want to actually build with AI.&lt;/p&gt;
+&lt;p&gt;In The AI Agents Book, I start with a simple but often overlooked idea: what you’re interacting with is not a complete system. It’s a powerful component inside a system that doesn’t exist yet.&lt;/p&gt;
+&lt;p&gt;That gap—between what AI can do and what you expect it to do—is where most confusion comes from. But it’s also where opportunity begins.&lt;/p&gt;
+&lt;p&gt;Because once you see it, your perspective shifts.&lt;/p&gt;
+&lt;p&gt;You stop asking how to make AI “smarter,” and start asking better questions:&lt;/p&gt;
+&lt;p&gt;How does it remember?
+How does it act?
+How does it verify what it produces?
+How does it stay consistent over time?&lt;/p&gt;
+&lt;p&gt;And from there, something new emerges—not just better prompts or tools, but a different kind of system entirely.&lt;/p&gt;
+&lt;p&gt;This is what the book is really about.&lt;/p&gt;
+&lt;p&gt;It’s not a guide to using AI. It’s a way of understanding how these systems actually work beneath the surface—so you can design, adapt, and build them yourself, independent of any specific tool or framework.&lt;/p&gt;
+&lt;p&gt;If you’ve ever felt that AI is both powerful and unreliable at the same time, you’re already seeing the problem this book addresses.&lt;/p&gt;
+&lt;p&gt;You can read the full introduction for free here:&lt;br /&gt;
+&lt;a href="https://theaiagentsbook.com/en/get-the-free-version-hybrid-light/"&gt;The AI Agents Book - Free Version&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This first chapter sets the foundation for everything that follows—and it’s available in the free version of the book so you can explore the core idea before going deeper.&lt;/p&gt;
+&lt;p&gt;Because once you understand what’s really going on, you won’t look at AI the same way again.&lt;/p&gt;</content><category term="Self-hosted"/><category term="[Open-Source"/><category term="API"/><category term="OpenAI"/><category term="ChatGPT"/><category term="Cloude]"/></entry></feed>

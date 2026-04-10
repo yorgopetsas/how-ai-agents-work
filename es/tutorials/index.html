@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+Tutoriales de agentes de IA -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>Guía destacada con dos rutas gratuitas (sin código y con código), más tres carriles por audiencia: principiante, IT y desarrollador.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Ir al contenido    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/es/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — inicio">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Principal">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/news/">Noticias</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tutorials/">Tutoriales</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tags/">Etiquetas</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">El libro</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/en/tutorials/">EN</a>
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/es/tutorials/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 " href="/en/tutorials/">EN</a>
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/es/tutorials/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Secciones">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/news/">Noticias</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/tutorials/">Tutoriales</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/agent-types-proposition/">Tipos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+  <section class="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 p-6 text-white shadow-xl shadow-indigo-950/30 dark:border-slate-800/70 md:p-10">
+    <div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-16 left-1/4 h-48 w-48 rounded-full bg-amber-500/15 blur-3xl" aria-hidden="true"></div>
+    <div class="relative">
+      <p class="text-xs uppercase tracking-[0.24em] text-emerald-300/90">Tutoriales editoriales</p>
+      <h1 class="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">Tutoriales de agentes de IA</h1>
+        <p class="mt-4 max-w-3xl text-base leading-relaxed text-slate-300">Guía destacada con dos rutas gratuitas (sin código y con código), más tres carriles por audiencia: principiante, IT y desarrollador.</p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-4 py-2 text-xs font-semibold text-emerald-100">
+          <span class="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
+Ruta A — Sin código (Flowise + Ollama)        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-amber-400/35 bg-amber-500/15 px-4 py-2 text-xs font-semibold text-amber-100">
+          <span class="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true"></span>
+Ruta B — Código (Python + Ollama)        </span>
+      </div>
+      <p class="mt-4 max-w-2xl text-sm text-slate-400">
+        Misma idea en dos estilos: flujo visual o script mínimo. El tutorial destacado enlaza ambas rutas en una sola guía.
+      </p>
+    </div>
+  </section>
+
+
+
+  <section class="mt-6 grid gap-4 md:grid-cols-12">
+    <article class="relative md:col-span-7 overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-900 dark:border-slate-800/70">
+      <img src="https://picsum.photos/seed/first-ai-agent-dual-path/1200/760" alt="" class="h-64 w-full object-cover opacity-90 md:h-full md:min-h-[280px]" />
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" aria-hidden="true"></div>
+      <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 md:bottom-6 md:left-6 md:right-6">
+        <span class="rounded-full bg-emerald-500/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">Sin código</span>
+        <span class="rounded-full bg-amber-500/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">Código</span>
+      </div>
+    </article>
+    <article class="flex flex-col justify-center rounded-2xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/50 md:col-span-5">
+      <p class="text-xs uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Tutorial destacado · 2 rutas gratuitas</p>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          <a class="text-slate-900 hover:underline dark:text-white dark:hover:text-indigo-300" href="/es/tutorial-build-your-first-ai-agent/">Tutorial — Construye tu primer agente de IA (2 rutas gratuitas)</a>
+        </h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">Dos rutas gratuitas al mismo resultado — sin código (Flowise + Ollama) y con código (Python + Ollama) — para ver que un agente es el sistema alrededor del modelo, no solo el modelo.</p>
+        <a href="/es/tutorial-build-your-first-ai-agent/" class="mt-5 inline-flex w-fit items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500">
+Abrir tutorial completo          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="/es/tutorial-beginner-first-steps/" class="block overflow-hidden rounded-2xl border border-emerald-200/70 bg-emerald-50/50 transition hover:border-emerald-400 dark:border-emerald-900/50 dark:bg-emerald-950/25 dark:hover:border-emerald-500">
+      <img src="https://picsum.photos/seed/tutorial-lane-beginner/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">Carril principiante</p>
+        <h3 class="mt-2 text-lg font-semibold">Sin base técnica</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Contenido de ejemplo; aquí irán tutoriales no técnicos.</p>
+      </div>
+    </a>
+
+    <a href="/es/tutorial-it-practitioner-first-automation/" class="block overflow-hidden rounded-2xl border border-amber-200/70 bg-amber-50/50 transition hover:border-amber-400 dark:border-amber-900/50 dark:bg-amber-950/25 dark:hover:border-amber-500">
+      <img src="https://picsum.photos/seed/tutorial-lane-it/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">Carril IT</p>
+        <h3 class="mt-2 text-lg font-semibold">Experiencia IT, poco código</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Contenido de ejemplo; tutoriales estilo operaciones IT.</p>
+      </div>
+    </a>
+
+    <a href="/es/tutorial-build-your-first-ai-agent/" class="block overflow-hidden rounded-2xl border border-indigo-200/70 bg-indigo-50/50 transition hover:border-indigo-400 dark:border-indigo-900/50 dark:bg-indigo-950/25 dark:hover:border-indigo-500">
+      <img src="https://picsum.photos/seed/tutorial-lane-dev/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">Carril desarrollador</p>
+        <h3 class="mt-2 text-lg font-semibold">Devs nuevos en IA</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Este carril enlaza con el tutorial principal arriba.</p>
+      </div>
+    </a>
+  </section>
+
+  <div class="prose prose-slate dark:prose-invert mt-8 max-w-none">
+    <p>Los tutoriales están separados por dificultad para que cada audiencia navegue con claridad.</p>
+  </div>
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/es/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/es/news/">Noticias</a>
+            <a class="hover:underline underline-offset-4" href="/es/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorials/">Tutoriales</a>
+            <a class="hover:underline underline-offset-4" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="hover:underline underline-offset-4" href="/es/tags/">Etiquetas</a>
+            <a class="hover:underline underline-offset-4" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/tutorials/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorials/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+La filtración de Claude IA: qué ocurrió y por qué importa -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>La filtración de 2026 en Anthropic expuso detalles de ingeniería de IA a nivel de sistema e intensificó el debate sobre seguridad, gobierno y riesgo operativo.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Ir al contenido    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/es/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — inicio">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Principal">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/news/">Noticias</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tutorials/">Tutoriales</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tags/">Etiquetas</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">El libro</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/en/claude-ai-leak-what-happened-and-why-it-matters/">EN</a>
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/es/claude-ai-leak-what-happened-and-why-it-matters/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 " href="/en/claude-ai-leak-what-happened-and-why-it-matters/">EN</a>
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/es/claude-ai-leak-what-happened-and-why-it-matters/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Secciones">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/news/">Noticias</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/tutorials/">Tutoriales</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/agent-types-proposition/">Tipos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+
+  <div class="max-w-3xl">
+    <div class="mb-6">
+      <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/es/">
+        ← Volver al inicio      </a>
+    </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+        La filtración de Claude IA: qué ocurrió y por qué importa
+      </h1>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          News
+        </span>
+        <a href="/category/news/" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium hover:underline underline-offset-4">
+          News
+        </a>
+
+
+          <a href="/tag/openai/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            OpenAI
+          </a>
+          <a href="/tag/chatgpt/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            ChatGPT
+          </a>
+          <a href="/tag/api/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            API
+          </a>
+          <a href="/tag/cloude/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Cloude
+          </a>
+    </div>
+
+
+      <figure class="mt-6 overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/70">
+        <img src="https://picsum.photos/seed/claude-leak-main/1600/900" alt="La filtración de Claude IA: qué ocurrió y por qué importa" class="h-auto w-full object-cover" loading="eager" />
+        <figcaption class="border-t border-slate-200/70 bg-slate-50 px-4 py-2 text-xs text-slate-600 dark:border-slate-800/70 dark:bg-slate-900/60 dark:text-slate-300">
+Contexto visual para esta noticia.        </figcaption>
+      </figure>
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md ">
+      <h2>1) Visión general</h2>
+<p>A finales de marzo de 2026, la empresa de IA Anthropic vivió una de las filtraciones más relevantes del sector hasta la fecha. Por un error de empaquetado, más de 500.000 líneas de código fuente de su asistente de programación Claude Code quedaron expuestas accidentalmente en un lanzamiento público de npm.</p>
+<p>La filtración se propagó rápidamente en plataformas como GitHub, donde desarrolladores replicaron y analizaron el código antes de que la compañía pudiera contenerla. Anthropic confirmó después que el incidente se debió a error humano y no a un ciberataque, y que no se comprometieron datos de usuarios.</p>
+<p>Al mismo tiempo, revelaciones y filtraciones separadas en torno a un potente modelo interno —Claude Mythos— plantearon preocupaciones aún mayores. Ese modelo mostró capacidad para identificar y explotar vulnerabilidades de software de forma autónoma, lo que llevó a Anthropic a restringir su publicación por riesgo de uso indebido.</p>
+<p>En conjunto, estos hechos han disparado un intenso debate sobre transparencia de la IA, riesgos de seguridad y el futuro del desarrollo de software.</p>
+<p><img alt="Imagen tipo sala de prensa sobre seguridad y sistemas de IA" src="https://picsum.photos/seed/claude-leak-security/1200/680" /></p>
+<h2>2) Análisis en profundidad: qué reveló la filtración</h2>
+<h3>2.1 El valor real no era el modelo, sino el sistema</h3>
+<p>Una de las conclusiones principales es que el poder de la IA moderna reside menos en el modelo en sí y más en la arquitectura que lo rodea.</p>
+<p>El código expuesto mostró:</p>
+<ul>
+<li>Prompts de sistema completos (cómo se instruye internamente a la IA)</li>
+<li>Lógica de orquestación de herramientas (cómo usa herramientas externas)</li>
+<li>Manejo de memoria y estrategias de ejecución de tareas</li>
+</ul>
+<p>Esto confirma una tendencia del sector: los agentes de IA son sistemas, no solo modelos.</p>
+<h3>2.2 La ingeniería de prompts importa más de lo esperado</h3>
+<p>La filtración mostró que el comportamiento de Claude Code depende en gran medida de prompts de sistema cuidadosamente diseñados. Por ejemplo:</p>
+<ul>
+<li>Puede ejecutar tareas en paralelo —pero solo si se le indica correctamente</li>
+<li>Por defecto opta por una ejecución más lenta y segura cuando las instrucciones son ambiguas</li>
+</ul>
+<p>Esto subraya que:</p>
+<p>La diferencia entre un uso medio y uno experto de la IA suele estar en cómo se formula el prompt, no en qué modelo se use.</p>
+<h3>2.3 El desarrollo de IA sigue teniendo debilidades básicas de seguridad</h3>
+<p>Irónicamente, la filtración expuso fallos clásicos de ingeniería de software, no fallos avanzados de IA:</p>
+<ul>
+<li>Pipelines de compilación mal configurados</li>
+<li>Inclusión accidental de artefactos de depuración (archivos <code>.map</code>)</li>
+<li>Falta de comprobaciones de validación previas al lanzamiento</li>
+</ul>
+<p>Investigaciones posteriores sugieren que las herramientas de seguridad actuales no están pensadas para bases de código generadas o asistidas por IA, lo que abre nuevos puntos ciegos.</p>
+<h3>2.4 El riesgo mayor: IA que puede hackear</h3>
+<p>Aparte del código filtrado, las revelaciones sobre Claude Mythos pueden ser aún más importantes.</p>
+<p>Los informes indican que el modelo puede:</p>
+<ul>
+<li>Descubrir miles de vulnerabilidades día cero</li>
+<li>Generar exploits del mundo real de forma automática</li>
+<li>Operar con mínima intervención humana</li>
+</ul>
+<p>Esto representa un cambio de la IA como herramienta de productividad a la IA como posible actor ofensivo en ciberseguridad.</p>
+<h3>2.5 Implicaciones competitivas y geopolíticas</h3>
+<p>La filtración también tuvo consecuencias estratégicas:</p>
+<ul>
+<li>Los competidores obtuvieron visión de la arquitectura de Anthropic</li>
+<li>Desarrolladores en todo el mundo empezaron a reconstruir y experimentar con el sistema</li>
+<li>Los mercados financieros reaccionaron negativamente al potencial disruptivo de la IA avanzada</li>
+</ul>
+<p>En resumen, la filtración aceleró la difusión de conocimiento en el ecosistema de IA.</p>
+<p><img alt="Imagen sobre operaciones de ingeniería y gobierno de la IA" src="https://picsum.photos/seed/ai-governance-ops/1200/680" /></p>
+<h2>3) Conclusiones prácticas: qué debes llevarte</h2>
+<h3>3.1 Para desarrolladores</h3>
+<ul>
+<li>Céntrate en el diseño del sistema, no solo en los modelos: herramientas, prompts y flujos importan más que la capacidad bruta de la IA.</li>
+<li>Escribe mejores prompts, no solo mejor código: la claridad del prompt impacta directamente en rendimiento y eficiencia.</li>
+<li>Audita tus pipelines de compilación: los mayores riesgos siguen siendo errores simples.</li>
+</ul>
+<h3>3.2 Para empresas</h3>
+<ul>
+<li>Trata los sistemas de IA como infraestructura crítica de seguridad: la IA ya no es solo una función —puede exponer o explotar vulnerabilidades.</li>
+<li>Implementa salvaguardas previas al lanzamiento, especialmente en empaquetado, dependencias y artefactos.</li>
+<li>Prepárate para amenazas de ciberseguridad potenciadas por IA: las estrategias defensivas deben evolucionar con rapidez.</li>
+</ul>
+<h3>3.3 Para el sector</h3>
+<ul>
+<li>La transparencia de la IA aumenta —de forma intencionada o no: las filtraciones aceleran la comprensión colectiva.</li>
+<li>Crecerá la presión regulatoria, especialmente para modelos capaces de explotación autónoma.</li>
+<li>La carrera real se está desplazando de «quién tiene el mejor modelo» a «quién construye el mejor sistema de IA alrededor».</li>
+</ul>
+<h2>Reflexión final</h2>
+<p>La filtración de Claude es más que un contratiempo técnico: es un punto de inflexión en cómo entendemos los sistemas de IA.</p>
+<p>Expuso no solo el funcionamiento interno de una de las herramientas más avanzadas, sino también la fragilidad de las prácticas actuales de desarrollo y el enorme poder de la siguiente generación de modelos.</p>
+<p>Si algo queda claro con este incidente es que:</p>
+<p>El futuro de la IA no solo habrá que construirlo —habrá que asegurarlo, gobernarlo y comprenderlo en profundidad.</p>
+    </div>
+
+      <section class="mt-10 rounded-2xl border border-slate-200/70 bg-white p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Más noticias</p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        </div>
+      </section>
+  </div>
+
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/es/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/es/news/">Noticias</a>
+            <a class="hover:underline underline-offset-4" href="/es/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorials/">Tutoriales</a>
+            <a class="hover:underline underline-offset-4" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="hover:underline underline-offset-4" href="/es/tags/">Etiquetas</a>
+            <a class="hover:underline underline-offset-4" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/claude-ai-leak-what-happened-and-why-it-matters/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/claude-ai-leak-what-happened-and-why-it-matters/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

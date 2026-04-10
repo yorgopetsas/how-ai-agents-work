@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+Tipo de agente de IA — Agentes de reflejo basados en modelo -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>Agentes reflexivos con estado interno para entornos parcialmente observables.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Ir al contenido    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/es/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — inicio">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Principal">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/news/">Noticias</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tutorials/">Tutoriales</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tags/">Etiquetas</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">El libro</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/en/agent-type-model-based-reflex/">EN</a>
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/es/agent-type-model-based-reflex/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 " href="/en/agent-type-model-based-reflex/">EN</a>
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/es/agent-type-model-based-reflex/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Secciones">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/news/">Noticias</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/tutorials/">Tutoriales</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/agent-types-proposition/">Tipos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+
+  <div class="max-w-3xl">
+    <div class="mb-6">
+      <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/es/">
+        ← Volver al inicio      </a>
+    </div>
+
+      <section class="relative overflow-hidden rounded-3xl border border-cyan-200/70 dark:border-cyan-900/40 bg-gradient-to-br from-cyan-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900/90 dark:to-cyan-950/30 p-6 md:p-8">
+        <div class="agent-orb" style="--orb-color: #22d3ee"></div>
+        <div class="agent-orb agent-orb-small" style="--orb-color: #22d3ee"></div>
+        <p class="relative text-xs font-semibold uppercase tracking-[0.22em] text-cyan-600 dark:text-cyan-300">Tipo de agente</p>
+        <div class="relative mt-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-300 bg-white/80 text-slate-800 dark:border-slate-700 dark:bg-slate-900/80 dark:text-white">
+            <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <h1 class="relative mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          Tipo de agente de IA — Agentes de reflejo basados en modelo
+        </h1>
+          <p class="relative mt-3 max-w-3xl text-sm leading-relaxed text-slate-700 dark:text-slate-300">Agentes reflexivos con estado interno para entornos parcialmente observables.</p>
+      </section>
+      <section class="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Ideal para</p>
+          <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">Soporte y operaciones con estado</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Complejidad</p>
+          <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">Baja–media</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Latencia típica</p>
+          <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">Baja</p>
+        </article>
+        <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Stack de referencia</p>
+          <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">Estado de sesión + llamadas a herramientas</p>
+        </article>
+      </section>
+      <nav id="agent-toc" class="mt-4 flex flex-wrap gap-2 rounded-2xl border border-slate-200/80 bg-white/90 p-3 dark:border-slate-800/70 dark:bg-slate-900/60" aria-label="Secciones del tipo de agente">
+      </nav>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          Agent-type
+        </span>
+        <a href="/category/agent-types/" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium hover:underline underline-offset-4">
+          Agent Types
+        </a>
+
+
+          <a href="/tag/open-source/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Open-Source
+          </a>
+          <a href="/tag/api/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            API
+          </a>
+          <a href="/tag/cloude/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Cloude
+          </a>
+    </div>
+
+
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md agent-type-content prose-headings:font-semibold prose-h3:mt-10 prose-h3:mb-4 prose-h3:scroll-mt-24 prose-h3:text-xl prose-h3:tracking-tight prose-h3:text-slate-900 dark:prose-h3:text-slate-100 prose-p:leading-relaxed prose-li:leading-relaxed">
+      <h1>Agentes de reflejo basados en modelo</h1>
+<p>Los agentes de reflejo basados en modelo amplían el reflejo simple con un modelo de estado interno.</p>
+<p>Guardan memoria breve del entorno (qué ocurrió antes) y siguen usando reglas de estilo reflexivo para actuar.</p>
+<h2>Cómo funciona (arquitectura)</h2>
+<ol>
+<li>Observar la entrada actual.</li>
+<li>Actualizar el estado interno (contexto reciente, estado, últimas acciones).</li>
+<li>Aplicar reglas usando entrada y estado.</li>
+<li>Ejecutar la acción.</li>
+</ol>
+<p>Es habitual en bots de soporte, bots de flujo y asistentes con estado cuando «solo el mensaje actual» no basta.</p>
+<h2>Mejores casos de uso</h2>
+<ul>
+<li>Entornos donde no todo es visible a la vez</li>
+<li>Sistemas que necesitan memoria corta</li>
+<li>Flujos con estado</li>
+<li>Asistentes conscientes de la sesión</li>
+<li>Gestión de incidentes con transiciones de estado</li>
+</ul>
+<h2>Compromisos</h2>
+<ul>
+<li>Mejor que sistemas puramente reflexivos</li>
+<li>Aún más débiles que planificadores basados en objetivos/utilidad para tareas complejas</li>
+<li>El diseño del estado puede volverse frágil si no se versiona</li>
+</ul>
+<h2>Ejemplos en empresas y servicios</h2>
+<p>Ejemplos donde el comportamiento reflexivo con estado es común:</p>
+<ul>
+<li>OpenAI — flujos de la API Responses con llamadas a herramientas que mantienen estado de conversación y salidas de herramientas en contexto.<br />
+  Rango aproximado de API: de unos <strong>0,20 USD entrada / 1,25 USD salida</strong> hasta <strong>2,50 USD entrada / 15 USD salida por 1M de tokens</strong> según la clase de modelo.</li>
+<li>API de Anthropic Claude — chat y sesiones con herramientas donde las decisiones dependen de turnos anteriores.<br />
+  Rango aproximado: unos <strong>1 USD entrada / 5 USD salida</strong> a <strong>3 USD entrada / 15 USD salida por 1M de tokens</strong> en muchos niveles habituales.</li>
+<li>Plataformas de soporte (Salesforce, complementos IA de Zendesk, Intercom AI) — el estado del ticket y los pasos previos influyen en la siguiente acción.<br />
+  Precio habitual: suscripción o por asiento; a menudo <strong>decenas o cientos de USD por asiento/mes</strong> más uso.</li>
+</ul>
+<h2>Consejos de diseño</h2>
+<ul>
+<li>Mantén el estado mínimo y explícito (<code>etapa</code>, <code>ultima_accion</code>, <code>confianza</code>).</li>
+<li>Añade tiempo de caducidad para estado obsoleto.</li>
+<li>Guarda el estado crítico en servidor, no solo en prompts.</li>
+<li>Añade respaldo: si el estado es inconsistente, deriva a humano o reinicia con seguridad.</li>
+</ul>
+<h2>Cuándo elegir este tipo</h2>
+<p>Elige reflejo basado en modelo antes que basado en objetivos si:
+- El proceso es mayormente determinista.
+- Necesitas memoria corta pero no planificación completa.
+- Quieres baja latencia y baja complejidad operativa.</p>
+    </div>
+
+  </div>
+
+    <style>
+      #agent-toc a {
+        border-radius: 9999px;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #334155;
+        transition: all 180ms ease;
+        cursor: pointer;
+      }
+      #agent-toc a:hover {
+        border-color: color-mix(in srgb, var(--orb-color, #38bdf8) 45%, transparent);
+        color: color-mix(in srgb, var(--orb-color, #38bdf8) 65%, #0f172a);
+      }
+      .dark #agent-toc a {
+        background: rgba(15, 23, 42, 0.7);
+        color: #cbd5e1;
+        border-color: rgba(100, 116, 139, 0.35);
+      }
+      .agent-type-content .agent-section {
+        margin-top: 2.25rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: rgba(255, 255, 255, 0.82);
+        padding: 1.35rem 1.25rem 1rem;
+        box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+      }
+      .agent-type-content .agent-section:first-of-type {
+        margin-top: 1.25rem;
+      }
+      .agent-type-content .agent-section > h3:first-child {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+        font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+      }
+      .dark .agent-type-content .agent-section > h3:first-child {
+        border-bottom-color: rgba(71, 85, 105, 0.65);
+      }
+      .dark .agent-type-content .agent-section {
+        border-color: rgba(51, 65, 85, 0.7);
+        background: rgba(15, 23, 42, 0.6);
+      }
+      .agent-orb {
+        position: absolute;
+        right: -30px;
+        top: -20px;
+        width: 160px;
+        height: 160px;
+        border-radius: 9999px;
+        background: var(--orb-color);
+        opacity: 0.24;
+        filter: blur(36px);
+        animation: float-soft 8s ease-in-out infinite;
+      }
+      .agent-orb-small {
+        left: 20%;
+        right: auto;
+        top: auto;
+        bottom: -26px;
+        width: 110px;
+        height: 110px;
+        animation-duration: 11s;
+      }
+      @keyframes float-soft {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .agent-orb { animation: none !important; }
+      }
+    </style>
+    <script>
+      (function () {
+        const root = document.querySelector(".agent-type-content");
+        const toc = document.getElementById("agent-toc");
+        if (!root || !toc) return;
+
+        const normalize = (txt) =>
+          (txt || "")
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\\s-]/g, "")
+            .replace(/\\s+/g, "-");
+
+        const headings = Array.from(root.querySelectorAll("h2"));
+        if (!headings.length) return;
+
+        headings.forEach((h2, idx) => {
+          if (!h2.id) h2.id = "section-" + normalize(h2.textContent) + "-" + idx;
+
+          const card = document.createElement("section");
+          card.className = "agent-section";
+          h2.parentNode.insertBefore(card, h2);
+          card.appendChild(h2);
+
+          let node = card.nextSibling;
+          while (node && !(node.nodeType === 1 && node.tagName === "H2")) {
+            const next = node.nextSibling;
+            card.appendChild(node);
+            node = next;
+          }
+
+          const h3 = document.createElement("h3");
+          h3.id = h2.id;
+          h3.innerHTML = h2.innerHTML;
+          h2.replaceWith(h3);
+
+          const link = document.createElement("a");
+          link.href = "#" + h3.id;
+          link.textContent = (h3.textContent && h3.textContent.trim()) || "Section";
+          toc.appendChild(link);
+        });
+      })();
+    </script>
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/es/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/es/news/">Noticias</a>
+            <a class="hover:underline underline-offset-4" href="/es/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorials/">Tutoriales</a>
+            <a class="hover:underline underline-offset-4" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="hover:underline underline-offset-4" href="/es/tags/">Etiquetas</a>
+            <a class="hover:underline underline-offset-4" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/agent-type-model-based-reflex/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/agent-type-model-based-reflex/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

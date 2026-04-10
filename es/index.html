@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+Cómo funcionan los agentes de IA -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>Aprende la teoría de los sistemas de agentes y desarrolla intuición para implementaciones locales de código abierto.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Ir al contenido    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/es/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — inicio">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Principal">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/news/">Noticias</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tutorials/">Tutoriales</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/tags/">Etiquetas</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">El libro</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/en/">EN</a>
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/es/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 " href="/en/">EN</a>
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/es/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Secciones">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/news/">Noticias</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/tutorials/">Tutoriales</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/es/agent-types-proposition/">Tipos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+  <section class="relative overflow-hidden rounded-3xl border border-cyan-200/70 bg-gradient-to-br from-white/80 via-cyan-50/60 to-indigo-50/70 p-6 shadow-xl dark:border-cyan-900/40 dark:from-slate-900/70 dark:via-cyan-950/30 dark:to-indigo-950/30 md:p-10">
+    <img src="https://picsum.photos/seed/glass-hero-wide/1600/520" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+    <div class="relative">
+      <p class="text-xs uppercase tracking-[0.22em] text-cyan-600 dark:text-cyan-300">Inicio «cristal»</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Cómo funcionan los agentes de IA</h1>
+      <p class="mt-3 max-w-3xl text-sm text-slate-700 dark:text-slate-200">Aprende la teoría de los sistemas de agentes y desarrolla intuición para implementaciones locales de código abierto.</p>
+      <div class="relative mt-6 flex flex-wrap gap-3">
+        <a href="https://theaiagentsbook.com/es/chapters/" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-400">
+Capítulos en The AI Agents Book          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </a>
+        <p class="w-full max-w-xl text-xs text-slate-600 dark:text-slate-400 sm:w-auto sm:max-w-md sm:self-center">
+          El índice numerado (0–10) está en <strong>theaiagentsbook.com</strong> (sitio del libro). Este sitio se centra en noticias, blog y tutoriales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <section id="site-intro" class="mt-8 rounded-2xl border border-slate-200/70 bg-white/90 p-6 dark:border-slate-800/70 dark:bg-slate-900/50 md:p-8" aria-labelledby="site-intro-heading">
+      <p id="site-intro-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">
+Sobre este sitio      </p>
+      <div class="prose prose-slate mt-4 max-w-none dark:prose-invert prose-a:text-cyan-700 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-cyan-400">
+        <h2>Qué es este sitio</h2>
+<p>Este sitio es el compañero bilingüe de <em>theaiagentsbook.com</em>. Contiene fragmentos estructurados (capítulos) que puedes leer como artículos independientes, con URLs claras y un único índice de capítulos.</p>
+<h3>La promesa central</h3>
+<ul>
+<li>Explicar sistemas de agentes en lenguaje técnico llano (sin cajas negras)</li>
+<li>Mostrar cómo encajan los componentes (modelo, bucle, herramientas, memoria)</li>
+<li>Mantener todo reproducible en tu propia máquina / VM</li>
+</ul>
+<h2>Capítulos</h2>
+<p><strong><a href="https://theaiagentsbook.com/es/chapters/">Abrir el índice de capítulos (0–10) en The AI Agents Book →</a></strong></p>
+<p>Los fragmentos numerados (0–10) están en el sitio del libro; este sitio compañero se centra en noticias, blog, tutoriales y tipos de agentes.</p>
+      </div>
+    </section>
+
+  <section class="mt-6 grid gap-4 lg:grid-cols-3">
+    <a href="/es/news/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+      <img src="https://picsum.photos/seed/glass-news/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
+      <h2 class="mt-3 text-lg font-semibold">Flujo de noticias</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Actualidad con imágenes fuertes y conclusiones breves.</p>
+    </a>
+    <a href="/es/blog/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+      <img src="https://picsum.photos/seed/glass-blog/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
+      <h2 class="mt-3 text-lg font-semibold">Análisis en blog</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Historias en profundidad: self-hosted, nube e híbrido.</p>
+    </a>
+    <a href="/es/tutorials/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+      <img src="https://picsum.photos/seed/glass-tutorial/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
+      <h2 class="mt-3 text-lg font-semibold">Rutas de tutorial</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Carril por dificultad con onboarding claro.</p>
+    </a>
+  </section>
+
+  <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Línea temporal visual</p>
+    <div class="mt-4 grid gap-3 md:grid-cols-4">
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-1/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Hito 1 — Entender lo básico</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-2/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Hito 2 — Tu primer agente de IA</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-3/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Hito 3 — Primera tarea repetitiva</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
+        <img src="https://picsum.photos/seed/glass-time-4/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
+        <p class="mt-2 text-sm font-medium">Hito 4 — Grupo de agentes</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Nueva sección</p>
+    <h2 class="mt-2 text-xl font-semibold">Tipos de agentes de IA</h2>
+    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Reflejo simple, basado en modelo, orientado a objetivos, utilidad, aprendizaje y multiagente.</p>
+    <a href="/es/agent-types-proposition/" class="mt-4 inline-flex items-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:border-cyan-400 hover:text-cyan-700 dark:border-slate-700 dark:hover:border-cyan-500 dark:hover:text-cyan-300">
+Explorar tipos de agentes →    </a>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-white/90 to-violet-50/70 p-6 shadow-sm dark:border-indigo-900/50 dark:from-indigo-950/40 dark:via-slate-900/80 dark:to-violet-950/30 md:p-8" aria-labelledby="book-teaser-heading">
+    <div class="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+      <div class="min-w-0">
+        <p class="text-xs uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">Libro complementario</p>
+        <h2 id="book-teaser-heading" class="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">The AI Agents Book</h2>
+        <p class="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+          El hub del libro en <span class="font-medium text-slate-800 dark:text-slate-200">theaiagentsbook.com</span>: capítulos, hoja de construcción y recursos alineados con este sitio.
+        </p>
+        <a
+          href="https://theaiagentsbook.com/es/"
+          class="mt-5 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+        >
+Visitar The AI Agents Book          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <a href="https://theaiagentsbook.com/es/" class="group block max-w-[280px] shrink-0 md:max-w-none md:w-full">
+          <img
+            src="/images/The_AI_Agents_Bbook_Cover.png"
+            alt="Portada de The AI Agents Book"
+            width="440"
+            height="620"
+            loading="lazy"
+            decoding="async"
+            class="h-auto w-full max-w-[280px] rounded-xl object-contain shadow-lg ring-1 ring-indigo-200/60 transition group-hover:ring-indigo-400/50 dark:ring-white/10 dark:group-hover:ring-indigo-500/40 md:max-w-none md:max-h-[min(420px,52vh)]"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/es/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/es/news/">Noticias</a>
+            <a class="hover:underline underline-offset-4" href="/es/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorials/">Tutoriales</a>
+            <a class="hover:underline underline-offset-4" href="/es/agent-types-proposition/">Tipos de agentes</a>
+            <a class="hover:underline underline-offset-4" href="/es/tags/">Etiquetas</a>
+            <a class="hover:underline underline-offset-4" href="/es/get-the-free-version-of-the-book/">Libro gratuito</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/es/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

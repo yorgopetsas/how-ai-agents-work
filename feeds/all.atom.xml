@@ -1,0 +1,1472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>How AI Agents Work</title><link href="/" rel="alternate"/><link href="feeds/all.atom.xml" rel="self"/><id>/</id><updated>2026-04-10T00:00:00+02:00</updated><entry><title>AI Agent Type - Goal-Based Agents</title><link href="en/agent-type-goal-based/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-goal-based/</id><summary type="html">&lt;p&gt;Agents that evaluate actions based on whether they move toward a defined goal.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Goal-Based Agents&lt;/h1&gt;
+&lt;p&gt;Goal-based agents do not just react. They choose actions that help reach a target state.&lt;/p&gt;
+&lt;p&gt;This is the "planner" mindset: define a goal, evaluate possible next steps, and execute the best path.&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Define goal and constraints.&lt;/li&gt;
+&lt;li&gt;Generate plan candidates.&lt;/li&gt;
+&lt;li&gt;Select next action toward goal.&lt;/li&gt;
+&lt;li&gt;Execute and observe outcome.&lt;/li&gt;
+&lt;li&gt;Re-plan until goal is reached or aborted.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Typical examples of goals&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;"Create a market brief in 30 minutes with sources."&lt;/li&gt;
+&lt;li&gt;"Automate invoice matching with less than 1% error."&lt;/li&gt;
+&lt;li&gt;"Book meetings with qualified leads this week."&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Task completion workflows&lt;/li&gt;
+&lt;li&gt;Planning across multiple steps&lt;/li&gt;
+&lt;li&gt;Structured assistant behavior&lt;/li&gt;
+&lt;li&gt;Research and synthesis pipelines&lt;/li&gt;
+&lt;li&gt;Agentic coding and refactor workflows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trade-offs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Needs clear goal definition&lt;/li&gt;
+&lt;li&gt;Planning cost can grow quickly&lt;/li&gt;
+&lt;li&gt;Poor goals create confidently wrong behavior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI - goal-driven assistants built with the Responses API + tools (web search, files, code execution, external APIs).&lt;br /&gt;
+  Approximate API range: &lt;strong&gt;$0.20/$1.25&lt;/strong&gt; to &lt;strong&gt;$2.50/$15&lt;/strong&gt; per 1M input/output tokens for many standard model tiers.&lt;/li&gt;
+&lt;li&gt;Anthropic Claude - planning workflows with tool use for research, drafting, and operations support.&lt;br /&gt;
+  Approximate API range: often &lt;strong&gt;$1/$5&lt;/strong&gt; to &lt;strong&gt;$3/$15&lt;/strong&gt; per 1M input/output tokens for common tiers.&lt;/li&gt;
+&lt;li&gt;Microsoft Copilot / GitHub Copilot style task completion flows (goal = "produce result, not just answer").&lt;br /&gt;
+  Approximate pricing: commonly &lt;strong&gt;$10-$39 per user/month&lt;/strong&gt; depending on product tier.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Practical pricing references (consumer + API)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ChatGPT Plus: about &lt;strong&gt;$20/month&lt;/strong&gt; (web app subscription; API billed separately).&lt;/li&gt;
+&lt;li&gt;Claude Pro: about &lt;strong&gt;$20/month&lt;/strong&gt; monthly, or around &lt;strong&gt;$17/month&lt;/strong&gt; annual equivalent in some regions.&lt;/li&gt;
+&lt;li&gt;API cost can be lower than subscriptions for light usage, but higher for heavy automated workloads.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;How to make goal-based agents reliable&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Write explicit success criteria ("done means X").&lt;/li&gt;
+&lt;li&gt;Enforce budget caps (tokens, time, tool calls).&lt;/li&gt;
+&lt;li&gt;Add checkpoints after every major step.&lt;/li&gt;
+&lt;li&gt;Require citations/evidence for factual tasks.&lt;/li&gt;
+&lt;li&gt;Add human approval for high-risk actions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;When to avoid&lt;/h2&gt;
+&lt;p&gt;Avoid pure goal-based setups when:
+- You need strict optimization under multiple conflicting objectives (use utility-based).
+- Environment changes continuously and model must adapt from feedback (add learning components).&lt;/p&gt;</content><category term="Agent Types"/><category term="[OpenAI"/><category term="API"/><category term="ChatGPT]"/></entry><entry><title>AI Agent Type - Learning Agents</title><link href="en/agent-type-learning/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-learning/</id><summary type="html">&lt;p&gt;Agents that improve policies over time from feedback and experience.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Learning Agents&lt;/h1&gt;
+&lt;p&gt;Learning agents adapt from data, outcomes, and feedback loops.&lt;/p&gt;
+&lt;p&gt;This type improves over time instead of staying fixed after deployment.&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Take action.&lt;/li&gt;
+&lt;li&gt;Observe result.&lt;/li&gt;
+&lt;li&gt;Receive feedback signal (explicit or implicit).&lt;/li&gt;
+&lt;li&gt;Update policy/model.&lt;/li&gt;
+&lt;li&gt;Repeat continuously.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Feedback signals (examples)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;User ratings (thumbs up/down)&lt;/li&gt;
+&lt;li&gt;Conversion or completion rate&lt;/li&gt;
+&lt;li&gt;Time saved vs manual baseline&lt;/li&gt;
+&lt;li&gt;Error reports and human corrections&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dynamic environments&lt;/li&gt;
+&lt;li&gt;Evolving user behavior&lt;/li&gt;
+&lt;li&gt;Long-horizon optimization&lt;/li&gt;
+&lt;li&gt;Personalization at scale&lt;/li&gt;
+&lt;li&gt;Continuous quality improvement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trade-offs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Need quality feedback&lt;/li&gt;
+&lt;li&gt;Can drift if reward signals are poor&lt;/li&gt;
+&lt;li&gt;Harder governance and auditability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Netflix / YouTube / Spotify recommendation loops - behavior feedback updates ranking policies.&lt;/li&gt;
+&lt;li&gt;Ad platforms (Google, Meta) - continuous learning optimizes campaign outcomes.&lt;/li&gt;
+&lt;li&gt;AI copilots in enterprise products - feedback improves prompt chains, routing, and suggestions.&lt;/li&gt;
+&lt;li&gt;OpenAI and Anthropic developer stacks - teams often build learning loops around API usage (evaluation data + retraining/fine-tuning/routing updates).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Approximate cost notes:
+- Consumer plans (for experimentation): around &lt;strong&gt;$20/month&lt;/strong&gt; class products (for example ChatGPT Plus / Claude Pro tiers).
+- API production cost varies by model and volume; common ranges in 2026 are roughly:
+  - OpenAI standard tiers: around &lt;strong&gt;$0.20 to $2.50 input&lt;/strong&gt; and &lt;strong&gt;$1.25 to $15 output&lt;/strong&gt; per 1M tokens.
+  - Anthropic common tiers: around &lt;strong&gt;$1 to $3 input&lt;/strong&gt; and &lt;strong&gt;$5 to $15 output&lt;/strong&gt; per 1M tokens.&lt;/p&gt;
+&lt;h2&gt;Learning patterns&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Online learning: update frequently from fresh data.&lt;/li&gt;
+&lt;li&gt;Batch learning: retrain on schedule (daily/weekly/monthly).&lt;/li&gt;
+&lt;li&gt;Human-in-the-loop: experts validate uncertain cases.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Risks and controls&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Drift risk: model quality degrades as user behavior changes.&lt;/li&gt;
+&lt;li&gt;Bias reinforcement: poor feedback quality amplifies bad patterns.&lt;/li&gt;
+&lt;li&gt;Reward hacking: agent optimizes metric, not business outcome.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Controls:
+- Keep holdout evaluation sets.
+- Monitor quality by segment, not only global average.
+- Add rollback to previous model/policy.
+- Keep approval gates for major model changes.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="ChatGPT"/><category term="OpenAI]"/></entry><entry><title>AI Agent Type - Model-Based Reflex Agents</title><link href="en/agent-type-model-based-reflex/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-model-based-reflex/</id><summary type="html">&lt;p&gt;Reflex agents with internal state to track partially observable environments.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Model-Based Reflex Agents&lt;/h1&gt;
+&lt;p&gt;Model-based reflex agents extend simple reflex behavior with an internal state model.&lt;/p&gt;
+&lt;p&gt;They keep short memory about the environment (what happened before), then still use reflex-style rules to act.&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Observe current input.&lt;/li&gt;
+&lt;li&gt;Update internal state (recent context, status, last actions).&lt;/li&gt;
+&lt;li&gt;Match rules using both current input and state.&lt;/li&gt;
+&lt;li&gt;Execute action.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is common in support bots, workflow bots, and stateful assistants where "current message only" is not enough.&lt;/p&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Environments where not everything is visible at once&lt;/li&gt;
+&lt;li&gt;Systems that need short memory&lt;/li&gt;
+&lt;li&gt;Stateful workflows&lt;/li&gt;
+&lt;li&gt;Session-aware assistants&lt;/li&gt;
+&lt;li&gt;Incident handling with state transitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trade-offs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Better than pure reflex systems&lt;/li&gt;
+&lt;li&gt;Still weaker than goal/utility planners for complex tasks&lt;/li&gt;
+&lt;li&gt;State design can become fragile if not versioned&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;p&gt;Examples where stateful reflex behavior is common:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI - Responses API tool-calling flows that keep conversation state and tool outputs in context.&lt;br /&gt;
+  Approximate API range: from about &lt;strong&gt;$0.20 input / $1.25 output&lt;/strong&gt; up to &lt;strong&gt;$2.50 input / $15 output per 1M tokens&lt;/strong&gt; depending on model class.&lt;/li&gt;
+&lt;li&gt;Anthropic Claude API - stateful chat and tool sessions where decisions depend on prior turns.&lt;br /&gt;
+  Approximate API range: around &lt;strong&gt;$1 input / $5 output&lt;/strong&gt; to &lt;strong&gt;$3 input / $15 output per 1M tokens&lt;/strong&gt; for many common model tiers.&lt;/li&gt;
+&lt;li&gt;Customer support platforms (Salesforce, Zendesk AI add-ons, Intercom AI) - ticket status and prior steps influence next action.&lt;br /&gt;
+  Approximate pricing: usually subscription or seat-based; often &lt;strong&gt;tens to hundreds USD per agent/seat monthly&lt;/strong&gt; plus usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Design tips&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep state minimal and explicit (&lt;code&gt;stage&lt;/code&gt;, &lt;code&gt;last_action&lt;/code&gt;, &lt;code&gt;confidence&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Add timeout/expiry for stale state.&lt;/li&gt;
+&lt;li&gt;Store critical state server-side, not only in prompts.&lt;/li&gt;
+&lt;li&gt;Add fallback: if state is inconsistent, route to human or reset safely.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;When to choose this type&lt;/h2&gt;
+&lt;p&gt;Choose model-based reflex before goal-based if:
+- The process is mostly deterministic.
+- You need short memory but not full planning.
+- You want low latency and low operational complexity.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="Cloude]"/></entry><entry><title>AI Agent Type - Multi-Agent Systems</title><link href="en/agent-type-multi-agent-systems/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-multi-agent-systems/</id><summary type="html">&lt;p&gt;Multiple specialized agents coordinated to solve complex tasks.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Multi-Agent Systems (MAS)&lt;/h1&gt;
+&lt;p&gt;Multi-agent systems split work across specialized roles (for example: planner, researcher, executor, reviewer).&lt;/p&gt;
+&lt;p&gt;This is useful when one "general agent" becomes too slow, too expensive, or too error-prone for complex workflows.&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Orchestrator receives the task.&lt;/li&gt;
+&lt;li&gt;Task is decomposed into subtasks.&lt;/li&gt;
+&lt;li&gt;Specialist agents execute in sequence or parallel.&lt;/li&gt;
+&lt;li&gt;Reviewer/critic agent validates outputs.&lt;/li&gt;
+&lt;li&gt;Orchestrator merges final result.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Typical role split&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Planner: turns request into task graph&lt;/li&gt;
+&lt;li&gt;Researcher: gathers evidence and sources&lt;/li&gt;
+&lt;li&gt;Builder/Executor: performs implementation steps&lt;/li&gt;
+&lt;li&gt;Reviewer: quality, policy, and consistency checks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Complex workflows&lt;/li&gt;
+&lt;li&gt;Parallel subtasks&lt;/li&gt;
+&lt;li&gt;Separation of responsibilities&lt;/li&gt;
+&lt;li&gt;Long processes requiring review loops&lt;/li&gt;
+&lt;li&gt;Cross-functional operations (ops + legal + finance + product)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trade-offs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;More orchestration overhead&lt;/li&gt;
+&lt;li&gt;Harder debugging and evaluation&lt;/li&gt;
+&lt;li&gt;Cost can rise quickly without strict routing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI ecosystem: many teams implement planner + tool-executor + critic patterns using API tool calling.&lt;br /&gt;
+  Approximate API range (model-dependent): about &lt;strong&gt;$0.20/$1.25&lt;/strong&gt; to &lt;strong&gt;$2.50/$15&lt;/strong&gt; per 1M input/output tokens for common standard tiers.&lt;/li&gt;
+&lt;li&gt;Anthropic ecosystem: multi-step Claude workflows using role-specialized prompts and tool pipelines.&lt;br /&gt;
+  Approximate API range: often &lt;strong&gt;$1/$5&lt;/strong&gt; to &lt;strong&gt;$3/$15&lt;/strong&gt; per 1M input/output tokens for common tiers.&lt;/li&gt;
+&lt;li&gt;Enterprise process automation suites: orchestrate specialized agents for support, sales ops, reporting, and compliance checks.&lt;br /&gt;
+  Typical pricing model: seat/subscription + usage; often &lt;strong&gt;$20-$150+ per user/month&lt;/strong&gt; plus API costs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cost management strategy&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Route simple subtasks to low-cost models.&lt;/li&gt;
+&lt;li&gt;Reserve premium models only for hard reasoning or final review.&lt;/li&gt;
+&lt;li&gt;Cache intermediate results.&lt;/li&gt;
+&lt;li&gt;Set max rounds per agent (to prevent loops).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Reliability strategy&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Add explicit contracts between agents (input/output schema).&lt;/li&gt;
+&lt;li&gt;Require citations from researcher agents.&lt;/li&gt;
+&lt;li&gt;Add reviewer veto rules for policy and factual errors.&lt;/li&gt;
+&lt;li&gt;Keep full execution traces for debugging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;When to choose MAS&lt;/h2&gt;
+&lt;p&gt;Choose MAS when:
+- A single-agent pipeline fails on quality or maintainability.
+- You need parallel workstreams with clear ownership.
+- You need audit trails and role-level controls.&lt;/p&gt;
+&lt;p&gt;Avoid MAS when:
+- The task is short and deterministic (use reflex or model-based reflex).
+- Team cannot maintain orchestration and evaluation infrastructure.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI]"/></entry><entry><title>AI Agent Type - Simple Reflex Agents</title><link href="en/agent-type-simple-reflex/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-simple-reflex/</id><summary type="html">&lt;p&gt;Rule-based agents that react only to current input, without memory.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Simple Reflex Agents&lt;/h1&gt;
+&lt;p&gt;Simple reflex agents follow condition-action rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If condition A happens, do action B.&lt;/li&gt;
+&lt;li&gt;No memory of previous states.&lt;/li&gt;
+&lt;li&gt;No planning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In short: this is the fastest and easiest agent style to ship when the environment is stable and rules are clear.&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Receive input or event.&lt;/li&gt;
+&lt;li&gt;Match input against fixed rules.&lt;/li&gt;
+&lt;li&gt;Execute predefined action.&lt;/li&gt;
+&lt;li&gt;End cycle.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is often implemented as event triggers, webhook handlers, or policy-based routing with no long-term memory.&lt;/p&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Deterministic automation&lt;/li&gt;
+&lt;li&gt;Alerts and threshold triggers&lt;/li&gt;
+&lt;li&gt;Very stable environments&lt;/li&gt;
+&lt;li&gt;Basic lead routing&lt;/li&gt;
+&lt;li&gt;Safety filters and policy enforcement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;p&gt;These products are not always labeled "simple reflex," but many features behave this way internally:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI - &lt;code&gt;omni-moderation-latest&lt;/code&gt; (policy checks, allow/block style decisions).&lt;br /&gt;
+  Approximate price: &lt;strong&gt;free&lt;/strong&gt; (API moderation endpoint, check current policy limits).&lt;/li&gt;
+&lt;li&gt;Anthropic - Claude guardrail or policy-layer checks in front of model calls.&lt;br /&gt;
+  Approximate price: depends on model path; common API ranges are around &lt;strong&gt;$1-$15 per 1M output tokens&lt;/strong&gt; for many production models.&lt;/li&gt;
+&lt;li&gt;Zapier / Make style automations - "if trigger then action" business workflows.&lt;br /&gt;
+  Approximate price: commonly &lt;strong&gt;$0 to $20+/month&lt;/strong&gt; depending on plan and task volume.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cost profile (rough)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Build complexity: &lt;strong&gt;Low&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Runtime cost: &lt;strong&gt;Low&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Typical latency: &lt;strong&gt;Very low&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Best for: high-volume, low-complexity tasks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Limitations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Break under ambiguity&lt;/li&gt;
+&lt;li&gt;Cannot reason over long tasks&lt;/li&gt;
+&lt;li&gt;Repeats mistakes&lt;/li&gt;
+&lt;li&gt;No adaptation unless humans update rules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;When to use vs avoid&lt;/h2&gt;
+&lt;p&gt;Use when:
+- You need reliability over creativity.
+- The policy can be written as clear rules.
+- Compliance and predictability matter most.&lt;/p&gt;
+&lt;p&gt;Avoid when:
+- The task requires planning, memory, or optimization.
+- Inputs are fuzzy, incomplete, or frequently changing.&lt;/p&gt;
+&lt;h2&gt;Quick implementation pattern&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Put a reflex gate first (cheap rules).&lt;/li&gt;
+&lt;li&gt;Escalate only uncertain cases to a stronger goal-based or utility-based agent.&lt;/li&gt;
+&lt;li&gt;Log rule misses weekly to improve rule coverage.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="ChatGPT]"/></entry><entry><title>AI Agent Type - Utility-Based Agents</title><link href="en/agent-type-utility-based/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/agent-type-utility-based/</id><summary type="html">&lt;p&gt;Agents that score outcomes and pick the action with the best utility trade-off.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Utility-Based Agents&lt;/h1&gt;
+&lt;p&gt;Utility-based agents rank options by preference, cost, risk, or reward and then choose the highest utility action.&lt;/p&gt;
+&lt;p&gt;Unlike goal-based agents (which ask "does this reach the goal?"), utility-based agents ask "which option gives the best overall value?"&lt;/p&gt;
+&lt;h2&gt;How it works (architecture)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Define utility function (score formula).&lt;/li&gt;
+&lt;li&gt;Generate candidate actions.&lt;/li&gt;
+&lt;li&gt;Estimate utility for each candidate.&lt;/li&gt;
+&lt;li&gt;Choose highest expected utility.&lt;/li&gt;
+&lt;li&gt;Update weights based on outcomes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Example utility function&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;utility = 0.5 * quality + 0.3 * speed + 0.2 * cost_efficiency - risk_penalty&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can tune weights for each business context.&lt;/p&gt;
+&lt;h2&gt;Best use cases&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Trade-off optimization (speed vs quality, cost vs reliability)&lt;/li&gt;
+&lt;li&gt;Prioritization under constraints&lt;/li&gt;
+&lt;li&gt;Decision systems with measurable objectives&lt;/li&gt;
+&lt;li&gt;Budget-aware model routing&lt;/li&gt;
+&lt;li&gt;Ad ranking and recommendation ranking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Trade-offs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Utility design is hard&lt;/li&gt;
+&lt;li&gt;Wrong metrics produce wrong behavior&lt;/li&gt;
+&lt;li&gt;Requires good telemetry and monitoring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Real-world company and service examples&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI / Anthropic model routing in production stacks - choose model tier per request based on cost, latency, and quality targets.&lt;br /&gt;
+  Approximate API examples: OpenAI often from &lt;strong&gt;$0.20/$1.25&lt;/strong&gt; up to &lt;strong&gt;$2.50/$15&lt;/strong&gt; per 1M tokens; Anthropic often from &lt;strong&gt;$1/$5&lt;/strong&gt; to &lt;strong&gt;$3/$15&lt;/strong&gt; for common tiers.&lt;/li&gt;
+&lt;li&gt;Cloud contact center AI - route conversations by value/risk (self-serve vs human escalation).&lt;br /&gt;
+  Approximate pricing: usually seat + usage bundles, frequently &lt;strong&gt;$30-$150+ per seat/month&lt;/strong&gt; depending on platform.&lt;/li&gt;
+&lt;li&gt;Commerce recommendation systems - maximize conversion while controlling margin and return risk.&lt;br /&gt;
+  Cost profile: usually infrastructure + model usage; highly variable by traffic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Utility dimensions you should track&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Response quality score&lt;/li&gt;
+&lt;li&gt;Time-to-complete&lt;/li&gt;
+&lt;li&gt;Total cost per successful task&lt;/li&gt;
+&lt;li&gt;Human escalation rate&lt;/li&gt;
+&lt;li&gt;Error / rollback rate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Common failure modes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimizing one metric while damaging another (for example, lowest cost but poor user outcomes).&lt;/li&gt;
+&lt;li&gt;Utility gaming (agent learns shortcuts that inflate score but hurt business value).&lt;/li&gt;
+&lt;li&gt;Missing penalties for compliance or brand risk.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Implementation checklist&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Start with 3-5 utility dimensions only.&lt;/li&gt;
+&lt;li&gt;Normalize scores to comparable ranges.&lt;/li&gt;
+&lt;li&gt;Add hard constraints before scoring (policy, legal, safety).&lt;/li&gt;
+&lt;li&gt;Recalibrate weights monthly with real production data.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Agent Types"/><category term="[API"/><category term="OpenAI"/><category term="Cloude]"/></entry><entry><title>"Meta Muse Spark — multi-agent coordination in the spotlight"</title><link href="en/news-meta-muse-spark-multi-agent/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/news-meta-muse-spark-multi-agent/</id><summary type="html">&lt;p&gt;Meta’s Muse Spark narrative underscores multi-agent coordination and “team-like” AI behavior—another step toward action-oriented systems.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Announcement angle&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Meta&lt;/strong&gt; has drawn attention with &lt;strong&gt;Muse Spark&lt;/strong&gt;, positioning it as a model that can lean on &lt;strong&gt;multi-agent style coordination&lt;/strong&gt;—including a &lt;strong&gt;contemplation-style&lt;/strong&gt; mode where several agent-like components collaborate before answering.&lt;/p&gt;
+&lt;h2&gt;What vendors claim it helps with&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Harder reasoning&lt;/strong&gt; tasks split across roles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Domain assistance&lt;/strong&gt; (e.g. health-adjacent guidance in product storytelling)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shopping and planning&lt;/strong&gt; flows that feel more like a &lt;strong&gt;team&lt;/strong&gt; than a single chat line&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Market read&lt;/h2&gt;
+&lt;p&gt;Reactions underline appetite for &lt;strong&gt;systems that plan and delegate&lt;/strong&gt;, not only generate text—another brick in the move from chatbots to &lt;strong&gt;action pipelines&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;So what for builders?&lt;/h2&gt;
+&lt;p&gt;Multi-agent demos are easy; &lt;strong&gt;reliable multi-agent production&lt;/strong&gt; is not. The engineering lesson stays the same: define &lt;strong&gt;interfaces&lt;/strong&gt;, &lt;strong&gt;timeouts&lt;/strong&gt;, &lt;strong&gt;evaluation&lt;/strong&gt;, and &lt;strong&gt;human checkpoints&lt;/strong&gt; before scaling autonomy.&lt;/p&gt;</content><category term="News"/><category term="[Meta"/><category term="Multi-Agent"/><category term="Models]"/></entry><entry><title>"OpenClaw and the rise of autonomous AI agents"</title><link href="en/news-openclaw-autonomous-agents/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/news-openclaw-autonomous-agents/</id><summary type="html">&lt;p&gt;A new wave of systems is pushing from “chat AI” toward agents that plan, delegate, and act—raising both opportunity and operational risk.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What is happening&lt;/h2&gt;
+&lt;p&gt;A new class of systems—often discussed under names like &lt;strong&gt;OpenClaw&lt;/strong&gt; in the broader agent conversation—is highlighting &lt;strong&gt;autonomous agents&lt;/strong&gt;: software that can &lt;strong&gt;plan tasks&lt;/strong&gt;, &lt;strong&gt;spawn sub-agents&lt;/strong&gt;, and &lt;strong&gt;execute actions&lt;/strong&gt; through apps, browsers, or APIs with less step-by-step human steering than classic chat.&lt;/p&gt;
+&lt;h2&gt;Why it matters&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The product story is shifting from &lt;strong&gt;answering questions&lt;/strong&gt; to &lt;strong&gt;doing work end-to-end&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Large vendors are racing toward similar &lt;strong&gt;orchestrated agent&lt;/strong&gt; stacks&lt;/li&gt;
+&lt;li&gt;Over time this could become a &lt;strong&gt;new interaction layer&lt;/strong&gt; on top of (or beside) traditional apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Concerns (still real)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt; — broader access surfaces and harder-to-audit behavior&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt; — autonomous loops burn tokens and infrastructure&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Complexity&lt;/strong&gt; — still difficult to run safely for non-experts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Takeaway&lt;/h2&gt;
+&lt;p&gt;Treat autonomous agents like &lt;strong&gt;new services in your architecture&lt;/strong&gt;: they need boundaries, monitoring, and human oversight—not just a clever prompt.&lt;/p&gt;</content><category term="News"/><category term="[Agents"/><category term="Autonomy"/><category term="Industry]"/></entry><entry><title>Tipo de agente de IA — Agentes basados en objetivos</title><link href="es/agent-type-goal-based/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-goal-based/</id><summary type="html">&lt;p&gt;Agentes que evalúan acciones según si acercan a un objetivo definido.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Agentes basados en objetivos&lt;/h1&gt;
+&lt;p&gt;Los agentes basados en objetivos no solo reaccionan: eligen acciones que ayudan a alcanzar un estado meta.&lt;/p&gt;
+&lt;p&gt;Es la mentalidad del «planificador»: definir un objetivo, evaluar posibles pasos siguientes y ejecutar el mejor camino.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Definir objetivo y restricciones.&lt;/li&gt;
+&lt;li&gt;Generar candidatos de plan.&lt;/li&gt;
+&lt;li&gt;Seleccionar la siguiente acción hacia el objetivo.&lt;/li&gt;
+&lt;li&gt;Ejecutar y observar el resultado.&lt;/li&gt;
+&lt;li&gt;Replanificar hasta lograr el objetivo o abortar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Ejemplos típicos de objetivos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;«Crear un informe de mercado en 30 minutos con fuentes.»&lt;/li&gt;
+&lt;li&gt;«Automatizar el emparejamiento de facturas con menos del 1 % de error.»&lt;/li&gt;
+&lt;li&gt;«Concertar reuniones con leads cualificados esta semana.»&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Flujos de finalización de tareas&lt;/li&gt;
+&lt;li&gt;Planificación en varios pasos&lt;/li&gt;
+&lt;li&gt;Comportamiento asistente estructurado&lt;/li&gt;
+&lt;li&gt;Pipelines de investigación y síntesis&lt;/li&gt;
+&lt;li&gt;Codificación y refactorización asistida por agentes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compromisos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Requiere definición clara del objetivo&lt;/li&gt;
+&lt;li&gt;El coste de planificación puede crecer rápido&lt;/li&gt;
+&lt;li&gt;Objetivos mal definidos generan errores con confianza&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI — asistentes orientados a objetivo con la API Responses + herramientas (búsqueda web, archivos, ejecución de código, APIs externas).&lt;br /&gt;
+  Rango aproximado de API: &lt;strong&gt;0,20/1,25&lt;/strong&gt; a &lt;strong&gt;2,50/15 USD&lt;/strong&gt; por 1M de tokens entrada/salida en muchos niveles estándar.&lt;/li&gt;
+&lt;li&gt;Anthropic Claude — flujos de planificación con herramientas para investigación, redacción y operaciones.&lt;br /&gt;
+  Rango aproximado: a menudo &lt;strong&gt;1/5&lt;/strong&gt; a &lt;strong&gt;3/15 USD&lt;/strong&gt; por 1M de tokens entrada/salida en niveles habituales.&lt;/li&gt;
+&lt;li&gt;Microsoft Copilot / GitHub Copilot — flujos de completar tareas (objetivo = «producir resultado, no solo responder»).&lt;br /&gt;
+  Precio habitual: unos &lt;strong&gt;10–39 USD por usuario/mes&lt;/strong&gt; según el producto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Referencias prácticas de precios (consumidor + API)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ChatGPT Plus: unos &lt;strong&gt;20 USD/mes&lt;/strong&gt; (suscripción web; la API se factura aparte).&lt;/li&gt;
+&lt;li&gt;Claude Pro: unos &lt;strong&gt;20 USD/mes&lt;/strong&gt; mensual, o equivalente anual de unos &lt;strong&gt;17 USD/mes&lt;/strong&gt; en algunas regiones.&lt;/li&gt;
+&lt;li&gt;El coste API puede ser menor que las suscripciones con uso ligero, pero mayor con cargas automatizadas intensas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cómo hacer fiables los agentes basados en objetivos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Escribe criterios explícitos de éxito («terminado significa X»).&lt;/li&gt;
+&lt;li&gt;Impón límites de presupuesto (tokens, tiempo, llamadas a herramientas).&lt;/li&gt;
+&lt;li&gt;Añade puntos de control tras cada paso importante.&lt;/li&gt;
+&lt;li&gt;Exige citas/evidencia en tareas factuales.&lt;/li&gt;
+&lt;li&gt;Añade aprobación humana para acciones de alto riesgo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cuándo evitarlos&lt;/h2&gt;
+&lt;p&gt;Evita configuraciones puramente basadas en objetivos cuando:
+- Necesitas optimización estricta bajo varios objetivos en conflicto (usa utilidad).
+- El entorno cambia continuamente y el modelo debe adaptarse con feedback (añade componentes de aprendizaje).&lt;/p&gt;</content><category term="Agent Types"/><category term="[OpenAI"/><category term="API"/><category term="ChatGPT]"/></entry><entry><title>Tipo de agente de IA — Agentes de aprendizaje</title><link href="es/agent-type-learning/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-learning/</id><summary type="html">&lt;p&gt;Agentes que mejoran políticas con el tiempo a partir de feedback y experiencia.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Agentes de aprendizaje&lt;/h1&gt;
+&lt;p&gt;Los agentes de aprendizaje se adaptan con datos, resultados y bucles de feedback.&lt;/p&gt;
+&lt;p&gt;Este tipo mejora con el tiempo en lugar de quedarse fijo tras el despliegue.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Realizar acción.&lt;/li&gt;
+&lt;li&gt;Observar resultado.&lt;/li&gt;
+&lt;li&gt;Recibir señal de feedback (explícita o implícita).&lt;/li&gt;
+&lt;li&gt;Actualizar política/modelo.&lt;/li&gt;
+&lt;li&gt;Repetir de forma continua.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Señales de feedback (ejemplos)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Valoraciones de usuarios (pulgar arriba/abajo)&lt;/li&gt;
+&lt;li&gt;Tasa de conversión o de finalización&lt;/li&gt;
+&lt;li&gt;Tiempo ahorrado frente a línea base manual&lt;/li&gt;
+&lt;li&gt;Informes de error y correcciones humanas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Entornos dinámicos&lt;/li&gt;
+&lt;li&gt;Comportamiento de usuario en evolución&lt;/li&gt;
+&lt;li&gt;Optimización a largo plazo&lt;/li&gt;
+&lt;li&gt;Personalización a escala&lt;/li&gt;
+&lt;li&gt;Mejora continua de calidad&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compromisos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Hace falta feedback de calidad&lt;/li&gt;
+&lt;li&gt;Puede derivar si las señales de recompensa son malas&lt;/li&gt;
+&lt;li&gt;Gobierno y auditoría más difíciles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bucles de recomendación de Netflix / YouTube / Spotify — el feedback de comportamiento actualiza políticas de ranking.&lt;/li&gt;
+&lt;li&gt;Plataformas publicitarias (Google, Meta) — aprendizaje continuo optimiza resultados de campañas.&lt;/li&gt;
+&lt;li&gt;Copilotos IA en productos empresariales — el feedback mejora cadenas de prompts, enrutado y sugerencias.&lt;/li&gt;
+&lt;li&gt;Stacks de desarrolladores OpenAI y Anthropic — equipos suelen construir bucles de aprendizaje alrededor del uso de la API (datos de evaluación + reentrenamiento/fine-tuning/actualizaciones de enrutado).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Notas de coste aproximadas:
+- Planes de consumidor (para experimentar): clase de unos &lt;strong&gt;20 USD/mes&lt;/strong&gt; (por ejemplo ChatGPT Plus / niveles Pro de Claude).
+- El coste de API en producción varía por modelo y volumen; rangos habituales en 2026:
+  - Niveles estándar OpenAI: unos &lt;strong&gt;0,20–2,50 USD entrada&lt;/strong&gt; y &lt;strong&gt;1,25–15 USD salida&lt;/strong&gt; por 1M de tokens.
+  - Niveles habituales Anthropic: unos &lt;strong&gt;1–3 USD entrada&lt;/strong&gt; y &lt;strong&gt;5–15 USD salida&lt;/strong&gt; por 1M de tokens.&lt;/p&gt;
+&lt;h2&gt;Patrones de aprendizaje&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Aprendizaje en línea: actualizar con frecuencia con datos frescos.&lt;/li&gt;
+&lt;li&gt;Aprendizaje por lotes: reentrenar según calendario (diario/semanal/mensual).&lt;/li&gt;
+&lt;li&gt;Humano en el bucle: expertos validan casos inciertos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Riesgos y controles&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Riesgo de deriva: la calidad empeora al cambiar el comportamiento del usuario.&lt;/li&gt;
+&lt;li&gt;Refuerzo de sesgos: feedback de mala calidad amplifica patrones malos.&lt;/li&gt;
+&lt;li&gt;«Reward hacking»: el agente optimiza la métrica, no el resultado de negocio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Controles:
+- Mantén conjuntos de evaluación holdout.
+- Monitoriza calidad por segmento, no solo la media global.
+- Añade rollback al modelo/política anterior.
+- Mantén puertas de aprobación para cambios grandes de modelo.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="ChatGPT"/><category term="OpenAI]"/></entry><entry><title>Tipo de agente de IA — Agentes de reflejo basados en modelo</title><link href="es/agent-type-model-based-reflex/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-model-based-reflex/</id><summary type="html">&lt;p&gt;Agentes reflexivos con estado interno para entornos parcialmente observables.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Agentes de reflejo basados en modelo&lt;/h1&gt;
+&lt;p&gt;Los agentes de reflejo basados en modelo amplían el reflejo simple con un modelo de estado interno.&lt;/p&gt;
+&lt;p&gt;Guardan memoria breve del entorno (qué ocurrió antes) y siguen usando reglas de estilo reflexivo para actuar.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Observar la entrada actual.&lt;/li&gt;
+&lt;li&gt;Actualizar el estado interno (contexto reciente, estado, últimas acciones).&lt;/li&gt;
+&lt;li&gt;Aplicar reglas usando entrada y estado.&lt;/li&gt;
+&lt;li&gt;Ejecutar la acción.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Es habitual en bots de soporte, bots de flujo y asistentes con estado cuando «solo el mensaje actual» no basta.&lt;/p&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Entornos donde no todo es visible a la vez&lt;/li&gt;
+&lt;li&gt;Sistemas que necesitan memoria corta&lt;/li&gt;
+&lt;li&gt;Flujos con estado&lt;/li&gt;
+&lt;li&gt;Asistentes conscientes de la sesión&lt;/li&gt;
+&lt;li&gt;Gestión de incidentes con transiciones de estado&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compromisos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Mejor que sistemas puramente reflexivos&lt;/li&gt;
+&lt;li&gt;Aún más débiles que planificadores basados en objetivos/utilidad para tareas complejas&lt;/li&gt;
+&lt;li&gt;El diseño del estado puede volverse frágil si no se versiona&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;p&gt;Ejemplos donde el comportamiento reflexivo con estado es común:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI — flujos de la API Responses con llamadas a herramientas que mantienen estado de conversación y salidas de herramientas en contexto.&lt;br /&gt;
+  Rango aproximado de API: de unos &lt;strong&gt;0,20 USD entrada / 1,25 USD salida&lt;/strong&gt; hasta &lt;strong&gt;2,50 USD entrada / 15 USD salida por 1M de tokens&lt;/strong&gt; según la clase de modelo.&lt;/li&gt;
+&lt;li&gt;API de Anthropic Claude — chat y sesiones con herramientas donde las decisiones dependen de turnos anteriores.&lt;br /&gt;
+  Rango aproximado: unos &lt;strong&gt;1 USD entrada / 5 USD salida&lt;/strong&gt; a &lt;strong&gt;3 USD entrada / 15 USD salida por 1M de tokens&lt;/strong&gt; en muchos niveles habituales.&lt;/li&gt;
+&lt;li&gt;Plataformas de soporte (Salesforce, complementos IA de Zendesk, Intercom AI) — el estado del ticket y los pasos previos influyen en la siguiente acción.&lt;br /&gt;
+  Precio habitual: suscripción o por asiento; a menudo &lt;strong&gt;decenas o cientos de USD por asiento/mes&lt;/strong&gt; más uso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Consejos de diseño&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Mantén el estado mínimo y explícito (&lt;code&gt;etapa&lt;/code&gt;, &lt;code&gt;ultima_accion&lt;/code&gt;, &lt;code&gt;confianza&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Añade tiempo de caducidad para estado obsoleto.&lt;/li&gt;
+&lt;li&gt;Guarda el estado crítico en servidor, no solo en prompts.&lt;/li&gt;
+&lt;li&gt;Añade respaldo: si el estado es inconsistente, deriva a humano o reinicia con seguridad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cuándo elegir este tipo&lt;/h2&gt;
+&lt;p&gt;Elige reflejo basado en modelo antes que basado en objetivos si:
+- El proceso es mayormente determinista.
+- Necesitas memoria corta pero no planificación completa.
+- Quieres baja latencia y baja complejidad operativa.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="Cloude]"/></entry><entry><title>Tipo de agente de IA — Sistemas multiagente</title><link href="es/agent-type-multi-agent-systems/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-multi-agent-systems/</id><summary type="html">&lt;p&gt;Varios agentes especializados coordinados para resolver tareas complejas.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Sistemas multiagente (MAS)&lt;/h1&gt;
+&lt;p&gt;Los sistemas multiagente reparten el trabajo entre roles especializados (por ejemplo: planificador, investigador, ejecutor, revisor).&lt;/p&gt;
+&lt;p&gt;Es útil cuando un «agente general» se vuelve demasiado lento, caro o propenso a error en flujos complejos.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;El orquestador recibe la tarea.&lt;/li&gt;
+&lt;li&gt;La tarea se descompone en subtareas.&lt;/li&gt;
+&lt;li&gt;Los agentes especialistas ejecutan en secuencia o en paralelo.&lt;/li&gt;
+&lt;li&gt;Un agente revisor/crítico valida salidas.&lt;/li&gt;
+&lt;li&gt;El orquestador fusiona el resultado final.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Reparto típico de roles&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Planificador: convierte la petición en grafo de tareas&lt;/li&gt;
+&lt;li&gt;Investigador: reúne evidencia y fuentes&lt;/li&gt;
+&lt;li&gt;Constructor/ejecutor: realiza pasos de implementación&lt;/li&gt;
+&lt;li&gt;Revisor: calidad, política y coherencia&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Flujos complejos&lt;/li&gt;
+&lt;li&gt;Subtareas en paralelo&lt;/li&gt;
+&lt;li&gt;Separación de responsabilidades&lt;/li&gt;
+&lt;li&gt;Procesos largos con bucles de revisión&lt;/li&gt;
+&lt;li&gt;Operaciones multifunción (ops + legal + finanzas + producto)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compromisos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Más sobrecarga de orquestación&lt;/li&gt;
+&lt;li&gt;Depuración y evaluación más difíciles&lt;/li&gt;
+&lt;li&gt;El coste puede subir rápido sin enrutado estricto&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ecosistema OpenAI: muchos equipos implementan planificador + ejecutor con herramientas + crítico con llamadas a herramientas de la API.&lt;br /&gt;
+  Rango aproximado de API (según modelo): unos &lt;strong&gt;0,20/1,25&lt;/strong&gt; a &lt;strong&gt;2,50/15 USD&lt;/strong&gt; por 1M de tokens entrada/salida en niveles estándar habituales.&lt;/li&gt;
+&lt;li&gt;Ecosistema Anthropic: flujos Claude multietapa con prompts especializados por rol y pipelines de herramientas.&lt;br /&gt;
+  Rango aproximado: a menudo &lt;strong&gt;1/5&lt;/strong&gt; a &lt;strong&gt;3/15 USD&lt;/strong&gt; por 1M de tokens entrada/salida en niveles habituales.&lt;/li&gt;
+&lt;li&gt;Suites empresariales de automatización de procesos: orquestan agentes especializados para soporte, ops de ventas, informes y cumplimiento.&lt;br /&gt;
+  Modelo de precio habitual: asiento/suscripción + uso; a menudo &lt;strong&gt;20–150+ USD por usuario/mes&lt;/strong&gt; más costes de API.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Estrategia de gestión de costes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Enruta subtareas simples a modelos de bajo coste.&lt;/li&gt;
+&lt;li&gt;Reserva modelos premium solo para razonamiento difícil o revisión final.&lt;/li&gt;
+&lt;li&gt;Cachea resultados intermedios.&lt;/li&gt;
+&lt;li&gt;Fija máximo de rondas por agente (para evitar bucles).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Estrategia de fiabilidad&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Contratos explícitos entre agentes (esquema entrada/salida).&lt;/li&gt;
+&lt;li&gt;Exige citas de los agentes investigadores.&lt;/li&gt;
+&lt;li&gt;Reglas de veto del revisor para errores de política y hechos.&lt;/li&gt;
+&lt;li&gt;Mantén trazas completas de ejecución para depurar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cuándo elegir MAS&lt;/h2&gt;
+&lt;p&gt;Elige MAS cuando:
+- Un pipeline de un solo agente falla en calidad o mantenibilidad.
+- Necesitas flujos paralelos con propiedad clara.
+- Necesitas auditoría y controles a nivel de rol.&lt;/p&gt;
+&lt;p&gt;Evita MAS cuando:
+- La tarea es corta y determinista (usa reflejo o reflejo basado en modelo).
+- El equipo no puede mantener orquestación e infraestructura de evaluación.&lt;/p&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI]"/></entry><entry><title>Tipo de agente de IA — Agentes de reflejo simple</title><link href="es/agent-type-simple-reflex/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-simple-reflex/</id><summary type="html">&lt;p&gt;Agentes basados en reglas que reaccionan solo a la entrada actual, sin memoria.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Agentes de reflejo simple&lt;/h1&gt;
+&lt;p&gt;Los agentes de reflejo simple siguen reglas condición–acción:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si ocurre la condición A, haz la acción B.&lt;/li&gt;
+&lt;li&gt;Sin memoria de estados anteriores.&lt;/li&gt;
+&lt;li&gt;Sin planificación.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En resumen: es el estilo de agente más rápido y fácil de poner en producción cuando el entorno es estable y las reglas son claras.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Recibir entrada o evento.&lt;/li&gt;
+&lt;li&gt;Comparar la entrada con reglas fijas.&lt;/li&gt;
+&lt;li&gt;Ejecutar la acción predefinida.&lt;/li&gt;
+&lt;li&gt;Fin del ciclo.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A menudo se implementa con disparadores de eventos, manejadores de webhooks o enrutado por políticas sin memoria a largo plazo.&lt;/p&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Automatización determinista&lt;/li&gt;
+&lt;li&gt;Alertas y umbrales&lt;/li&gt;
+&lt;li&gt;Entornos muy estables&lt;/li&gt;
+&lt;li&gt;Enrutado básico de leads&lt;/li&gt;
+&lt;li&gt;Filtros de seguridad y cumplimiento de políticas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;p&gt;Estos productos no siempre se etiquetan como «reflejo simple», pero muchas funciones se comportan así internamente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI — &lt;code&gt;omni-moderation-latest&lt;/code&gt; (comprobaciones de política, decisiones tipo permitir/bloquear).&lt;br /&gt;
+  Precio aproximado: &lt;strong&gt;gratis&lt;/strong&gt; (endpoint de moderación de la API; revisa los límites actuales).&lt;/li&gt;
+&lt;li&gt;Anthropic — comprobaciones de guardrails o capa de política delante de las llamadas al modelo.&lt;br /&gt;
+  Precio aproximado: depende del modelo; en producción suele rondar &lt;strong&gt;1–15 USD por 1M de tokens de salida&lt;/strong&gt; en muchos modelos.&lt;/li&gt;
+&lt;li&gt;Automatizaciones estilo Zapier / Make — flujos «si disparador entonces acción».&lt;br /&gt;
+  Precio aproximado: habitualmente &lt;strong&gt;0–20+ USD/mes&lt;/strong&gt; según plan y volumen de tareas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Perfil de coste (orientativo)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Complejidad de construcción: &lt;strong&gt;baja&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Coste en ejecución: &lt;strong&gt;bajo&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Latencia típica: &lt;strong&gt;muy baja&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Ideal para: tareas de alto volumen y baja complejidad&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Limitaciones&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fallan con la ambigüedad&lt;/li&gt;
+&lt;li&gt;No razonan en tareas largas&lt;/li&gt;
+&lt;li&gt;Repiten errores&lt;/li&gt;
+&lt;li&gt;No se adaptan salvo que humanos actualicen las reglas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Cuándo usar o evitar&lt;/h2&gt;
+&lt;p&gt;Úsalos cuando:
+- Necesitas fiabilidad frente a creatividad.
+- La política se puede escribir como reglas claras.
+- Cumplimiento y predictibilidad son lo principal.&lt;/p&gt;
+&lt;p&gt;Evítalos cuando:
+- La tarea exige planificación, memoria u optimización.
+- Las entradas son difusas, incompletas o cambian a menudo.&lt;/p&gt;
+&lt;h2&gt;Patrón rápido de implementación&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pon primero una puerta reflex (reglas baratas).&lt;/li&gt;
+&lt;li&gt;Escala solo los casos dudosos a un agente basado en objetivos o en utilidad más fuerte.&lt;/li&gt;
+&lt;li&gt;Registra semanalmente los fallos de reglas para mejorar la cobertura.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Agent Types"/><category term="[Open-Source"/><category term="API"/><category term="ChatGPT]"/></entry><entry><title>Tipo de agente de IA — Agentes basados en utilidad</title><link href="es/agent-type-utility-based/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/agent-type-utility-based/</id><summary type="html">&lt;p&gt;Agentes que puntúan resultados y eligen la acción con mejor equilibrio de utilidad.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Agentes basados en utilidad&lt;/h1&gt;
+&lt;p&gt;Los agentes basados en utilidad ordenan opciones por preferencia, coste, riesgo o recompensa y eligen la acción de mayor utilidad esperada.&lt;/p&gt;
+&lt;p&gt;A diferencia de los basados en objetivos (que preguntan «¿esto alcanza el objetivo?»), los basados en utilidad preguntan «¿qué opción da el mejor valor global?».&lt;/p&gt;
+&lt;h2&gt;Cómo funciona (arquitectura)&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Definir función de utilidad (fórmula de puntuación).&lt;/li&gt;
+&lt;li&gt;Generar acciones candidatas.&lt;/li&gt;
+&lt;li&gt;Estimar la utilidad de cada candidata.&lt;/li&gt;
+&lt;li&gt;Elegir la de mayor utilidad esperada.&lt;/li&gt;
+&lt;li&gt;Actualizar pesos según los resultados.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Ejemplo de función de utilidad&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;utilidad = 0,5 * calidad + 0,3 * velocidad + 0,2 * eficiencia_coste - penalizacion_riesgo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Puedes ajustar pesos para cada contexto de negocio.&lt;/p&gt;
+&lt;h2&gt;Mejores casos de uso&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimización de compromisos (velocidad frente a calidad, coste frente a fiabilidad)&lt;/li&gt;
+&lt;li&gt;Priorización bajo restricciones&lt;/li&gt;
+&lt;li&gt;Sistemas de decisión con objetivos medibles&lt;/li&gt;
+&lt;li&gt;Enrutado de modelos consciente del presupuesto&lt;/li&gt;
+&lt;li&gt;Clasificación de anuncios y recomendaciones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Compromisos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Diseñar la utilidad es difícil&lt;/li&gt;
+&lt;li&gt;Métricas equivocadas producen comportamiento equivocado&lt;/li&gt;
+&lt;li&gt;Requiere buena telemetría y monitorización&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ejemplos en empresas y servicios&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Enrutado de modelos OpenAI / Anthropic en producción — elegir nivel de modelo por petición según coste, latencia y calidad.&lt;br /&gt;
+  Ejemplos aproximados de API: OpenAI a menudo de &lt;strong&gt;0,20/1,25&lt;/strong&gt; hasta &lt;strong&gt;2,50/15 USD&lt;/strong&gt; por 1M de tokens; Anthropic de &lt;strong&gt;1/5&lt;/strong&gt; a &lt;strong&gt;3/15 USD&lt;/strong&gt; en niveles habituales.&lt;/li&gt;
+&lt;li&gt;IA en centros de contacto en la nube — enrutar conversaciones por valor/riesgo (autoservicio frente a escalado humano).&lt;br /&gt;
+  Precio habitual: asiento + uso; frecuentemente &lt;strong&gt;30–150+ USD por asiento/mes&lt;/strong&gt; según plataforma.&lt;/li&gt;
+&lt;li&gt;Sistemas de recomendación en comercio — maximizar conversión controlando margen y riesgo de devoluciones.&lt;br /&gt;
+  Perfil de coste: infraestructura + uso de modelos; muy variable por tráfico.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Dimensiones de utilidad que conviene seguir&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Puntuación de calidad de respuesta&lt;/li&gt;
+&lt;li&gt;Tiempo hasta completar&lt;/li&gt;
+&lt;li&gt;Coste total por tarea exitosa&lt;/li&gt;
+&lt;li&gt;Tasa de escalado humano&lt;/li&gt;
+&lt;li&gt;Tasa de error / rollback&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Modos de fallo habituales&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimizar una métrica mientras se daña otra (por ejemplo, coste mínimo pero mal resultado para el usuario).&lt;/li&gt;
+&lt;li&gt;«Juego» de la utilidad (atajos que inflan la puntuación pero perjudican el valor de negocio).&lt;/li&gt;
+&lt;li&gt;Faltan penalizaciones por cumplimiento o riesgo de marca.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Lista de implementación&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Empieza solo con 3–5 dimensiones de utilidad.&lt;/li&gt;
+&lt;li&gt;Normaliza puntuaciones a rangos comparables.&lt;/li&gt;
+&lt;li&gt;Añade restricciones duras antes de puntuar (política, legal, seguridad).&lt;/li&gt;
+&lt;li&gt;Recalibra pesos mensualmente con datos reales de producción.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Agent Types"/><category term="[API"/><category term="OpenAI"/><category term="Cloude]"/></entry><entry><title>"Meta Muse Spark — la coordinación multiagente en el foco"</title><link href="es/news-meta-muse-spark-multi-agent/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/news-meta-muse-spark-multi-agent/</id><summary type="html">&lt;p&gt;El relato de Muse Spark de Meta refuerza la coordinación multiagente y un comportamiento de IA «tipo equipo» — otro paso hacia sistemas orientados a la acción.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Enfoque del anuncio&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Meta&lt;/strong&gt; ha captado miradas con &lt;strong&gt;Muse Spark&lt;/strong&gt;, presentado como un modelo capaz de apoyarse en &lt;strong&gt;coordinación estilo multiagente&lt;/strong&gt; — incluido un modo de &lt;strong&gt;contemplación&lt;/strong&gt; donde varios componentes tipo agente colaboran antes de responder.&lt;/p&gt;
+&lt;h2&gt;Para qué dicen los proveedores que sirve&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Tareas de &lt;strong&gt;razonamiento&lt;/strong&gt; más duras repartidas entre roles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Asistencia por dominio&lt;/strong&gt; (p. ej. narrativa de producto en torno a salud)&lt;/li&gt;
+&lt;li&gt;Flujos de &lt;strong&gt;compra y planificación&lt;/strong&gt; que se sienten más como un &lt;strong&gt;equipo&lt;/strong&gt; que como un único chat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Lectura del mercado&lt;/h2&gt;
+&lt;p&gt;Las reacciones muestran apetito por &lt;strong&gt;sistemas que planifican y delegan&lt;/strong&gt;, no solo por texto generado — otro paso del chatbot hacia &lt;strong&gt;pipelines de acción&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Qué implica para quien construye&lt;/h2&gt;
+&lt;p&gt;Los demos multiagente son fáciles; la &lt;strong&gt;producción multiagente fiable&lt;/strong&gt; no. La lección de ingeniería sigue siendo la misma: definir &lt;strong&gt;interfaces&lt;/strong&gt;, &lt;strong&gt;timeouts&lt;/strong&gt;, &lt;strong&gt;evaluación&lt;/strong&gt; y &lt;strong&gt;puntos de control humanos&lt;/strong&gt; antes de escalar la autonomía.&lt;/p&gt;</content><category term="News"/><category term="[Meta"/><category term="Multi-Agent"/><category term="Models]"/></entry><entry><title>"OpenClaw y el auge de los agentes de IA autónomos"</title><link href="es/news-openclaw-autonomous-agents/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:es/news-openclaw-autonomous-agents/</id><summary type="html">&lt;p&gt;Una nueva ola de sistemas empuja del «chat con IA» hacia agentes que planifican, delegan y actúan — con oportunidad y riesgo operativo.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Qué está pasando&lt;/h2&gt;
+&lt;p&gt;Una nueva clase de sistemas — a menudo citada en el debate amplio bajo nombres como &lt;strong&gt;OpenClaw&lt;/strong&gt; — pone el foco en &lt;strong&gt;agentes autónomos&lt;/strong&gt;: software que puede &lt;strong&gt;planificar tareas&lt;/strong&gt;, &lt;strong&gt;crear subagentes&lt;/strong&gt; y &lt;strong&gt;ejecutar acciones&lt;/strong&gt; en apps, navegadores o APIs con menos dirección humana paso a paso que el chat clásico.&lt;/p&gt;
+&lt;h2&gt;Por qué importa&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;El relato de producto pasa de &lt;strong&gt;responder preguntas&lt;/strong&gt; a &lt;strong&gt;hacer trabajo de extremo a extremo&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Los grandes proveedores compiten por arquitecturas similares de &lt;strong&gt;agentes orquestados&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Con el tiempo podría consolidarse una &lt;strong&gt;nueva capa de interacción&lt;/strong&gt; junto a las apps tradicionales&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Preocupaciones (siguen siendo reales)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad&lt;/strong&gt; — más superficies de acceso y comportamiento difícil de auditar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Coste&lt;/strong&gt; — los bucles autónomos consumen tokens e infraestructura&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Complejidad&lt;/strong&gt; — aún difícil de operar con seguridad para no expertos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Conclusión&lt;/h2&gt;
+&lt;p&gt;Trata los agentes autónomos como &lt;strong&gt;servicios nuevos en tu arquitectura&lt;/strong&gt;: necesitan límites, monitorización y supervisión humana — no solo un prompt ingenioso.&lt;/p&gt;</content><category term="News"/><category term="[Agents"/><category term="Autonomy"/><category term="Industry]"/></entry><entry><title>Blog Placeholder - Cloud Agent Stack</title><link href="en/blog-cloud-placeholder/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/blog-cloud-placeholder/</id><summary type="html">&lt;p&gt;Placeholder post for the Cloud category.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Placeholder&lt;/h2&gt;
+&lt;p&gt;This post is reserved for cloud-first agent workflows.&lt;/p&gt;</content><category term="Cloud"/><category term="[API"/><category term="OpenAI"/><category term="ChatGPT"/><category term="Cloude]"/></entry><entry><title>Blog Placeholder - Hybrid Agent Stack</title><link href="en/blog-hybrid-placeholder/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/blog-hybrid-placeholder/</id><summary type="html">&lt;p&gt;Placeholder post for the Hybrid category.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Placeholder&lt;/h2&gt;
+&lt;p&gt;This post is reserved for hybrid agent workflows.&lt;/p&gt;</content><category term="Hybrid"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI]"/></entry><entry><title>Beginner Lane — Your First AI Agent (No Technical Background)</title><link href="en/tutorial-beginner-first-steps/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-beginner-first-steps/</id><summary type="html">&lt;p&gt;Dummy lane for non-technical readers—plain language, visual workflows, and no coding assumptions. Real lessons will replace this outline.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What this lane is for&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Beginner Lane&lt;/strong&gt; is for people with &lt;strong&gt;no technical background&lt;/strong&gt; who still want to understand what an “AI agent” feels like in practice.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; placeholder content. You will add non-technical tutorials here (screenshots, checklists, and copy-paste steps only).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Learning goals (draft)&lt;/h2&gt;
+&lt;p&gt;When this lane is filled in, readers should be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Explain in plain words what a &lt;strong&gt;task&lt;/strong&gt; is for an agent vs. a normal chat&lt;/li&gt;
+&lt;li&gt;Follow a &lt;strong&gt;visual workflow&lt;/strong&gt; (e.g. boxes and arrows) without reading code&lt;/li&gt;
+&lt;li&gt;Run a &lt;strong&gt;local model&lt;/strong&gt; using friendly installers (concept: “AI on your computer”)&lt;/li&gt;
+&lt;li&gt;Tell the difference between &lt;strong&gt;one-shot answers&lt;/strong&gt; and &lt;strong&gt;multi-step&lt;/strong&gt; behavior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Module outline (dummy)&lt;/h2&gt;
+&lt;h3&gt;Module 1 — Mindset&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What is an agent in one sentence?&lt;/li&gt;
+&lt;li&gt;Why “step by step” matters more than “smarter model”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 2 — Your first flow (no code)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; connect a prompt block → a local model → an answer&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; try three example tasks (plan a trip, outline a post, summarize notes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 3 — Making it useful&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; improve instructions without touching code&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; save and reuse your setup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 4 — Safety and limits&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; what not to paste into tools&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; when to ask a human for help&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Next step&lt;/h2&gt;
+&lt;p&gt;Open the &lt;strong&gt;featured tutorial&lt;/strong&gt; on the Tutorials hub — &lt;strong&gt;Build Your First AI Agent (2 Free Paths)&lt;/strong&gt; — and use &lt;strong&gt;Part A (no-code)&lt;/strong&gt; as the technical spine while this lane grows richer stories and visuals around it.&lt;/p&gt;</content><category term="Tutorial"/><category term="[Beginner"/><category term="No-Code"/><category term="Ollama"/><category term="Flowise]"/></entry><entry><title>Tutorial - Build Your First AI Agent (2 Free Paths)</title><link href="en/tutorial-build-your-first-ai-agent/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-build-your-first-ai-agent/</id><summary type="html">&lt;p&gt;Two free paths to the same outcome—no-code (Flowise + Ollama) and code (Python + Ollama)—so you see that an agent is the system around the model, not the model alone.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Tutorial: Build Your First AI Agent (2 Free Paths)&lt;/h1&gt;
+&lt;h2&gt;What you will build&lt;/h2&gt;
+&lt;p&gt;You will build a simple AI agent that can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Take a task from the user&lt;/li&gt;
+&lt;li&gt;Think about it step by step&lt;/li&gt;
+&lt;li&gt;Produce structured output&lt;/li&gt;
+&lt;li&gt;(Optional) keep simple memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will build the &lt;strong&gt;same idea&lt;/strong&gt; in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;No-code&lt;/strong&gt; — Flowise + Ollama  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt; — Python + Ollama  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both paths lead to a working first agent.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Copy Commands&lt;/h1&gt;
+&lt;p&gt;Use these command snippets directly.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Ollama model&lt;/span&gt;
+ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Check Node.js&lt;/span&gt;
+node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Start Flowise&lt;/span&gt;
+npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Python deps&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1&gt;PART A — No-Code AI Agent (Flowise + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Best for beginners, non-technical users, and fast understanding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;STEP 1 — Install Ollama (Local AI Model)&lt;/h2&gt;
+&lt;p&gt;Go to &lt;code&gt;https://ollama.com&lt;/code&gt;, install it, then run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 2 — Install Node.js&lt;/h2&gt;
+&lt;p&gt;Download and install the LTS version from &lt;code&gt;https://nodejs.org&lt;/code&gt;, then verify:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 3 — Install Flowise&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Open: &lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;STEP 4 — Create Your First Flow&lt;/h2&gt;
+&lt;p&gt;In Flowise, create a new chat flow and add:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User Input&lt;/li&gt;
+&lt;li&gt;Prompt Template&lt;/li&gt;
+&lt;li&gt;ChatOllama&lt;/li&gt;
+&lt;li&gt;Output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;STEP 5 — Add Chat Model Node&lt;/h2&gt;
+&lt;p&gt;Use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base URL: &lt;code&gt;http://localhost:11434&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Model: &lt;code&gt;llama3.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;STEP 6 — Add Prompt Template&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+Break tasks into steps and respond clearly.
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 7 — Connect the System&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;User Input → Prompt Template → ChatOllama → Output
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 8 — Test Your Agent&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Plan a simple website structure for a coffee shop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 9 — Improve Structure&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+
+Follow this structure:
+1. Understand the task
+2. Break it into steps
+3. Provide a final structured answer
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 10 — Add System Thinking Instruction&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Always think step-by-step before answering.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 11 — Save Your Flow&lt;/h2&gt;
+&lt;p&gt;Save as &lt;code&gt;My First AI Agent&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;STEP 12 — What You Built&lt;/h2&gt;
+&lt;p&gt;You built a controlled reasoning pipeline, not just a chatbot.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;PART B — Code-Based AI Agent (Python + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Best for developers who want to understand the internals.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;STEP 1 — Install Python&lt;/h2&gt;
+&lt;p&gt;Install from &lt;code&gt;https://python.org&lt;/code&gt;, then verify:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class="w"&gt; &lt;/span&gt;--version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 2 — Install Ollama&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 3 — Install Python Dependency&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 4 — Create Project File&lt;/h2&gt;
+&lt;p&gt;Create &lt;code&gt;agent.py&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;STEP 5 — Basic AI Connection&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+
+&lt;span class="n"&gt;MODEL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;llama3.1&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:11434/api/generate&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;model&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;MODEL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;prompt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;stream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 6 — Create Your Agent Logic&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Step 1: Understand the task&lt;/span&gt;
+&lt;span class="s2"&gt;Step 2: Break it into steps&lt;/span&gt;
+&lt;span class="s2"&gt;Step 3: Provide a structured solution&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 7 — Run Your Agent&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Design a simple login system&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 8 — Add Simple Memory (Optional)&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;memory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Memory:&lt;/span&gt;
+&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 9 — Test Multiple Calls&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Create a to-do app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Now improve it&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 10 — What Changed?&lt;/h2&gt;
+&lt;p&gt;The agent now maintains context across requests.&lt;/p&gt;
+&lt;h2&gt;STEP 11 — Why This Is an Agent&lt;/h2&gt;
+&lt;p&gt;It receives input, runs logic, maintains memory, and returns structured output.&lt;/p&gt;
+&lt;h2&gt;STEP 12 — Final insight&lt;/h2&gt;
+&lt;p&gt;An AI agent is not only the model; it is the &lt;strong&gt;system&lt;/strong&gt; around the model.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;You built:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;no-code&lt;/strong&gt; agent (Flowise + Ollama)&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;code&lt;/strong&gt; agent (Python + Ollama)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same principle:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI ≠ model — AI = system&lt;/strong&gt; (the orchestration, prompts, tools, and memory around the model).&lt;/p&gt;</content><category term="Tutorial"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI"/><category term="ChatGPT]"/></entry><entry><title>IT Practitioner Lane — First Automation Agent (Low Code)</title><link href="en/tutorial-it-practitioner-first-automation/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-it-practitioner-first-automation/</id><summary type="html">&lt;p&gt;Dummy lane for IT operators—integrations, runbooks, and light scripting. Full IT-style tutorials will replace this scaffold.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What this lane is for&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;IT Practitioner Lane&lt;/strong&gt; targets people with &lt;strong&gt;IT experience&lt;/strong&gt; (networks, SaaS admin, tickets, incidents) who are comfortable with &lt;strong&gt;low coding&lt;/strong&gt;—scripts, APIs, and config—not full product engineering.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; placeholder content. You will add IT-ops style tutorials here (runbooks, checklists, and integration patterns).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Outcomes (draft)&lt;/h2&gt;
+&lt;p&gt;Future tutorials here should let readers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wire an agent to &lt;strong&gt;internal tools&lt;/strong&gt; safely (read-only first)&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;API keys and env vars&lt;/strong&gt; without leaking them in tickets&lt;/li&gt;
+&lt;li&gt;Sketch a &lt;strong&gt;runbook&lt;/strong&gt;: trigger → agent step → human approval → log&lt;/li&gt;
+&lt;li&gt;Measure &lt;strong&gt;cost and failure modes&lt;/strong&gt; like any other service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Runbook skeleton (dummy)&lt;/h2&gt;
+&lt;h3&gt;R1 — Environment&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; approved model endpoint (local vs. vendor)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; network allowlists and DNS checks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R2 — Identity and secrets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; service account vs. personal tokens&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; rotation and vault storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R3 — First automation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; “watch folder / webhook → agent summarizes → posts to Slack”&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; dry-run mode and rollback&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R4 — Operations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; logging, rate limits, and alerting&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; incident response when the agent loops or hallucinates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Next step&lt;/h2&gt;
+&lt;p&gt;Pair this lane with the &lt;strong&gt;code path&lt;/strong&gt; in &lt;strong&gt;Build Your First AI Agent (2 Free Paths)&lt;/strong&gt; (Python + Ollama), then extend into your real stack (ticketing, CMDB, cloud CLIs) with the same discipline you use for any production integration.&lt;/p&gt;</content><category term="Tutorial"/><category term="[IT"/><category term="Automation"/><category term="APIs"/><category term="Ops]"/></entry><entry><title>Why AI Feels Smart... Until It Doesn't</title><link href="en/why-ai-feels-smart-until-it-doesnt/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/why-ai-feels-smart-until-it-doesnt/</id><summary type="html">&lt;p&gt;A practical perspective on why AI systems look brilliant in one interaction and inconsistent in the next.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Why AI Feels Smart... Until It Doesn't&lt;/h1&gt;
+&lt;p&gt;You ask AI to do something complex—debug code, explain a difficult concept, design a system—and for a moment, it delivers something surprisingly good. Clear. Structured. Even insightful.&lt;/p&gt;
+&lt;p&gt;And then… it breaks.&lt;/p&gt;
+&lt;p&gt;It forgets something obvious. Misunderstands context. Gives an answer that sounds right but clearly isn’t. The same system that felt intelligent suddenly feels unreliable.&lt;/p&gt;
+&lt;p&gt;Most people assume this is just a limitation of the technology.&lt;/p&gt;
+&lt;p&gt;It’s not.&lt;/p&gt;
+&lt;p&gt;The real reason is more interesting—and far more important if you want to actually build with AI.&lt;/p&gt;
+&lt;p&gt;In The AI Agents Book, I start with a simple but often overlooked idea: what you’re interacting with is not a complete system. It’s a powerful component inside a system that doesn’t exist yet.&lt;/p&gt;
+&lt;p&gt;That gap—between what AI can do and what you expect it to do—is where most confusion comes from. But it’s also where opportunity begins.&lt;/p&gt;
+&lt;p&gt;Because once you see it, your perspective shifts.&lt;/p&gt;
+&lt;p&gt;You stop asking how to make AI “smarter,” and start asking better questions:&lt;/p&gt;
+&lt;p&gt;How does it remember?
+How does it act?
+How does it verify what it produces?
+How does it stay consistent over time?&lt;/p&gt;
+&lt;p&gt;And from there, something new emerges—not just better prompts or tools, but a different kind of system entirely.&lt;/p&gt;
+&lt;p&gt;This is what the book is really about.&lt;/p&gt;
+&lt;p&gt;It’s not a guide to using AI. It’s a way of understanding how these systems actually work beneath the surface—so you can design, adapt, and build them yourself, independent of any specific tool or framework.&lt;/p&gt;
+&lt;p&gt;If you’ve ever felt that AI is both powerful and unreliable at the same time, you’re already seeing the problem this book addresses.&lt;/p&gt;
+&lt;p&gt;You can read the full introduction for free here:&lt;br /&gt;
+&lt;a href="https://theaiagentsbook.com/en/get-the-free-version-hybrid-light/"&gt;The AI Agents Book - Free Version&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This first chapter sets the foundation for everything that follows—and it’s available in the free version of the book so you can explore the core idea before going deeper.&lt;/p&gt;
+&lt;p&gt;Because once you understand what’s really going on, you won’t look at AI the same way again.&lt;/p&gt;</content><category term="Self-hosted"/><category term="[Open-Source"/><category term="API"/><category term="OpenAI"/><category term="ChatGPT"/><category term="Cloude]"/></entry><entry><title>Blog (reservado) — Pila de agentes en la nube</title><link href="es/blog-cloud-placeholder/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/blog-cloud-placeholder/</id><summary type="html">&lt;p&gt;Entrada reservada para la categoría Nube.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Contenido pendiente&lt;/h2&gt;
+&lt;p&gt;Esta entrada está reservada para flujos de agentes orientados a la nube.&lt;/p&gt;</content><category term="Cloud"/><category term="[API"/><category term="OpenAI"/><category term="ChatGPT"/><category term="Cloude]"/></entry><entry><title>Blog (reservado) — Pila de agentes híbrida</title><link href="es/blog-hybrid-placeholder/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/blog-hybrid-placeholder/</id><summary type="html">&lt;p&gt;Entrada reservada para la categoría Híbrido.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Contenido pendiente&lt;/h2&gt;
+&lt;p&gt;Esta entrada está reservada para flujos de agentes híbridos.&lt;/p&gt;</content><category term="Hybrid"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI]"/></entry><entry><title>Carril principiante — Tu primer agente de IA (sin base técnica)</title><link href="es/tutorial-beginner-first-steps/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/tutorial-beginner-first-steps/</id><summary type="html">&lt;p&gt;Carril de marcador para lectores no técnicos: lenguaje claro, flujos visuales y sin supuestos de programación. Las lecciones reales sustituirán este esquema.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Para qué es este carril&lt;/h2&gt;
+&lt;p&gt;El &lt;strong&gt;carril principiante&lt;/strong&gt; es para personas &lt;strong&gt;sin formación técnica&lt;/strong&gt; que quieren entender en la práctica qué se siente un «agente de IA».&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Estado:&lt;/strong&gt; contenido provisional. Aquí irán tutoriales no técnicos (capturas, listas de comprobación y pasos de copiar y pegar).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Objetivos de aprendizaje (borrador)&lt;/h2&gt;
+&lt;p&gt;Cuando el carril esté completo, el lector debería poder:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Explicar con palabras sencillas qué es una &lt;strong&gt;tarea&lt;/strong&gt; para un agente frente a un chat normal&lt;/li&gt;
+&lt;li&gt;Seguir un &lt;strong&gt;flujo visual&lt;/strong&gt; (cajas y flechas) sin leer código&lt;/li&gt;
+&lt;li&gt;Ejecutar un &lt;strong&gt;modelo local&lt;/strong&gt; con instaladores guiados (idea: «IA en tu ordenador»)&lt;/li&gt;
+&lt;li&gt;Distinguir respuestas &lt;strong&gt;de un solo paso&lt;/strong&gt; y comportamiento &lt;strong&gt;multipaso&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Esquema de módulos (marcador)&lt;/h2&gt;
+&lt;h3&gt;Módulo 1 — Mentalidad&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Qué es un agente en una frase&lt;/li&gt;
+&lt;li&gt;Por qué importa más «paso a paso» que «modelo más listo»&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Módulo 2 — Tu primer flujo (sin código)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; conectar bloque de prompt → modelo local → respuesta&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; tres tareas de ejemplo (plan de viaje, esquema de artículo, resumen de notas)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Módulo 3 — Que sea útil&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; mejorar instrucciones sin tocar código&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; guardar y reutilizar la configuración&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Módulo 4 — Seguridad y límites&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; qué no pegar en herramientas&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; cuándo pedir ayuda a una persona&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Siguiente paso&lt;/h2&gt;
+&lt;p&gt;Abre el &lt;strong&gt;tutorial destacado&lt;/strong&gt; en el hub de tutoriales — &lt;strong&gt;Construye tu primer agente de IA (2 rutas gratuitas)&lt;/strong&gt; — y usa la &lt;strong&gt;Parte A (sin código)&lt;/strong&gt; como columna vertebral técnica mientras este carril gana narrativa y visuales.&lt;/p&gt;</content><category term="Tutorial"/><category term="[Beginner"/><category term="No-Code"/><category term="Ollama"/><category term="Flowise]"/></entry><entry><title>Tutorial — Construye tu primer agente de IA (2 rutas gratuitas)</title><link href="es/tutorial-build-your-first-ai-agent/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/tutorial-build-your-first-ai-agent/</id><summary type="html">&lt;p&gt;Dos rutas gratuitas al mismo resultado — sin código (Flowise + Ollama) y con código (Python + Ollama) — para ver que un agente es el sistema alrededor del modelo, no solo el modelo.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Tutorial: construye tu primer agente de IA (2 rutas gratuitas)&lt;/h1&gt;
+&lt;h2&gt;Qué vas a construir&lt;/h2&gt;
+&lt;p&gt;Construirás un agente de IA sencillo que pueda:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Recibir una tarea del usuario&lt;/li&gt;
+&lt;li&gt;Pensarla paso a paso&lt;/li&gt;
+&lt;li&gt;Producir una salida estructurada&lt;/li&gt;
+&lt;li&gt;(Opcional) mantener memoria simple&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Construirás la &lt;strong&gt;misma idea&lt;/strong&gt; de dos formas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sin código&lt;/strong&gt; — Flowise + Ollama  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Con código&lt;/strong&gt; — Python + Ollama  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ambas rutas llevan a un primer agente funcional.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Comandos para copiar&lt;/h1&gt;
+&lt;p&gt;Usa estos fragmentos directamente.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Modelo Ollama&lt;/span&gt;
+ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Comprobar Node.js&lt;/span&gt;
+node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Iniciar Flowise&lt;/span&gt;
+npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Dependencias Python&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1&gt;PARTE A — Agente de IA sin código (Flowise + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ideal para principiantes, perfiles no técnicos y comprensión rápida.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;PASO 1 — Instalar Ollama (modelo local)&lt;/h2&gt;
+&lt;p&gt;Ve a &lt;code&gt;https://ollama.com&lt;/code&gt;, instálalo y ejecuta:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 2 — Instalar Node.js&lt;/h2&gt;
+&lt;p&gt;Descarga e instala la versión LTS desde &lt;code&gt;https://nodejs.org&lt;/code&gt; y verifica:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 3 — Instalar Flowise&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Abre: &lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;PASO 4 — Crear tu primer flujo&lt;/h2&gt;
+&lt;p&gt;En Flowise, crea un nuevo chat flow y añade:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Entrada de usuario&lt;/li&gt;
+&lt;li&gt;Plantilla de prompt&lt;/li&gt;
+&lt;li&gt;ChatOllama&lt;/li&gt;
+&lt;li&gt;Salida&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;PASO 5 — Nodo de modelo de chat&lt;/h2&gt;
+&lt;p&gt;Usa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL base: &lt;code&gt;http://localhost:11434&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Modelo: &lt;code&gt;llama3.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;PASO 6 — Plantilla de prompt&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+Break tasks into steps and respond clearly.
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 7 — Conectar el sistema&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;User Input → Prompt Template → ChatOllama → Output
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 8 — Probar tu agente&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Plan a simple website structure for a coffee shop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 9 — Mejorar la estructura&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+
+Follow this structure:
+1. Understand the task
+2. Break it into steps
+3. Provide a final structured answer
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 10 — Añadir instrucción de razonamiento&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Always think step-by-step before answering.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 11 — Guardar el flujo&lt;/h2&gt;
+&lt;p&gt;Guárdalo como &lt;code&gt;My First AI Agent&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;PASO 12 — Qué has construido&lt;/h2&gt;
+&lt;p&gt;Has construido un pipeline de razonamiento controlado, no solo un chatbot.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;PARTE B — Agente de IA con código (Python + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Para desarrolladores que quieren entender los entresijos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;PASO 1 — Instalar Python&lt;/h2&gt;
+&lt;p&gt;Instala desde &lt;code&gt;https://python.org&lt;/code&gt; y verifica:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class="w"&gt; &lt;/span&gt;--version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 2 — Instalar Ollama&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 3 — Dependencia de Python&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 4 — Crear el archivo del proyecto&lt;/h2&gt;
+&lt;p&gt;Crea &lt;code&gt;agent.py&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;PASO 5 — Conexión básica con la IA&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+
+&lt;span class="n"&gt;MODEL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;llama3.1&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:11434/api/generate&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;model&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;MODEL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;prompt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;stream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 6 — Lógica del agente&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Step 1: Understand the task&lt;/span&gt;
+&lt;span class="s2"&gt;Step 2: Break it into steps&lt;/span&gt;
+&lt;span class="s2"&gt;Step 3: Provide a structured solution&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 7 — Ejecutar el agente&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Design a simple login system&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 8 — Memoria simple (opcional)&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;memory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Memory:&lt;/span&gt;
+&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 9 — Probar varias llamadas&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Create a to-do app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Now improve it&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;PASO 10 — ¿Qué cambió?&lt;/h2&gt;
+&lt;p&gt;El agente mantiene contexto entre peticiones.&lt;/p&gt;
+&lt;h2&gt;PASO 11 — Por qué esto es un agente&lt;/h2&gt;
+&lt;p&gt;Recibe entrada, ejecuta lógica, mantiene memoria y devuelve salida estructurada.&lt;/p&gt;
+&lt;h2&gt;PASO 12 — Idea final&lt;/h2&gt;
+&lt;p&gt;Un agente de IA no es solo el modelo; es el &lt;strong&gt;sistema&lt;/strong&gt; alrededor del modelo.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Resumen&lt;/h2&gt;
+&lt;p&gt;Has construido:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un agente &lt;strong&gt;sin código&lt;/strong&gt; (Flowise + Ollama)&lt;/li&gt;
+&lt;li&gt;Un agente &lt;strong&gt;con código&lt;/strong&gt; (Python + Ollama)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Misma idea:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IA ≠ modelo — IA = sistema&lt;/strong&gt; (la orquestación, prompts, herramientas y memoria alrededor del modelo).&lt;/p&gt;</content><category term="Tutorial"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI"/><category term="ChatGPT]"/></entry><entry><title>Carril IT — Primer agente de automatización (poco código)</title><link href="es/tutorial-it-practitioner-first-automation/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/tutorial-it-practitioner-first-automation/</id><summary type="html">&lt;p&gt;Carril de marcador para operaciones IT: integraciones, runbooks y scripting ligero. Tutoriales estilo ops sustituirán este esqueleto.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Para qué es este carril&lt;/h2&gt;
+&lt;p&gt;El &lt;strong&gt;carril IT&lt;/strong&gt; va dirigido a personas con &lt;strong&gt;experiencia en IT&lt;/strong&gt; (redes, administración SaaS, tickets, incidencias) cómodas con &lt;strong&gt;poco código&lt;/strong&gt;: scripts, APIs y configuración, no ingeniería de producto completa.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Estado:&lt;/strong&gt; contenido provisional. Aquí irán tutoriales estilo operaciones (runbooks, listas de comprobación y patrones de integración).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Resultados (borrador)&lt;/h2&gt;
+&lt;p&gt;Los tutoriales futuros deberían permitir:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conectar un agente a &lt;strong&gt;herramientas internas&lt;/strong&gt; con seguridad (solo lectura al principio)&lt;/li&gt;
+&lt;li&gt;Usar &lt;strong&gt;claves API y variables de entorno&lt;/strong&gt; sin filtrarlas en tickets&lt;/li&gt;
+&lt;li&gt;Bocetar un &lt;strong&gt;runbook&lt;/strong&gt;: disparador → paso del agente → aprobación humana → registro&lt;/li&gt;
+&lt;li&gt;Medir &lt;strong&gt;coste y modos de fallo&lt;/strong&gt; como cualquier otro servicio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Esqueleto de runbook (marcador)&lt;/h2&gt;
+&lt;h3&gt;R1 — Entorno&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; endpoint de modelo aprobado (local vs. proveedor)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; listas de permitidos de red y comprobaciones DNS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R2 — Identidad y secretos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; cuenta de servicio vs. tokens personales&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; rotación y almacenamiento en vault&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R3 — Primera automatización&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; «carpeta vigilada / webhook → el agente resume → publica en Slack»&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; modo simulación y reversión&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R4 — Operaciones&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; registro, límites de tasa y alertas&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Marcador:&lt;/em&gt; respuesta a incidentes cuando el agente entra en bucle o alucina&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Siguiente paso&lt;/h2&gt;
+&lt;p&gt;Empareja este carril con la &lt;strong&gt;ruta de código&lt;/strong&gt; en &lt;strong&gt;Construye tu primer agente de IA (2 rutas gratuitas)&lt;/strong&gt; (Python + Ollama) y extiéndelo a tu stack real (ticketing, CMDB, CLI cloud) con la misma disciplina que en cualquier integración en producción.&lt;/p&gt;</content><category term="Tutorial"/><category term="[IT"/><category term="Automation"/><category term="APIs"/><category term="Ops]"/></entry><entry><title>Por qué la IA parece inteligente… hasta que deja de serlo</title><link href="es/why-ai-feels-smart-until-it-doesnt/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:es/why-ai-feels-smart-until-it-doesnt/</id><summary type="html">&lt;p&gt;Una perspectiva práctica sobre por qué los sistemas de IA brillan en una interacción y son inconsistentes en la siguiente.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Por qué la IA parece inteligente… hasta que deja de serlo&lt;/h1&gt;
+&lt;p&gt;Pides a la IA algo complejo — depurar código, explicar un concepto difícil, diseñar un sistema — y, por un momento, entrega algo sorprendentemente bueno. Claro. Estructurado. Incluso perspicaz.&lt;/p&gt;
+&lt;p&gt;Y luego… falla.&lt;/p&gt;
+&lt;p&gt;Olvida algo obvio. Malinterpreta el contexto. Da una respuesta que suena bien pero claramente no lo es. El mismo sistema que parecía inteligente de repente parece poco fiable.&lt;/p&gt;
+&lt;p&gt;La mayoría asume que es solo una limitación de la tecnología.&lt;/p&gt;
+&lt;p&gt;No lo es.&lt;/p&gt;
+&lt;p&gt;La razón real es más interesante — y mucho más importante si quieres construir de verdad con IA.&lt;/p&gt;
+&lt;p&gt;En &lt;em&gt;The AI Agents Book&lt;/em&gt; empiezo con una idea simple pero a menudo pasada por alto: con lo que interactúas no es un sistema completo. Es un componente potente dentro de un sistema que aún no existe.&lt;/p&gt;
+&lt;p&gt;Ese hueco — entre lo que la IA puede hacer y lo que esperas que haga — es de donde sale la mayor parte de la confusión. Pero también es donde empieza la oportunidad.&lt;/p&gt;
+&lt;p&gt;Porque una vez lo ves, cambia tu perspectiva.&lt;/p&gt;
+&lt;p&gt;Dejas de preguntar cómo hacer la IA «más lista» y empiezas a hacer mejores preguntas:&lt;/p&gt;
+&lt;p&gt;¿Cómo recuerda?
+¿Cómo actúa?
+¿Cómo verifica lo que produce?
+¿Cómo se mantiene coherente en el tiempo?&lt;/p&gt;
+&lt;p&gt;Y a partir de ahí surge algo nuevo — no solo mejores prompts o herramientas, sino un tipo distinto de sistema por completo.&lt;/p&gt;
+&lt;p&gt;De eso trata realmente el libro.&lt;/p&gt;
+&lt;p&gt;No es una guía para «usar IA». Es una forma de entender cómo funcionan estos sistemas bajo la superficie — para que puedas diseñarlos, adaptarlos y construirlos tú mismo, independientemente de una herramienta o marco concreto.&lt;/p&gt;
+&lt;p&gt;Si alguna vez has sentido que la IA es a la vez potente y poco fiable, ya estás viendo el problema que aborda el libro.&lt;/p&gt;
+&lt;p&gt;Puedes leer la introducción completa gratis aquí:&lt;br /&gt;
+&lt;a href="https://theaiagentsbook.com/es/get-the-free-version-hybrid-light/"&gt;The AI Agents Book — versión gratuita&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Este primer capítulo sienta las bases de todo lo que sigue — y está en la versión gratuita del libro para que explores la idea central antes de profundizar.&lt;/p&gt;
+&lt;p&gt;Porque una vez entiendas qué está pasando de verdad, no volverás a mirar la IA de la misma forma.&lt;/p&gt;</content><category term="Self-hosted"/><category term="[Open-Source"/><category term="API"/><category term="OpenAI"/><category term="ChatGPT"/><category term="Cloude]"/></entry><entry><title>The Claude AI Leak: What Happened and Why It Matters</title><link href="en/claude-ai-leak-what-happened-and-why-it-matters/" rel="alternate"/><published>2026-04-08T00:00:00+02:00</published><updated>2026-04-08T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-08:en/claude-ai-leak-what-happened-and-why-it-matters/</id><summary type="html">&lt;p&gt;Anthropic's 2026 leak exposed system-level AI engineering details and accelerated debate on security, governance, and operational risk.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1) General Overview&lt;/h2&gt;
+&lt;p&gt;In late March 2026, AI company Anthropic experienced one of the most significant leaks in the artificial intelligence industry to date. Due to a packaging error, more than 500,000 lines of source code from its AI coding assistant, Claude Code, were accidentally exposed through a public npm release.&lt;/p&gt;
+&lt;p&gt;The leak quickly spread across platforms like GitHub, where developers mirrored and analyzed the code before the company could contain it. Anthropic later confirmed the incident was caused by human error rather than a cyberattack, and no user data was compromised.&lt;/p&gt;
+&lt;p&gt;At the same time, separate disclosures and leaks around a powerful internal model—Claude Mythos—raised even deeper concerns. This model demonstrated the ability to autonomously identify and exploit software vulnerabilities, leading Anthropic to restrict its release due to potential misuse.&lt;/p&gt;
+&lt;p&gt;Together, these events have triggered intense debate about AI transparency, security risks, and the future of software development.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Security and AI systems newsroom visual" src="https://picsum.photos/seed/claude-leak-security/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;2) In-Depth Analysis: What the Leak Revealed&lt;/h2&gt;
+&lt;h3&gt;2.1 The Real Value Was Not the Model, But the System&lt;/h3&gt;
+&lt;p&gt;One of the biggest takeaways from the leak is that modern AI power lies less in the model itself and more in the surrounding system architecture.&lt;/p&gt;
+&lt;p&gt;The exposed code revealed:&lt;/p&gt;
+&lt;p&gt;Full system prompts (how the AI is instructed internally)
+Tool orchestration logic (how the AI uses external tools)
+Memory handling and task execution strategies&lt;/p&gt;
+&lt;p&gt;This confirms a growing industry trend: AI agents are systems, not just models.&lt;/p&gt;
+&lt;h3&gt;2.2 Prompt Engineering Is More Important Than Expected&lt;/h3&gt;
+&lt;p&gt;The leak showed that Claude Code’s behavior is heavily shaped by carefully designed system prompts. For example:&lt;/p&gt;
+&lt;p&gt;It can execute tasks in parallel—but only if prompted correctly
+It defaults to safer, slower execution when instructions are ambiguous&lt;/p&gt;
+&lt;p&gt;This highlights that:&lt;/p&gt;
+&lt;p&gt;The difference between average and expert AI usage is often how you prompt it, not which model you use.&lt;/p&gt;
+&lt;h3&gt;2.3 AI Development Still Has Basic Security Weaknesses&lt;/h3&gt;
+&lt;p&gt;Ironically, the leak itself exposed traditional software engineering failures, not advanced AI flaws:&lt;/p&gt;
+&lt;p&gt;Misconfigured build pipelines
+Accidental inclusion of debug artifacts (.map files)
+Lack of pre-release validation checks&lt;/p&gt;
+&lt;p&gt;Research following the incident suggests that current security tools are not designed for AI-generated or AI-assisted codebases, leaving new blind spots.&lt;/p&gt;
+&lt;h3&gt;2.4 The Bigger Risk: AI That Can Hack&lt;/h3&gt;
+&lt;p&gt;Separate from the code leak, the Claude Mythos revelations may be even more important.&lt;/p&gt;
+&lt;p&gt;Reports indicate the model can:&lt;/p&gt;
+&lt;p&gt;Discover thousands of zero-day vulnerabilities
+Generate real-world exploits automatically
+Operate with minimal human input&lt;/p&gt;
+&lt;p&gt;This represents a shift from AI as a productivity tool to AI as a potential offensive cybersecurity actor.&lt;/p&gt;
+&lt;h3&gt;2.5 Competitive and Geopolitical Implications&lt;/h3&gt;
+&lt;p&gt;The leak also had strategic consequences:&lt;/p&gt;
+&lt;p&gt;Competitors gained insight into Anthropic’s architecture
+Developers worldwide began reconstructing and experimenting with the system
+Financial markets reacted negatively to the disruptive potential of advanced AI&lt;/p&gt;
+&lt;p&gt;In short, the leak accelerated knowledge diffusion across the AI ecosystem.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Engineering operations and AI governance visual" src="https://picsum.photos/seed/ai-governance-ops/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;3) Practical Conclusions: What You Should Take Away&lt;/h2&gt;
+&lt;h3&gt;3.1 For Developers&lt;/h3&gt;
+&lt;p&gt;Focus on system design, not just models
+Tools, prompts, and workflows matter more than raw AI capability.
+Write better prompts, not just better code
+Prompt clarity directly impacts performance and efficiency.
+Audit your build pipelines
+The biggest risks are still simple mistakes.&lt;/p&gt;
+&lt;h3&gt;3.2 For Companies&lt;/h3&gt;
+&lt;p&gt;Treat AI systems as security-critical infrastructure
+AI is no longer just a feature—it can expose or exploit vulnerabilities.
+Implement pre-release safeguards
+Especially for packaging, dependencies, and artifacts.
+Prepare for AI-powered cybersecurity threats
+Defensive strategies must evolve quickly.&lt;/p&gt;
+&lt;h3&gt;3.3 For the Industry&lt;/h3&gt;
+&lt;p&gt;AI transparency is increasing—intentionally or not
+Leaks are accelerating collective understanding.
+Regulation pressure will grow
+Especially for models capable of autonomous exploitation.
+The real race is shifting
+From “who has the best model” to
+→ “who builds the best AI system around it”&lt;/p&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;The Claude leak is more than just a technical mishap—it’s a turning point in how we understand AI systems.&lt;/p&gt;
+&lt;p&gt;It exposed not only the inner workings of one of the most advanced AI tools, but also the fragility of current development practices and the immense power of next-generation models.&lt;/p&gt;
+&lt;p&gt;If anything, this incident makes one thing clear:&lt;/p&gt;
+&lt;p&gt;The future of AI won’t just be built—it will need to be secured, governed, and deeply understood.&lt;/p&gt;</content><category term="News"/><category term="[OpenAI"/><category term="ChatGPT"/><category term="API"/><category term="Cloude]"/></entry><entry><title>La filtración de Claude IA: qué ocurrió y por qué importa</title><link href="es/claude-ai-leak-what-happened-and-why-it-matters/" rel="alternate"/><published>2026-04-08T00:00:00+02:00</published><updated>2026-04-08T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-08:es/claude-ai-leak-what-happened-and-why-it-matters/</id><summary type="html">&lt;p&gt;La filtración de 2026 en Anthropic expuso detalles de ingeniería de IA a nivel de sistema e intensificó el debate sobre seguridad, gobierno y riesgo operativo.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1) Visión general&lt;/h2&gt;
+&lt;p&gt;A finales de marzo de 2026, la empresa de IA Anthropic vivió una de las filtraciones más relevantes del sector hasta la fecha. Por un error de empaquetado, más de 500.000 líneas de código fuente de su asistente de programación Claude Code quedaron expuestas accidentalmente en un lanzamiento público de npm.&lt;/p&gt;
+&lt;p&gt;La filtración se propagó rápidamente en plataformas como GitHub, donde desarrolladores replicaron y analizaron el código antes de que la compañía pudiera contenerla. Anthropic confirmó después que el incidente se debió a error humano y no a un ciberataque, y que no se comprometieron datos de usuarios.&lt;/p&gt;
+&lt;p&gt;Al mismo tiempo, revelaciones y filtraciones separadas en torno a un potente modelo interno —Claude Mythos— plantearon preocupaciones aún mayores. Ese modelo mostró capacidad para identificar y explotar vulnerabilidades de software de forma autónoma, lo que llevó a Anthropic a restringir su publicación por riesgo de uso indebido.&lt;/p&gt;
+&lt;p&gt;En conjunto, estos hechos han disparado un intenso debate sobre transparencia de la IA, riesgos de seguridad y el futuro del desarrollo de software.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Imagen tipo sala de prensa sobre seguridad y sistemas de IA" src="https://picsum.photos/seed/claude-leak-security/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;2) Análisis en profundidad: qué reveló la filtración&lt;/h2&gt;
+&lt;h3&gt;2.1 El valor real no era el modelo, sino el sistema&lt;/h3&gt;
+&lt;p&gt;Una de las conclusiones principales es que el poder de la IA moderna reside menos en el modelo en sí y más en la arquitectura que lo rodea.&lt;/p&gt;
+&lt;p&gt;El código expuesto mostró:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prompts de sistema completos (cómo se instruye internamente a la IA)&lt;/li&gt;
+&lt;li&gt;Lógica de orquestación de herramientas (cómo usa herramientas externas)&lt;/li&gt;
+&lt;li&gt;Manejo de memoria y estrategias de ejecución de tareas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto confirma una tendencia del sector: los agentes de IA son sistemas, no solo modelos.&lt;/p&gt;
+&lt;h3&gt;2.2 La ingeniería de prompts importa más de lo esperado&lt;/h3&gt;
+&lt;p&gt;La filtración mostró que el comportamiento de Claude Code depende en gran medida de prompts de sistema cuidadosamente diseñados. Por ejemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Puede ejecutar tareas en paralelo —pero solo si se le indica correctamente&lt;/li&gt;
+&lt;li&gt;Por defecto opta por una ejecución más lenta y segura cuando las instrucciones son ambiguas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto subraya que:&lt;/p&gt;
+&lt;p&gt;La diferencia entre un uso medio y uno experto de la IA suele estar en cómo se formula el prompt, no en qué modelo se use.&lt;/p&gt;
+&lt;h3&gt;2.3 El desarrollo de IA sigue teniendo debilidades básicas de seguridad&lt;/h3&gt;
+&lt;p&gt;Irónicamente, la filtración expuso fallos clásicos de ingeniería de software, no fallos avanzados de IA:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pipelines de compilación mal configurados&lt;/li&gt;
+&lt;li&gt;Inclusión accidental de artefactos de depuración (archivos &lt;code&gt;.map&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Falta de comprobaciones de validación previas al lanzamiento&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Investigaciones posteriores sugieren que las herramientas de seguridad actuales no están pensadas para bases de código generadas o asistidas por IA, lo que abre nuevos puntos ciegos.&lt;/p&gt;
+&lt;h3&gt;2.4 El riesgo mayor: IA que puede hackear&lt;/h3&gt;
+&lt;p&gt;Aparte del código filtrado, las revelaciones sobre Claude Mythos pueden ser aún más importantes.&lt;/p&gt;
+&lt;p&gt;Los informes indican que el modelo puede:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Descubrir miles de vulnerabilidades día cero&lt;/li&gt;
+&lt;li&gt;Generar exploits del mundo real de forma automática&lt;/li&gt;
+&lt;li&gt;Operar con mínima intervención humana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esto representa un cambio de la IA como herramienta de productividad a la IA como posible actor ofensivo en ciberseguridad.&lt;/p&gt;
+&lt;h3&gt;2.5 Implicaciones competitivas y geopolíticas&lt;/h3&gt;
+&lt;p&gt;La filtración también tuvo consecuencias estratégicas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Los competidores obtuvieron visión de la arquitectura de Anthropic&lt;/li&gt;
+&lt;li&gt;Desarrolladores en todo el mundo empezaron a reconstruir y experimentar con el sistema&lt;/li&gt;
+&lt;li&gt;Los mercados financieros reaccionaron negativamente al potencial disruptivo de la IA avanzada&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En resumen, la filtración aceleró la difusión de conocimiento en el ecosistema de IA.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Imagen sobre operaciones de ingeniería y gobierno de la IA" src="https://picsum.photos/seed/ai-governance-ops/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;3) Conclusiones prácticas: qué debes llevarte&lt;/h2&gt;
+&lt;h3&gt;3.1 Para desarrolladores&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Céntrate en el diseño del sistema, no solo en los modelos: herramientas, prompts y flujos importan más que la capacidad bruta de la IA.&lt;/li&gt;
+&lt;li&gt;Escribe mejores prompts, no solo mejor código: la claridad del prompt impacta directamente en rendimiento y eficiencia.&lt;/li&gt;
+&lt;li&gt;Audita tus pipelines de compilación: los mayores riesgos siguen siendo errores simples.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.2 Para empresas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Trata los sistemas de IA como infraestructura crítica de seguridad: la IA ya no es solo una función —puede exponer o explotar vulnerabilidades.&lt;/li&gt;
+&lt;li&gt;Implementa salvaguardas previas al lanzamiento, especialmente en empaquetado, dependencias y artefactos.&lt;/li&gt;
+&lt;li&gt;Prepárate para amenazas de ciberseguridad potenciadas por IA: las estrategias defensivas deben evolucionar con rapidez.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.3 Para el sector&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;La transparencia de la IA aumenta —de forma intencionada o no: las filtraciones aceleran la comprensión colectiva.&lt;/li&gt;
+&lt;li&gt;Crecerá la presión regulatoria, especialmente para modelos capaces de explotación autónoma.&lt;/li&gt;
+&lt;li&gt;La carrera real se está desplazando de «quién tiene el mejor modelo» a «quién construye el mejor sistema de IA alrededor».&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Reflexión final&lt;/h2&gt;
+&lt;p&gt;La filtración de Claude es más que un contratiempo técnico: es un punto de inflexión en cómo entendemos los sistemas de IA.&lt;/p&gt;
+&lt;p&gt;Expuso no solo el funcionamiento interno de una de las herramientas más avanzadas, sino también la fragilidad de las prácticas actuales de desarrollo y el enorme poder de la siguiente generación de modelos.&lt;/p&gt;
+&lt;p&gt;Si algo queda claro con este incidente es que:&lt;/p&gt;
+&lt;p&gt;El futuro de la IA no solo habrá que construirlo —habrá que asegurarlo, gobernarlo y comprenderlo en profundidad.&lt;/p&gt;</content><category term="News"/><category term="[OpenAI"/><category term="ChatGPT"/><category term="API"/><category term="Cloude]"/></entry></feed>

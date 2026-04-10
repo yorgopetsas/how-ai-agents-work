@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>How AI Agents Work - Tutorial</title><link href="/" rel="alternate"/><link href="feeds/tutorial.atom.xml" rel="self"/><id>/</id><updated>2026-04-09T00:00:00+02:00</updated><entry><title>Beginner Lane — Your First AI Agent (No Technical Background)</title><link href="en/tutorial-beginner-first-steps/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-beginner-first-steps/</id><summary type="html">&lt;p&gt;Dummy lane for non-technical readers—plain language, visual workflows, and no coding assumptions. Real lessons will replace this outline.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What this lane is for&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Beginner Lane&lt;/strong&gt; is for people with &lt;strong&gt;no technical background&lt;/strong&gt; who still want to understand what an “AI agent” feels like in practice.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; placeholder content. You will add non-technical tutorials here (screenshots, checklists, and copy-paste steps only).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Learning goals (draft)&lt;/h2&gt;
+&lt;p&gt;When this lane is filled in, readers should be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Explain in plain words what a &lt;strong&gt;task&lt;/strong&gt; is for an agent vs. a normal chat&lt;/li&gt;
+&lt;li&gt;Follow a &lt;strong&gt;visual workflow&lt;/strong&gt; (e.g. boxes and arrows) without reading code&lt;/li&gt;
+&lt;li&gt;Run a &lt;strong&gt;local model&lt;/strong&gt; using friendly installers (concept: “AI on your computer”)&lt;/li&gt;
+&lt;li&gt;Tell the difference between &lt;strong&gt;one-shot answers&lt;/strong&gt; and &lt;strong&gt;multi-step&lt;/strong&gt; behavior&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Module outline (dummy)&lt;/h2&gt;
+&lt;h3&gt;Module 1 — Mindset&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What is an agent in one sentence?&lt;/li&gt;
+&lt;li&gt;Why “step by step” matters more than “smarter model”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 2 — Your first flow (no code)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; connect a prompt block → a local model → an answer&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; try three example tasks (plan a trip, outline a post, summarize notes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 3 — Making it useful&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; improve instructions without touching code&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; save and reuse your setup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module 4 — Safety and limits&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; what not to paste into tools&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; when to ask a human for help&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Next step&lt;/h2&gt;
+&lt;p&gt;Open the &lt;strong&gt;featured tutorial&lt;/strong&gt; on the Tutorials hub — &lt;strong&gt;Build Your First AI Agent (2 Free Paths)&lt;/strong&gt; — and use &lt;strong&gt;Part A (no-code)&lt;/strong&gt; as the technical spine while this lane grows richer stories and visuals around it.&lt;/p&gt;</content><category term="Tutorial"/><category term="[Beginner"/><category term="No-Code"/><category term="Ollama"/><category term="Flowise]"/></entry><entry><title>Tutorial - Build Your First AI Agent (2 Free Paths)</title><link href="en/tutorial-build-your-first-ai-agent/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-build-your-first-ai-agent/</id><summary type="html">&lt;p&gt;Two free paths to the same outcome—no-code (Flowise + Ollama) and code (Python + Ollama)—so you see that an agent is the system around the model, not the model alone.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Tutorial: Build Your First AI Agent (2 Free Paths)&lt;/h1&gt;
+&lt;h2&gt;What you will build&lt;/h2&gt;
+&lt;p&gt;You will build a simple AI agent that can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Take a task from the user&lt;/li&gt;
+&lt;li&gt;Think about it step by step&lt;/li&gt;
+&lt;li&gt;Produce structured output&lt;/li&gt;
+&lt;li&gt;(Optional) keep simple memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You will build the &lt;strong&gt;same idea&lt;/strong&gt; in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;No-code&lt;/strong&gt; — Flowise + Ollama  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt; — Python + Ollama  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Both paths lead to a working first agent.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;Copy Commands&lt;/h1&gt;
+&lt;p&gt;Use these command snippets directly.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Ollama model&lt;/span&gt;
+ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Check Node.js&lt;/span&gt;
+node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Start Flowise&lt;/span&gt;
+npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Python deps&lt;/span&gt;
+pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1&gt;PART A — No-Code AI Agent (Flowise + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Best for beginners, non-technical users, and fast understanding.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;STEP 1 — Install Ollama (Local AI Model)&lt;/h2&gt;
+&lt;p&gt;Go to &lt;code&gt;https://ollama.com&lt;/code&gt;, install it, then run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 2 — Install Node.js&lt;/h2&gt;
+&lt;p&gt;Download and install the LTS version from &lt;code&gt;https://nodejs.org&lt;/code&gt;, then verify:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;node&lt;span class="w"&gt; &lt;/span&gt;-v
+npm&lt;span class="w"&gt; &lt;/span&gt;-v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 3 — Install Flowise&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;npx&lt;span class="w"&gt; &lt;/span&gt;flowise&lt;span class="w"&gt; &lt;/span&gt;start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Open: &lt;code&gt;http://localhost:3000&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;STEP 4 — Create Your First Flow&lt;/h2&gt;
+&lt;p&gt;In Flowise, create a new chat flow and add:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;User Input&lt;/li&gt;
+&lt;li&gt;Prompt Template&lt;/li&gt;
+&lt;li&gt;ChatOllama&lt;/li&gt;
+&lt;li&gt;Output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;STEP 5 — Add Chat Model Node&lt;/h2&gt;
+&lt;p&gt;Use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base URL: &lt;code&gt;http://localhost:11434&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Model: &lt;code&gt;llama3.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;STEP 6 — Add Prompt Template&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+Break tasks into steps and respond clearly.
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 7 — Connect the System&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;User Input → Prompt Template → ChatOllama → Output
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 8 — Test Your Agent&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Plan a simple website structure for a coffee shop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 9 — Improve Structure&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;You are an AI Agent.
+
+Follow this structure:
+1. Understand the task
+2. Break it into steps
+3. Provide a final structured answer
+
+Task: {input}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 10 — Add System Thinking Instruction&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Always think step-by-step before answering.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 11 — Save Your Flow&lt;/h2&gt;
+&lt;p&gt;Save as &lt;code&gt;My First AI Agent&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;STEP 12 — What You Built&lt;/h2&gt;
+&lt;p&gt;You built a controlled reasoning pipeline, not just a chatbot.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;PART B — Code-Based AI Agent (Python + Ollama)&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Best for developers who want to understand the internals.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;STEP 1 — Install Python&lt;/h2&gt;
+&lt;p&gt;Install from &lt;code&gt;https://python.org&lt;/code&gt;, then verify:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python&lt;span class="w"&gt; &lt;/span&gt;--version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 2 — Install Ollama&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ollama&lt;span class="w"&gt; &lt;/span&gt;run&lt;span class="w"&gt; &lt;/span&gt;llama3.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 3 — Install Python Dependency&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;requests
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 4 — Create Project File&lt;/h2&gt;
+&lt;p&gt;Create &lt;code&gt;agent.py&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;STEP 5 — Basic AI Connection&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+
+&lt;span class="n"&gt;MODEL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;llama3.1&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://localhost:11434/api/generate&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;URL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;model&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;MODEL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;prompt&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;stream&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 6 — Create Your Agent Logic&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Step 1: Understand the task&lt;/span&gt;
+&lt;span class="s2"&gt;Step 2: Break it into steps&lt;/span&gt;
+&lt;span class="s2"&gt;Step 3: Provide a structured solution&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 7 — Run Your Agent&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Design a simple login system&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 8 — Add Simple Memory (Optional)&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;memory&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+    &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;You are an AI Agent.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Memory:&lt;/span&gt;
+&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+
+&lt;span class="s2"&gt;Task: &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ask_ai&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prompt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;memory&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 9 — Test Multiple Calls&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Create a to-do app&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Now improve it&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;STEP 10 — What Changed?&lt;/h2&gt;
+&lt;p&gt;The agent now maintains context across requests.&lt;/p&gt;
+&lt;h2&gt;STEP 11 — Why This Is an Agent&lt;/h2&gt;
+&lt;p&gt;It receives input, runs logic, maintains memory, and returns structured output.&lt;/p&gt;
+&lt;h2&gt;STEP 12 — Final insight&lt;/h2&gt;
+&lt;p&gt;An AI agent is not only the model; it is the &lt;strong&gt;system&lt;/strong&gt; around the model.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;You built:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;no-code&lt;/strong&gt; agent (Flowise + Ollama)&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;code&lt;/strong&gt; agent (Python + Ollama)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Same principle:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI ≠ model — AI = system&lt;/strong&gt; (the orchestration, prompts, tools, and memory around the model).&lt;/p&gt;</content><category term="Tutorial"/><category term="[Open-Source"/><category term="API"/><category term="Cloude"/><category term="OpenAI"/><category term="ChatGPT]"/></entry><entry><title>IT Practitioner Lane — First Automation Agent (Low Code)</title><link href="en/tutorial-it-practitioner-first-automation/" rel="alternate"/><published>2026-04-09T00:00:00+02:00</published><updated>2026-04-09T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-09:en/tutorial-it-practitioner-first-automation/</id><summary type="html">&lt;p&gt;Dummy lane for IT operators—integrations, runbooks, and light scripting. Full IT-style tutorials will replace this scaffold.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What this lane is for&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;IT Practitioner Lane&lt;/strong&gt; targets people with &lt;strong&gt;IT experience&lt;/strong&gt; (networks, SaaS admin, tickets, incidents) who are comfortable with &lt;strong&gt;low coding&lt;/strong&gt;—scripts, APIs, and config—not full product engineering.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; placeholder content. You will add IT-ops style tutorials here (runbooks, checklists, and integration patterns).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Outcomes (draft)&lt;/h2&gt;
+&lt;p&gt;Future tutorials here should let readers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wire an agent to &lt;strong&gt;internal tools&lt;/strong&gt; safely (read-only first)&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;API keys and env vars&lt;/strong&gt; without leaking them in tickets&lt;/li&gt;
+&lt;li&gt;Sketch a &lt;strong&gt;runbook&lt;/strong&gt;: trigger → agent step → human approval → log&lt;/li&gt;
+&lt;li&gt;Measure &lt;strong&gt;cost and failure modes&lt;/strong&gt; like any other service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Runbook skeleton (dummy)&lt;/h2&gt;
+&lt;h3&gt;R1 — Environment&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; approved model endpoint (local vs. vendor)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; network allowlists and DNS checks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R2 — Identity and secrets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; service account vs. personal tokens&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; rotation and vault storage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R3 — First automation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; “watch folder / webhook → agent summarizes → posts to Slack”&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; dry-run mode and rollback&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;R4 — Operations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; logging, rate limits, and alerting&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Placeholder:&lt;/em&gt; incident response when the agent loops or hallucinates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Next step&lt;/h2&gt;
+&lt;p&gt;Pair this lane with the &lt;strong&gt;code path&lt;/strong&gt; in &lt;strong&gt;Build Your First AI Agent (2 Free Paths)&lt;/strong&gt; (Python + Ollama), then extend into your real stack (ticketing, CMDB, cloud CLIs) with the same discipline you use for any production integration.&lt;/p&gt;</content><category term="Tutorial"/><category term="[IT"/><category term="Automation"/><category term="APIs"/><category term="Ops]"/></entry></feed>

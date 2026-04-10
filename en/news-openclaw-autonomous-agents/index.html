@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+"OpenClaw and the rise of autonomous AI agents" -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>A new wave of systems is pushing from “chat AI” toward agents that plan, delegate, and act—raising both opportunity and operational risk.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Skip to content    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/en/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — home">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Main">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/news/">News</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tutorials/">Tutorials</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/agent-types-proposition/">Agent Types</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tags/">Tags</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/get-the-free-version-of-the-book/">Free Book</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">Book site</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/en/news-openclaw-autonomous-agents/">EN</a>
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/es/news-openclaw-autonomous-agents/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/en/news-openclaw-autonomous-agents/">EN</a>
+            <a class="rounded-md px-2 py-1 " href="/es/news-openclaw-autonomous-agents/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Sections">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/news/">News</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/tutorials/">Tutorials</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/agent-types-proposition/">Types</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+
+  <div class="max-w-3xl">
+    <div class="mb-6">
+      <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/en/">
+        ← Back to EN      </a>
+    </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+        "OpenClaw and the rise of autonomous AI agents"
+      </h1>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          News
+        </span>
+        <a href="/category/news/" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium hover:underline underline-offset-4">
+          News
+        </a>
+
+
+          <a href="/tag/agents/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Agents
+          </a>
+          <a href="/tag/autonomy/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Autonomy
+          </a>
+          <a href="/tag/industry/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Industry
+          </a>
+    </div>
+
+
+      <figure class="mt-6 overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/70">
+        <img src="https://picsum.photos/seed/openclaw-agents-2026/1600/900" alt=""OpenClaw and the rise of autonomous AI agents"" class="h-auto w-full object-cover" loading="eager" />
+        <figcaption class="border-t border-slate-200/70 bg-slate-50 px-4 py-2 text-xs text-slate-600 dark:border-slate-800/70 dark:bg-slate-900/60 dark:text-slate-300">
+Visual context for this news story.        </figcaption>
+      </figure>
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md ">
+      <h2>What is happening</h2>
+<p>A new class of systems—often discussed under names like <strong>OpenClaw</strong> in the broader agent conversation—is highlighting <strong>autonomous agents</strong>: software that can <strong>plan tasks</strong>, <strong>spawn sub-agents</strong>, and <strong>execute actions</strong> through apps, browsers, or APIs with less step-by-step human steering than classic chat.</p>
+<h2>Why it matters</h2>
+<ul>
+<li>The product story is shifting from <strong>answering questions</strong> to <strong>doing work end-to-end</strong></li>
+<li>Large vendors are racing toward similar <strong>orchestrated agent</strong> stacks</li>
+<li>Over time this could become a <strong>new interaction layer</strong> on top of (or beside) traditional apps</li>
+</ul>
+<h2>Concerns (still real)</h2>
+<ul>
+<li><strong>Security</strong> — broader access surfaces and harder-to-audit behavior</li>
+<li><strong>Cost</strong> — autonomous loops burn tokens and infrastructure</li>
+<li><strong>Complexity</strong> — still difficult to run safely for non-experts</li>
+</ul>
+<h2>Takeaway</h2>
+<p>Treat autonomous agents like <strong>new services in your architecture</strong>: they need boundaries, monitoring, and human oversight—not just a clever prompt.</p>
+    </div>
+
+      <section class="mt-10 rounded-2xl border border-slate-200/70 bg-white p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">More in news</p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <a href="/en/news-meta-muse-spark-multi-agent/" class="group block overflow-hidden rounded-xl border border-slate-200/70 bg-slate-50 dark:border-slate-800/70 dark:bg-slate-900/60">
+                <img src="https://picsum.photos/seed/meta-muse-spark-2026/1600/900" alt="" class="h-32 w-full object-cover" loading="lazy" />
+                <p class="p-3 text-sm font-medium group-hover:underline">"Meta Muse Spark — multi-agent coordination in the spotlight"</p>
+              </a>
+              <a href="/en/claude-ai-leak-what-happened-and-why-it-matters/" class="group block overflow-hidden rounded-xl border border-slate-200/70 bg-slate-50 dark:border-slate-800/70 dark:bg-slate-900/60">
+                <img src="https://picsum.photos/seed/claude-leak-main/1600/900" alt="" class="h-32 w-full object-cover" loading="lazy" />
+                <p class="p-3 text-sm font-medium group-hover:underline">The Claude AI Leak: What Happened and Why It Matters</p>
+              </a>
+        </div>
+      </section>
+  </div>
+
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/en/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/en/news/">News</a>
+            <a class="hover:underline underline-offset-4" href="/en/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/en/tutorials/">Tutorials</a>
+            <a class="hover:underline underline-offset-4" href="/en/agent-types-proposition/">Agent Types</a>
+            <a class="hover:underline underline-offset-4" href="/en/tags/">Tags</a>
+            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free book</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/news-openclaw-autonomous-agents/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/news-openclaw-autonomous-agents/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

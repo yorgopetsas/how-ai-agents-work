@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>How AI Agents Work - News</title><link href="/" rel="alternate"/><link href="feeds/news.atom.xml" rel="self"/><id>/</id><updated>2026-04-10T00:00:00+02:00</updated><entry><title>"Meta Muse Spark — multi-agent coordination in the spotlight"</title><link href="en/news-meta-muse-spark-multi-agent/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/news-meta-muse-spark-multi-agent/</id><summary type="html">&lt;p&gt;Meta’s Muse Spark narrative underscores multi-agent coordination and “team-like” AI behavior—another step toward action-oriented systems.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Announcement angle&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Meta&lt;/strong&gt; has drawn attention with &lt;strong&gt;Muse Spark&lt;/strong&gt;, positioning it as a model that can lean on &lt;strong&gt;multi-agent style coordination&lt;/strong&gt;—including a &lt;strong&gt;contemplation-style&lt;/strong&gt; mode where several agent-like components collaborate before answering.&lt;/p&gt;
+&lt;h2&gt;What vendors claim it helps with&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Harder reasoning&lt;/strong&gt; tasks split across roles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Domain assistance&lt;/strong&gt; (e.g. health-adjacent guidance in product storytelling)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shopping and planning&lt;/strong&gt; flows that feel more like a &lt;strong&gt;team&lt;/strong&gt; than a single chat line&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Market read&lt;/h2&gt;
+&lt;p&gt;Reactions underline appetite for &lt;strong&gt;systems that plan and delegate&lt;/strong&gt;, not only generate text—another brick in the move from chatbots to &lt;strong&gt;action pipelines&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;So what for builders?&lt;/h2&gt;
+&lt;p&gt;Multi-agent demos are easy; &lt;strong&gt;reliable multi-agent production&lt;/strong&gt; is not. The engineering lesson stays the same: define &lt;strong&gt;interfaces&lt;/strong&gt;, &lt;strong&gt;timeouts&lt;/strong&gt;, &lt;strong&gt;evaluation&lt;/strong&gt;, and &lt;strong&gt;human checkpoints&lt;/strong&gt; before scaling autonomy.&lt;/p&gt;</content><category term="News"/><category term="[Meta"/><category term="Multi-Agent"/><category term="Models]"/></entry><entry><title>"OpenClaw and the rise of autonomous AI agents"</title><link href="en/news-openclaw-autonomous-agents/" rel="alternate"/><published>2026-04-10T00:00:00+02:00</published><updated>2026-04-10T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-10:en/news-openclaw-autonomous-agents/</id><summary type="html">&lt;p&gt;A new wave of systems is pushing from “chat AI” toward agents that plan, delegate, and act—raising both opportunity and operational risk.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;What is happening&lt;/h2&gt;
+&lt;p&gt;A new class of systems—often discussed under names like &lt;strong&gt;OpenClaw&lt;/strong&gt; in the broader agent conversation—is highlighting &lt;strong&gt;autonomous agents&lt;/strong&gt;: software that can &lt;strong&gt;plan tasks&lt;/strong&gt;, &lt;strong&gt;spawn sub-agents&lt;/strong&gt;, and &lt;strong&gt;execute actions&lt;/strong&gt; through apps, browsers, or APIs with less step-by-step human steering than classic chat.&lt;/p&gt;
+&lt;h2&gt;Why it matters&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The product story is shifting from &lt;strong&gt;answering questions&lt;/strong&gt; to &lt;strong&gt;doing work end-to-end&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Large vendors are racing toward similar &lt;strong&gt;orchestrated agent&lt;/strong&gt; stacks&lt;/li&gt;
+&lt;li&gt;Over time this could become a &lt;strong&gt;new interaction layer&lt;/strong&gt; on top of (or beside) traditional apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Concerns (still real)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Security&lt;/strong&gt; — broader access surfaces and harder-to-audit behavior&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost&lt;/strong&gt; — autonomous loops burn tokens and infrastructure&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Complexity&lt;/strong&gt; — still difficult to run safely for non-experts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Takeaway&lt;/h2&gt;
+&lt;p&gt;Treat autonomous agents like &lt;strong&gt;new services in your architecture&lt;/strong&gt;: they need boundaries, monitoring, and human oversight—not just a clever prompt.&lt;/p&gt;</content><category term="News"/><category term="[Agents"/><category term="Autonomy"/><category term="Industry]"/></entry><entry><title>The Claude AI Leak: What Happened and Why It Matters</title><link href="en/claude-ai-leak-what-happened-and-why-it-matters/" rel="alternate"/><published>2026-04-08T00:00:00+02:00</published><updated>2026-04-08T00:00:00+02:00</updated><author><name>EdelConnect</name></author><id>tag:None,2026-04-08:en/claude-ai-leak-what-happened-and-why-it-matters/</id><summary type="html">&lt;p&gt;Anthropic's 2026 leak exposed system-level AI engineering details and accelerated debate on security, governance, and operational risk.&lt;/p&gt;</summary><content type="html">&lt;h2&gt;1) General Overview&lt;/h2&gt;
+&lt;p&gt;In late March 2026, AI company Anthropic experienced one of the most significant leaks in the artificial intelligence industry to date. Due to a packaging error, more than 500,000 lines of source code from its AI coding assistant, Claude Code, were accidentally exposed through a public npm release.&lt;/p&gt;
+&lt;p&gt;The leak quickly spread across platforms like GitHub, where developers mirrored and analyzed the code before the company could contain it. Anthropic later confirmed the incident was caused by human error rather than a cyberattack, and no user data was compromised.&lt;/p&gt;
+&lt;p&gt;At the same time, separate disclosures and leaks around a powerful internal model—Claude Mythos—raised even deeper concerns. This model demonstrated the ability to autonomously identify and exploit software vulnerabilities, leading Anthropic to restrict its release due to potential misuse.&lt;/p&gt;
+&lt;p&gt;Together, these events have triggered intense debate about AI transparency, security risks, and the future of software development.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Security and AI systems newsroom visual" src="https://picsum.photos/seed/claude-leak-security/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;2) In-Depth Analysis: What the Leak Revealed&lt;/h2&gt;
+&lt;h3&gt;2.1 The Real Value Was Not the Model, But the System&lt;/h3&gt;
+&lt;p&gt;One of the biggest takeaways from the leak is that modern AI power lies less in the model itself and more in the surrounding system architecture.&lt;/p&gt;
+&lt;p&gt;The exposed code revealed:&lt;/p&gt;
+&lt;p&gt;Full system prompts (how the AI is instructed internally)
+Tool orchestration logic (how the AI uses external tools)
+Memory handling and task execution strategies&lt;/p&gt;
+&lt;p&gt;This confirms a growing industry trend: AI agents are systems, not just models.&lt;/p&gt;
+&lt;h3&gt;2.2 Prompt Engineering Is More Important Than Expected&lt;/h3&gt;
+&lt;p&gt;The leak showed that Claude Code’s behavior is heavily shaped by carefully designed system prompts. For example:&lt;/p&gt;
+&lt;p&gt;It can execute tasks in parallel—but only if prompted correctly
+It defaults to safer, slower execution when instructions are ambiguous&lt;/p&gt;
+&lt;p&gt;This highlights that:&lt;/p&gt;
+&lt;p&gt;The difference between average and expert AI usage is often how you prompt it, not which model you use.&lt;/p&gt;
+&lt;h3&gt;2.3 AI Development Still Has Basic Security Weaknesses&lt;/h3&gt;
+&lt;p&gt;Ironically, the leak itself exposed traditional software engineering failures, not advanced AI flaws:&lt;/p&gt;
+&lt;p&gt;Misconfigured build pipelines
+Accidental inclusion of debug artifacts (.map files)
+Lack of pre-release validation checks&lt;/p&gt;
+&lt;p&gt;Research following the incident suggests that current security tools are not designed for AI-generated or AI-assisted codebases, leaving new blind spots.&lt;/p&gt;
+&lt;h3&gt;2.4 The Bigger Risk: AI That Can Hack&lt;/h3&gt;
+&lt;p&gt;Separate from the code leak, the Claude Mythos revelations may be even more important.&lt;/p&gt;
+&lt;p&gt;Reports indicate the model can:&lt;/p&gt;
+&lt;p&gt;Discover thousands of zero-day vulnerabilities
+Generate real-world exploits automatically
+Operate with minimal human input&lt;/p&gt;
+&lt;p&gt;This represents a shift from AI as a productivity tool to AI as a potential offensive cybersecurity actor.&lt;/p&gt;
+&lt;h3&gt;2.5 Competitive and Geopolitical Implications&lt;/h3&gt;
+&lt;p&gt;The leak also had strategic consequences:&lt;/p&gt;
+&lt;p&gt;Competitors gained insight into Anthropic’s architecture
+Developers worldwide began reconstructing and experimenting with the system
+Financial markets reacted negatively to the disruptive potential of advanced AI&lt;/p&gt;
+&lt;p&gt;In short, the leak accelerated knowledge diffusion across the AI ecosystem.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Engineering operations and AI governance visual" src="https://picsum.photos/seed/ai-governance-ops/1200/680" /&gt;&lt;/p&gt;
+&lt;h2&gt;3) Practical Conclusions: What You Should Take Away&lt;/h2&gt;
+&lt;h3&gt;3.1 For Developers&lt;/h3&gt;
+&lt;p&gt;Focus on system design, not just models
+Tools, prompts, and workflows matter more than raw AI capability.
+Write better prompts, not just better code
+Prompt clarity directly impacts performance and efficiency.
+Audit your build pipelines
+The biggest risks are still simple mistakes.&lt;/p&gt;
+&lt;h3&gt;3.2 For Companies&lt;/h3&gt;
+&lt;p&gt;Treat AI systems as security-critical infrastructure
+AI is no longer just a feature—it can expose or exploit vulnerabilities.
+Implement pre-release safeguards
+Especially for packaging, dependencies, and artifacts.
+Prepare for AI-powered cybersecurity threats
+Defensive strategies must evolve quickly.&lt;/p&gt;
+&lt;h3&gt;3.3 For the Industry&lt;/h3&gt;
+&lt;p&gt;AI transparency is increasing—intentionally or not
+Leaks are accelerating collective understanding.
+Regulation pressure will grow
+Especially for models capable of autonomous exploitation.
+The real race is shifting
+From “who has the best model” to
+→ “who builds the best AI system around it”&lt;/p&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;The Claude leak is more than just a technical mishap—it’s a turning point in how we understand AI systems.&lt;/p&gt;
+&lt;p&gt;It exposed not only the inner workings of one of the most advanced AI tools, but also the fragility of current development practices and the immense power of next-generation models.&lt;/p&gt;
+&lt;p&gt;If anything, this incident makes one thing clear:&lt;/p&gt;
+&lt;p&gt;The future of AI won’t just be built—it will need to be secured, governed, and deeply understood.&lt;/p&gt;</content><category term="News"/><category term="[OpenAI"/><category term="ChatGPT"/><category term="API"/><category term="Cloude]"/></entry></feed>

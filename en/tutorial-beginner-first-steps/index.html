@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>
+Beginner Lane — Your First AI Agent (No Technical Background) -       How AI Agents Work
+    </title>
+
+    <meta name="description" content="<p>Dummy lane for non-technical readers—plain language, visual workflows, and no coding assumptions. Real lessons will replace this outline.</p>" />
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPPPDS52YR"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZPPPDS52YR');
+      </script>
+
+    <script>
+      tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {}
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDark = saved ? saved === "dark" : prefersDark;
+        if (shouldUseDark) root.classList.add("dark");
+
+        window.__toggleTheme = function () {
+          root.classList.toggle("dark");
+          const isDark = root.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        };
+      })();
+    </script>
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
+Skip to content    </a>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-5xl px-4 py-3">
+        <div class="flex items-center justify-between gap-3">
+        <a href="/en/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="How AI Agents Work — home">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+            AI
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
+            <div class="font-semibold leading-tight truncate">How AI Agents Work</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="Main">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/news/">News</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tutorials/">Tutorials</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/agent-types-proposition/">Agent Types</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tags/">Tags</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/get-the-free-version-of-the-book/">Free Book</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">Book site</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800 font-medium" href="/en/tutorial-beginner-first-steps/">EN</a>
+              <a class="rounded-md px-2 py-1 opacity-70 hover:opacity-100" href="/es/tutorial-beginner-first-steps/">ES</a>
+            </span>
+          </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 bg-white dark:bg-slate-800" href="/en/tutorial-beginner-first-steps/">EN</a>
+            <a class="rounded-md px-2 py-1 " href="/es/tutorial-beginner-first-steps/">ES</a>
+          </div>
+        </div>
+        </div>
+
+        <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="Sections">
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/news/">News</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/blog/">Blog</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/tutorials/">Tutorials</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/en/agent-types-proposition/">Types</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="mx-auto max-w-5xl px-4 py-10">
+
+  <div class="max-w-3xl">
+    <div class="mb-6">
+      <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/en/">
+        ← Back to EN      </a>
+    </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+        Beginner Lane — Your First AI Agent (No Technical Background)
+      </h1>
+
+    <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          Tutorial
+        </span>
+        <a href="/category/tutorial/" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium hover:underline underline-offset-4">
+          Tutorial
+        </a>
+
+        <span class="px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200 text-xs font-medium">
+Difficulty: beginner
+        </span>
+
+          <a href="/tag/beginner/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Beginner
+          </a>
+          <a href="/tag/no-code/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            No-Code
+          </a>
+          <a href="/tag/ollama/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Ollama
+          </a>
+          <a href="/tag/flowise/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
+            Flowise
+          </a>
+    </div>
+
+        <div class="mt-5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 text-sm text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200">
+Beginner lane: no technical background required.        </div>
+
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md ">
+      <h2>What this lane is for</h2>
+<p><strong>Beginner Lane</strong> is for people with <strong>no technical background</strong> who still want to understand what an “AI agent” feels like in practice.</p>
+<blockquote>
+<p><strong>Status:</strong> placeholder content. You will add non-technical tutorials here (screenshots, checklists, and copy-paste steps only).</p>
+</blockquote>
+<hr />
+<h2>Learning goals (draft)</h2>
+<p>When this lane is filled in, readers should be able to:</p>
+<ul>
+<li>Explain in plain words what a <strong>task</strong> is for an agent vs. a normal chat</li>
+<li>Follow a <strong>visual workflow</strong> (e.g. boxes and arrows) without reading code</li>
+<li>Run a <strong>local model</strong> using friendly installers (concept: “AI on your computer”)</li>
+<li>Tell the difference between <strong>one-shot answers</strong> and <strong>multi-step</strong> behavior</li>
+</ul>
+<hr />
+<h2>Module outline (dummy)</h2>
+<h3>Module 1 — Mindset</h3>
+<ul>
+<li>What is an agent in one sentence?</li>
+<li>Why “step by step” matters more than “smarter model”</li>
+</ul>
+<h3>Module 2 — Your first flow (no code)</h3>
+<ul>
+<li><em>Placeholder:</em> connect a prompt block → a local model → an answer</li>
+<li><em>Placeholder:</em> try three example tasks (plan a trip, outline a post, summarize notes)</li>
+</ul>
+<h3>Module 3 — Making it useful</h3>
+<ul>
+<li><em>Placeholder:</em> improve instructions without touching code</li>
+<li><em>Placeholder:</em> save and reuse your setup</li>
+</ul>
+<h3>Module 4 — Safety and limits</h3>
+<ul>
+<li><em>Placeholder:</em> what not to paste into tools</li>
+<li><em>Placeholder:</em> when to ask a human for help</li>
+</ul>
+<hr />
+<h2>Next step</h2>
+<p>Open the <strong>featured tutorial</strong> on the Tutorials hub — <strong>Build Your First AI Agent (2 Free Paths)</strong> — and use <strong>Part A (no-code)</strong> as the technical spine while this lane grows richer stories and visuals around it.</p>
+    </div>
+
+  </div>
+
+    </main>
+
+    <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
+      <div class="border-t border-slate-200/70 pt-6">
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/en/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 How AI Agents Work</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/en/news/">News</a>
+            <a class="hover:underline underline-offset-4" href="/en/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/en/tutorials/">Tutorials</a>
+            <a class="hover:underline underline-offset-4" href="/en/agent-types-proposition/">Agent Types</a>
+            <a class="hover:underline underline-offset-4" href="/en/tags/">Tags</a>
+            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free book</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/tutorial-beginner-first-steps/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/tutorial-beginner-first-steps/">Español</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
