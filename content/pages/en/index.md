@@ -10,7 +10,7 @@ summary: Learn the theory behind agent systems and build intuition for local, op
 
 ## What this site is
 
-This site is a bilingual companion to *theaiagentsbook.com*. It contains structured fragments (chapters) that you can read as standalone articles, with clear URLs and chapter roadmap.
+This site is a bilingual companion to *theaiagentsbook.com*. It contains structured fragments (chapters) that you can read as standalone articles, with clear URLs and a single chapter index.
 
 ### The core promise
 
@@ -18,17 +18,8 @@ This site is a bilingual companion to *theaiagentsbook.com*. It contains structu
 - Show how components fit together (models, loop, tools, memory)
 - Keep everything reproducible on your own machine / VM
 
-## Chapters roadmap
+## Chapters
 
-- [Chapter 0 — Introduction](/en/chapter-00-introduction/) (Not written yet)
-- [Chapter 1 — Foundations](/en/chapter-01-foundations/) (Not written yet)
-- [Chapter 2 — How Models Work](/en/chapter-02-how-models-work/) (Deep)
-- [Chapter 3 — System Architecture](/en/chapter-03-system-architecture/) (Not written yet)
-- [Chapter 4 — Environment & Setup](/en/chapter-04-environment-setup/) (Not written yet)
-- [Chapter 5 — The Agent Loop](/en/chapter-05-agent-loop/) (Deep)
-- [Chapter 6 — Tool Systems](/en/chapter-06-tool-systems/) (Partially deep)
-- [Chapter 7 — Memory & Retrieval](/en/chapter-07-memory-retrieval/) (Deep)
-- [Chapter 8 — Planning & Decomposition](/en/chapter-08-planning-decomposition/) (Deep, recently rewritten)
-- [Chapter 9 — Multi-Agent Systems](/en/chapter-09-multi-agent-systems/) (Not written yet)
-- [Chapter 10 — Advanced Systems & Production](/en/chapter-10-advanced-systems-production/) (Not written yet)
+**[Open the chapter index (0–10) →](/en/chapters/)**
 
+All numbered chapter links are maintained on that page from the same articles Pelican publishes, so you always get working URLs for the current language.
