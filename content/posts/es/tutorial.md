@@ -7,7 +7,7 @@ section: tutorial
 difficulty: dev-no-ai
 category: Tutorial
 tags: [Open-Source, API, Cloude, OpenAI, ChatGPT]
-summary: Tutorial combinado sin código y con código para desarrolladores que empiezan con agentes de IA.
+summary: Dos rutas gratuitas al mismo resultado — sin código (Flowise + Ollama) y con código (Python + Ollama) — para ver que un agente es el sistema alrededor del modelo, no solo el modelo.
 status: published
 template: tutorial_md
 ---
@@ -16,14 +16,19 @@ template: tutorial_md
 
 ## Qué vas a construir
 
-Un agente de IA sencillo que:
+Construirás un agente de IA sencillo que pueda:
 
-- Recibe una tarea del usuario
-- La piensa paso a paso
-- Produce un resultado estructurado
-- (Opcional) mantiene memoria básica
+- Recibir una tarea del usuario
+- Pensarla paso a paso
+- Producir una salida estructurada
+- (Opcional) mantener memoria simple
 
-Sin marcos ni complejidad innecesaria —solo la idea central del agente.
+Construirás la **misma idea** de dos formas:
+
+- **Sin código** — Flowise + Ollama  
+- **Con código** — Python + Ollama  
+
+Ambas rutas llevan a un primer agente funcional.
 
 ---
 
@@ -255,4 +260,17 @@ Recibe entrada, ejecuta lógica, mantiene memoria y devuelve salida estructurada
 
 ## PASO 12 — Idea final
 
-Un agente de IA no es solo el modelo; es el sistema alrededor del modelo.
+Un agente de IA no es solo el modelo; es el **sistema** alrededor del modelo.
+
+---
+
+## Resumen
+
+Has construido:
+
+- Un agente **sin código** (Flowise + Ollama)
+- Un agente **con código** (Python + Ollama)
+
+Misma idea:
+
+**IA ≠ modelo — IA = sistema** (la orquestación, prompts, herramientas y memoria alrededor del modelo).

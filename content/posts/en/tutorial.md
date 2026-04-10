@@ -7,7 +7,7 @@ section: tutorial
 difficulty: dev-no-ai
 category: Tutorial
 tags: [Open-Source, API, Cloude, OpenAI, ChatGPT]
-summary: A combined no-code and code-based tutorial path for developers entering AI agents.
+summary: Two free paths to the same outcome—no-code (Flowise + Ollama) and code (Python + Ollama)—so you see that an agent is the system around the model, not the model alone.
 status: published
 template: tutorial_md
 ---
@@ -15,13 +15,20 @@ template: tutorial_md
 # Tutorial: Build Your First AI Agent (2 Free Paths)
 
 ## What you will build
-A simple AI Agent that:
-- Takes a task from the user
-- Thinks about it step by step
-- Produces a structured result
-- (Optional) keeps basic memory
 
-No frameworks, no complexity—just the core idea of an agent.
+You will build a simple AI agent that can:
+
+- Take a task from the user
+- Think about it step by step
+- Produce structured output
+- (Optional) keep simple memory
+
+You will build the **same idea** in two ways:
+
+- **No-code** — Flowise + Ollama  
+- **Code** — Python + Ollama  
+
+Both paths lead to a working first agent.
 
 ---
 
@@ -251,6 +258,19 @@ The agent now maintains context across requests.
 
 It receives input, runs logic, maintains memory, and returns structured output.
 
-## STEP 12 — Final Insight
+## STEP 12 — Final insight
 
-An AI agent is not only the model; it is the system around the model.
+An AI agent is not only the model; it is the **system** around the model.
+
+---
+
+## Summary
+
+You built:
+
+- A **no-code** agent (Flowise + Ollama)
+- A **code** agent (Python + Ollama)
+
+Same principle:
+
+**AI ≠ model — AI = system** (the orchestration, prompts, tools, and memory around the model).

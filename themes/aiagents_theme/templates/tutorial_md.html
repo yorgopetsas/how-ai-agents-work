@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% set L = article.lang | default('en') %}
   <article class="mx-auto max-w-4xl">
-    <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/{{ article.lang }}/tutorials/">
-      ← Back to Tutorials
+    <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/{{ L }}/tutorials/">
+      ← {% if L == 'es' %}Volver a tutoriales{% else %}Back to tutorials{% endif %}
     </a>
 
     <h1 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{{ article.title }}</h1>

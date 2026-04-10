@@ -128,16 +128,13 @@
               {% set accent.icon_box = 'border-indigo-300/80 bg-indigo-50 text-indigo-700 dark:border-indigo-800/60 dark:bg-indigo-950/50 dark:text-indigo-300' %}
             {% endif %}
 
-            {# Bento: first row 7+5, middle rows 6+6, last row full-width with centered card #}
+            {# Bento: first row 7+5, remaining rows 6+6 (including multi-agent) #}
             {% set span = 'md:col-span-6' %}
             {% set card_align = '' %}
             {% if outer_idx == 0 %}
               {% set span = 'md:col-span-7' %}
             {% elif outer_idx == 1 %}
               {% set span = 'md:col-span-5' %}
-            {% elif outer_idx == 5 %}
-              {% set span = 'md:col-span-12' %}
-              {% set card_align = 'mx-auto w-full max-w-5xl' %}
             {% endif %}
 
             <a

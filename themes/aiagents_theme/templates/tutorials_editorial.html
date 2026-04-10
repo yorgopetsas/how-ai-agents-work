@@ -14,12 +14,33 @@
       {% endfor %}
     {% endif %}
   {% endfor %}
-  <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/60 md:p-10">
-    <p class="text-xs uppercase tracking-[0.24em] text-pink-500">{% if L == 'es' %}Tutoriales editoriales{% else %}Editorial Tutorials{% endif %}</p>
-    <h1 class="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-5xl">{{ page.title }}</h1>
-    {% if page.summary %}
-      <p class="mt-4 max-w-3xl text-base text-slate-700 dark:text-slate-200">{{ page.summary|striptags }}</p>
-    {% endif %}
+  <section class="relative overflow-hidden rounded-3xl border border-slate-200/70 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 p-6 text-white shadow-xl shadow-indigo-950/30 dark:border-slate-800/70 md:p-10">
+    <div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-16 left-1/4 h-48 w-48 rounded-full bg-amber-500/15 blur-3xl" aria-hidden="true"></div>
+    <div class="relative">
+      <p class="text-xs uppercase tracking-[0.24em] text-emerald-300/90">{% if L == 'es' %}Tutoriales editoriales{% else %}Editorial tutorials{% endif %}</p>
+      <h1 class="mt-3 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">{{ page.title }}</h1>
+      {% if page.summary %}
+        <p class="mt-4 max-w-3xl text-base leading-relaxed text-slate-300">{{ page.summary|striptags }}</p>
+      {% endif %}
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/35 bg-emerald-500/15 px-4 py-2 text-xs font-semibold text-emerald-100">
+          <span class="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
+          {% if L == 'es' %}Ruta A — Sin código (Flowise + Ollama){% else %}Path A — No-code (Flowise + Ollama){% endif %}
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-amber-400/35 bg-amber-500/15 px-4 py-2 text-xs font-semibold text-amber-100">
+          <span class="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true"></span>
+          {% if L == 'es' %}Ruta B — Código (Python + Ollama){% else %}Path B — Code (Python + Ollama){% endif %}
+        </span>
+      </div>
+      <p class="mt-4 max-w-2xl text-sm text-slate-400">
+        {% if L == 'es' %}
+        Misma idea en dos estilos: flujo visual o script mínimo. El tutorial destacado enlaza ambas rutas en una sola guía.
+        {% else %}
+        Same agent idea two ways—visual flow or a minimal script. The featured tutorial links both paths in one guide.
+        {% endif %}
+      </p>
+    </div>
   </section>
 
   {% set ns = namespace(main_tutorial=None) %}
@@ -48,20 +69,29 @@
   {% endfor %}
 
   <section class="mt-6 grid gap-4 md:grid-cols-12">
-    <article class="md:col-span-7 overflow-hidden rounded-2xl border border-slate-200/70 bg-white dark:border-slate-800/70 dark:bg-slate-900/50">
-      <img src="https://picsum.photos/seed/raspberry-pi-tutorial/1200/760" alt="Raspberry setup for first tutorial" class="h-64 w-full object-cover md:h-full" />
+    <article class="relative md:col-span-7 overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-900 dark:border-slate-800/70">
+      <img src="https://picsum.photos/seed/first-ai-agent-dual-path/1200/760" alt="" class="h-64 w-full object-cover opacity-90 md:h-full md:min-h-[280px]" />
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" aria-hidden="true"></div>
+      <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 md:bottom-6 md:left-6 md:right-6">
+        <span class="rounded-full bg-emerald-500/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">{% if L == 'es' %}Sin código{% else %}No-code{% endif %}</span>
+        <span class="rounded-full bg-amber-500/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-950">{% if L == 'es' %}Código{% else %}Code{% endif %}</span>
+      </div>
     </article>
-    <article class="md:col-span-5 rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
-      <p class="text-xs uppercase tracking-wider text-slate-500">{% if L == 'es' %}Tutorial destacado{% else %}Featured Tutorial{% endif %}</p>
+    <article class="flex flex-col justify-center rounded-2xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/50 md:col-span-5">
+      <p class="text-xs uppercase tracking-wider text-indigo-600 dark:text-indigo-400">{% if L == 'es' %}Tutorial destacado · 2 rutas gratuitas{% else %}Featured · 2 free paths{% endif %}</p>
       {% if ns.main_tutorial %}
-        <h2 class="mt-2 text-3xl font-bold tracking-tight">
-          <a class="hover:underline underline-offset-4" href="/{{ ns.main_tutorial.lang }}/{{ ns.main_tutorial.slug }}/">{{ ns.main_tutorial.title }}</a>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
+          <a class="text-slate-900 hover:underline dark:text-white dark:hover:text-indigo-300" href="/{{ ns.main_tutorial.lang }}/{{ ns.main_tutorial.slug }}/">{{ ns.main_tutorial.title }}</a>
         </h2>
         {% if ns.main_tutorial.summary %}
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">{{ ns.main_tutorial.summary|striptags }}</p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{{ ns.main_tutorial.summary|striptags }}</p>
         {% endif %}
+        <a href="/{{ ns.main_tutorial.lang }}/{{ ns.main_tutorial.slug }}/" class="mt-5 inline-flex w-fit items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500">
+          {% if L == 'es' %}Abrir tutorial completo{% else %}Open full tutorial{% endif %}
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
       {% else %}
-        <h2 class="mt-2 text-3xl font-bold tracking-tight">{% if L == 'es' %}Primer tutorial muy pronto{% else %}First tutorial coming soon{% endif %}</h2>
+        <h2 class="mt-2 text-2xl font-bold tracking-tight md:text-3xl">{% if L == 'es' %}Primer tutorial muy pronto{% else %}First tutorial coming soon{% endif %}</h2>
       {% endif %}
     </article>
   </section>

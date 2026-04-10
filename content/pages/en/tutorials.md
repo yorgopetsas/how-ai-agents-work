@@ -2,7 +2,7 @@
 lang: en
 slug: tutorials
 title: AI Agents Tutorials
-summary: Three clear learning lanes by difficulty: beginner, IT practitioner, and developer.
+summary: Featured guide with two free paths (no-code and code), plus three lanes by audience—beginner, IT practitioner, and developer.
 template: tutorials_editorial
 section_key: tutorial
 url: en/tutorials/
