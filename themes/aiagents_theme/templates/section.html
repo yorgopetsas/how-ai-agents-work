@@ -2,6 +2,19 @@
 
 {% block content %}
   {% set L = page.lang | default('en') %}
+  {# Pelican's `articles` is default-lang only; other languages live on `article.translations`. #}
+  {% set lang_articles = namespace(items=[]) %}
+  {% for a in articles %}
+    {% if a.lang == L %}
+      {% set _ = lang_articles.items.append(a) %}
+    {% else %}
+      {% for t in a.translations %}
+        {% if t.lang == L %}
+          {% set _ = lang_articles.items.append(t) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
   <section class="rounded-2xl border border-slate-200/70 bg-white/80 p-6 dark:border-slate-800/70 dark:bg-slate-900/40 md:p-8">
     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ page.title }}</h1>
     {% if page.summary %}
@@ -13,7 +26,7 @@
     {% set beginner_posts = [] %}
     {% set it_posts = [] %}
     {% set dev_posts = [] %}
-    {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+    {% for a in lang_articles.items if a.section == 'tutorial' %}
       {% if a.difficulty == 'beginner' %}
         {% set _ = beginner_posts.append(a) %}
       {% elif a.difficulty == 'it-ops' %}
@@ -71,7 +84,7 @@
     </section>
   {% elif page.section_key == "news" %}
     {% set news_posts = [] %}
-    {% for a in articles if a.lang == page.lang and a.section == 'news' %}
+    {% for a in lang_articles.items if a.section == 'news' %}
       {% set _ = news_posts.append(a) %}
     {% endfor %}
     {% set featured = news_posts[0] if news_posts|length > 0 else None %}
@@ -158,7 +171,7 @@
     </div>
   {% else %}
     <section class="mt-8 grid gap-4">
-      {% for a in articles if a.lang == page.lang and a.section == page.section_key %}
+      {% for a in lang_articles.items if a.section == page.section_key %}
         <article class="rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800/70 dark:bg-slate-900/40">
           <div class="flex flex-wrap items-center gap-2 text-xs">
             {% if a.date %}

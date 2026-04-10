@@ -2,8 +2,20 @@
 
 {% block content %}
   {% set L = page.lang | default('en') %}
+  {% set lang_articles = namespace(items=[]) %}
+  {% for a in articles %}
+    {% if a.lang == L %}
+      {% set _ = lang_articles.items.append(a) %}
+    {% else %}
+      {% for t in a.translations %}
+        {% if t.lang == L %}
+          {% set _ = lang_articles.items.append(t) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
   {% set items = [] %}
-  {% for a in articles if a.lang == page.lang and a.section == 'agent-type' %}
+  {% for a in lang_articles.items if a.section == 'agent-type' %}
     {% set _ = items.append(a) %}
   {% endfor %}
 

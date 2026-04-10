@@ -2,6 +2,18 @@
 
 {% block content %}
   {% set L = page.lang | default('en') %}
+  {% set lang_articles = namespace(items=[]) %}
+  {% for a in articles %}
+    {% if a.lang == L %}
+      {% set _ = lang_articles.items.append(a) %}
+    {% else %}
+      {% for t in a.translations %}
+        {% if t.lang == L %}
+          {% set _ = lang_articles.items.append(t) %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
   <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/60 md:p-10">
     <p class="text-xs uppercase tracking-[0.24em] text-pink-500">{% if L == 'es' %}Tutoriales editoriales{% else %}Editorial Tutorials{% endif %}</p>
     <h1 class="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-5xl">{{ page.title }}</h1>
@@ -11,13 +23,13 @@
   </section>
 
   {% set ns = namespace(main_tutorial=None) %}
-  {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+  {% for a in lang_articles.items if a.section == 'tutorial' %}
     {% if a.slug == 'tutorial-build-your-first-ai-agent' %}
       {% set ns.main_tutorial = a %}
     {% endif %}
   {% endfor %}
   {% if not ns.main_tutorial %}
-    {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+    {% for a in lang_articles.items if a.section == 'tutorial' %}
       {% if loop.first %}
         {% set ns.main_tutorial = a %}
       {% endif %}
@@ -25,7 +37,7 @@
   {% endif %}
 
   {% set lanes = namespace(beginner=None, it_ops=None, dev_no_ai=None) %}
-  {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+  {% for a in lang_articles.items if a.section == 'tutorial' %}
     {% if a.difficulty == 'beginner' and not lanes.beginner %}
       {% set lanes.beginner = a %}
     {% elif a.difficulty == 'it-ops' and not lanes.it_ops %}
