@@ -11,6 +11,17 @@
     </div>
   </section>
 
+  {% if page.content and (page.content|striptags|trim|length) > 0 %}
+    <section id="chapter-roadmap" class="mt-8 rounded-2xl border border-slate-200/70 bg-white/90 p-6 dark:border-slate-800/70 dark:bg-slate-900/50 md:p-8" aria-labelledby="chapter-roadmap-heading">
+      <p id="chapter-roadmap-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400">
+        {% if L == 'es' %}Contenido y capítulos{% else %}Site intro &amp; chapters{% endif %}
+      </p>
+      <div class="prose prose-slate mt-4 max-w-none dark:prose-invert prose-a:text-cyan-700 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-cyan-400">
+        {{ page.content }}
+      </div>
+    </section>
+  {% endif %}
+
   <section class="mt-6 grid gap-4 lg:grid-cols-3">
     <a href="/{{ L }}/news/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-news/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
