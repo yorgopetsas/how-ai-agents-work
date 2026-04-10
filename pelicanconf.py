@@ -38,7 +38,7 @@ CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 
 # Copy Spanish placeholder from ./es to the output (so it appears at /es/).
-STATIC_PATHS = ["es"]
+STATIC_PATHS = ["es", "images"]
 
 # Restrict Pelican content discovery (so static HTML isn't treated as a page/article).
 ARTICLE_PATHS = ["posts"]
