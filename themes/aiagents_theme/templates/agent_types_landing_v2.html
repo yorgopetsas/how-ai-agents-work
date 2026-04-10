@@ -87,32 +87,32 @@
             {% set accent = namespace(
               ring='border-slate-200/80 dark:border-slate-700/80',
               glow='from-slate-500/10 to-transparent',
-              chip='bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200'
+              icon_box='border-slate-300/80 bg-slate-50 text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200'
             ) %}
             {% if 'simple-reflex' in a.slug %}
               {% set accent.ring = 'border-emerald-200/80 dark:border-emerald-900/50' %}
               {% set accent.glow = 'from-emerald-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200' %}
+              {% set accent.icon_box = 'border-emerald-300/80 bg-emerald-50 text-emerald-700 dark:border-emerald-800/60 dark:bg-emerald-950/50 dark:text-emerald-300' %}
             {% elif 'model-based' in a.slug %}
               {% set accent.ring = 'border-cyan-200/80 dark:border-cyan-900/50' %}
               {% set accent.glow = 'from-cyan-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-cyan-500/15 text-cyan-900 dark:text-cyan-200' %}
+              {% set accent.icon_box = 'border-cyan-300/80 bg-cyan-50 text-cyan-700 dark:border-cyan-800/60 dark:bg-cyan-950/50 dark:text-cyan-300' %}
             {% elif 'goal-based' in a.slug %}
               {% set accent.ring = 'border-violet-200/80 dark:border-violet-900/50' %}
               {% set accent.glow = 'from-violet-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-violet-500/15 text-violet-900 dark:text-violet-200' %}
+              {% set accent.icon_box = 'border-violet-300/80 bg-violet-50 text-violet-700 dark:border-violet-800/60 dark:bg-violet-950/50 dark:text-violet-300' %}
             {% elif 'utility-based' in a.slug %}
               {% set accent.ring = 'border-amber-200/80 dark:border-amber-900/50' %}
               {% set accent.glow = 'from-amber-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-amber-500/15 text-amber-900 dark:text-amber-200' %}
+              {% set accent.icon_box = 'border-amber-300/80 bg-amber-50 text-amber-800 dark:border-amber-800/60 dark:bg-amber-950/40 dark:text-amber-300' %}
             {% elif 'learning' in a.slug %}
               {% set accent.ring = 'border-pink-200/80 dark:border-pink-900/50' %}
               {% set accent.glow = 'from-pink-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-pink-500/15 text-pink-900 dark:text-pink-200' %}
+              {% set accent.icon_box = 'border-pink-300/80 bg-pink-50 text-pink-700 dark:border-pink-800/60 dark:bg-pink-950/50 dark:text-pink-300' %}
             {% elif 'multi-agent' in a.slug %}
               {% set accent.ring = 'border-indigo-200/80 dark:border-indigo-900/50' %}
               {% set accent.glow = 'from-indigo-500/20 to-transparent' %}
-              {% set accent.chip = 'bg-indigo-500/15 text-indigo-900 dark:text-indigo-200' %}
+              {% set accent.icon_box = 'border-indigo-300/80 bg-indigo-50 text-indigo-700 dark:border-indigo-800/60 dark:bg-indigo-950/50 dark:text-indigo-300' %}
             {% endif %}
 
             {# Bento: first row 7+5, middle rows 6+6, last row full-width with centered card #}
@@ -133,7 +133,21 @@
             >
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-br {{ accent.glow }} opacity-70" aria-hidden="true"></div>
               <div class="relative flex flex-1 flex-col">
-                <span class="inline-flex w-fit rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider {{ accent.chip }}">Type</span>
+                <div class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border {{ accent.icon_box }}" aria-hidden="true">
+                  {% if 'simple-reflex' in a.slug %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {% elif 'model-based-reflex' in a.slug %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  {% elif 'goal-based' in a.slug %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg>
+                  {% elif 'utility-based' in a.slug %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><path d="M4 7h16M7 12h10M10 17h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                  {% elif 'learning' in a.slug %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><path d="M12 5 4 9l8 4 8-4-8-4ZM4 13l8 4 8-4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                  {% else %}
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none"><path d="M4 8h7v7H4zM13 8h7v7h-7zM8 15h8v5H8z" stroke="currentColor" stroke-width="1.7"/></svg>
+                  {% endif %}
+                </div>
                 <h3 class="mt-4 text-xl font-bold leading-snug text-slate-900 group-hover:text-indigo-700 dark:text-white dark:group-hover:text-indigo-300">
                   {{ a.title|replace('AI Agent Type - ','') }}
                 </h3>
