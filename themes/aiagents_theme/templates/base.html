@@ -73,7 +73,7 @@
 
         <div class="flex items-center gap-2 sm:gap-3">
           <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm" aria-label="{% if P_LANG == 'es' %}Principal{% else %}Main{% endif %}">
-            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/chapters/">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/{{ P_LANG }}/chapters/" rel="noopener noreferrer">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
             <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/news/">{% if P_LANG == 'es' %}Noticias{% else %}News{% endif %}</a>
             <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/blog/">Blog</a>
             <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/tutorials/">{% if P_LANG == 'es' %}Tutoriales{% else %}Tutorials{% endif %}</a>
@@ -95,7 +95,7 @@
 
         {# Full nav is sm+ only above; on small screens show primary links so chapters are not "hidden". #}
         <nav class="mt-3 flex flex-wrap gap-1.5 border-t border-slate-200/70 pt-3 sm:hidden dark:border-slate-800/70" aria-label="{% if P_LANG == 'es' %}Secciones{% else %}Sections{% endif %}">
-          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/{{ P_LANG }}/chapters/">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
+          <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="https://theaiagentsbook.com/{{ P_LANG }}/chapters/" rel="noopener noreferrer">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
           <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/{{ P_LANG }}/news/">{% if P_LANG == 'es' %}Noticias{% else %}News{% endif %}</a>
           <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/{{ P_LANG }}/blog/">Blog</a>
           <a class="rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-medium dark:border-slate-800 bg-slate-50 dark:bg-slate-900" href="/{{ P_LANG }}/tutorials/">{% if P_LANG == 'es' %}Tutoriales{% else %}Tutorials{% endif %}</a>
@@ -115,7 +115,7 @@
             <a href="/{{ P_LANG }}/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 {{ SITENAME }}</a>
           </div>
           <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/chapters/">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/{{ P_LANG }}/chapters/" rel="noopener noreferrer">{% if P_LANG == 'es' %}Capítulos{% else %}Chapters{% endif %}</a>
             <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/news/">{% if P_LANG == 'es' %}Noticias{% else %}News{% endif %}</a>
             <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/blog/">Blog</a>
             <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/tutorials/">{% if P_LANG == 'es' %}Tutoriales{% else %}Tutorials{% endif %}</a>

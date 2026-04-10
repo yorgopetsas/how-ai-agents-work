@@ -20,6 +20,6 @@ This site is a bilingual companion to *theaiagentsbook.com*. It contains structu
 
 ## Chapters
 
-**[Open the chapter index (0–10) →](/en/chapters/)**
+**[Open the chapter index (0–10) on The AI Agents Book →](https://theaiagentsbook.com/en/chapters/)**
 
-All numbered chapter links are maintained on that page from the same articles Pelican publishes, so you always get working URLs for the current language.
+Numbered chapter fragments (0–10) are published on the book site; this companion site focuses on news, blog, tutorials, and agent types.

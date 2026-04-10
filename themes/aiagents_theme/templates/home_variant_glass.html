@@ -9,15 +9,15 @@
       <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{{ page.title if page and page.title else ('Cómo funcionan los agentes de IA' if L == 'es' else 'How AI Agents Work') }}</h1>
       <p class="mt-3 max-w-3xl text-sm text-slate-700 dark:text-slate-200">{{ page.summary|striptags if page and page.summary else ('Capas tipo sala de prensa, tarjetas translúcidas y anclas visuales por sección.' if L == 'es' else 'A layered newsroom with translucent cards, timeline strips, and visual section anchors.') }}</p>
       <div class="relative mt-6 flex flex-wrap gap-3">
-        <a href="/{{ L }}/chapters/" class="inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-400">
-          {% if L == 'es' %}Ver todos los capítulos{% else %}Browse all chapters{% endif %}
+        <a href="https://theaiagentsbook.com/{{ L }}/chapters/" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cyan-500 dark:bg-cyan-500 dark:hover:bg-cyan-400">
+          {% if L == 'es' %}Capítulos en The AI Agents Book{% else %}Chapters on The AI Agents Book{% endif %}
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
         </a>
         <p class="w-full max-w-xl text-xs text-slate-600 dark:text-slate-400 sm:w-auto sm:max-w-md sm:self-center">
           {% if L == 'es' %}
-          Los capítulos viven en una página dedicada con enlaces fiables (no anclas en la home). Abre el índice y elige 0–10.
+          El índice numerado (0–10) está en <strong>theaiagentsbook.com</strong> (sitio del libro). Este sitio se centra en noticias, blog y tutoriales.
           {% else %}
-          Chapters live on a dedicated page with reliable links (not hash anchors on the home). Open the index and pick 0–10.
+          The numbered index (0–10) lives on <strong>theaiagentsbook.com</strong> (the book site). This site focuses on news, blog, and tutorials.
           {% endif %}
         </p>
       </div>

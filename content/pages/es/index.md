@@ -20,6 +20,6 @@ Este sitio es el compañero bilingüe de *theaiagentsbook.com*. Contiene fragmen
 
 ## Capítulos
 
-**[Abrir el índice de capítulos (0–10) →](/es/chapters/)**
+**[Abrir el índice de capítulos (0–10) en The AI Agents Book →](https://theaiagentsbook.com/es/chapters/)**
 
-Los enlaces numerados se mantienen en esa página a partir de los mismos artículos que publica Pelican, así las URLs funcionan siempre en el idioma actual.
+Los fragmentos numerados (0–10) están en el sitio del libro; este sitio compañero se centra en noticias, blog, tutoriales y tipos de agentes.
