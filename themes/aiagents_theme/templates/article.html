@@ -13,26 +13,47 @@
     </h1>
 
     <div class="mt-4 flex flex-wrap items-center gap-2">
-      {% if article.category %}
-        <span class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium">
-          {{ article.category }}
+      {% if article.section %}
+        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
+          {{ article.section|capitalize }}
         </span>
       {% endif %}
+      {% if article.category %}
+        <a href="/category/{{ article.category.slug }}/" class="px-2 py-1 rounded-lg bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs font-medium hover:underline underline-offset-4">
+          {{ article.category }}
+        </a>
+      {% endif %}
 
-      {% if article.chapter_status %}
-        <span class="px-2 py-1 rounded-lg bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 text-xs font-medium">
-          {{ article.chapter_status }}
+      {% if article.difficulty %}
+        <span class="px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200 text-xs font-medium">
+          Difficulty: {{ article.difficulty }}
         </span>
       {% endif %}
 
       {% if article.tags %}
         {% for tag in article.tags %}
-          <span class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium">
+          <a href="/tag/{{ tag.slug }}/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
             {{ tag }}
-          </span>
+          </a>
         {% endfor %}
       {% endif %}
     </div>
+
+    {% if article.section == "tutorial" and article.difficulty %}
+      {% if article.difficulty == "beginner" %}
+        <div class="mt-5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 text-sm text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200">
+          Beginner lane: no technical background required.
+        </div>
+      {% elif article.difficulty == "it-ops" %}
+        <div class="mt-5 rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
+          IT practitioner lane: suited for people with IT experience and minimal coding.
+        </div>
+      {% elif article.difficulty == "dev-no-ai" %}
+        <div class="mt-5 rounded-xl border border-indigo-200 bg-indigo-50/70 p-4 text-sm text-indigo-800 dark:border-indigo-900/50 dark:bg-indigo-950/30 dark:text-indigo-200">
+          Developer lane: assumes development experience but no prior AI-agent background.
+        </div>
+      {% endif %}
+    {% endif %}
 
     <div class="prose prose-slate dark:prose-invert max-w-none mt-8">
       {{ article.content }}

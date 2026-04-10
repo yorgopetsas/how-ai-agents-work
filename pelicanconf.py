@@ -31,6 +31,12 @@ PAGE_URL = "{lang}/"
 ARTICLE_SAVE_AS = "{lang}/{slug}/index.html"
 PAGE_SAVE_AS = "{lang}/index.html"
 
+# Taxonomy pages
+TAG_URL = "tag/{slug}/"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+CATEGORY_URL = "category/{slug}/"
+CATEGORY_SAVE_AS = "category/{slug}/index.html"
+
 # Copy Spanish placeholder from ./es to the output (so it appears at /es/).
 STATIC_PATHS = ["es"]
 
