@@ -14,7 +14,7 @@
 
   <section class="rounded-2xl border border-slate-200/70 bg-white/80 p-6 dark:border-slate-800/70 dark:bg-slate-900/40 md:p-8">
     <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ page.title }}</h1>
-    <p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-300">{{ page.summary }}</p>
+    <p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-300">{{ page.summary|striptags }}</p>
     <p class="mt-5 text-sm text-slate-600 dark:text-slate-400">
       Blog structure: <strong>News</strong>, <strong>Blog posts</strong>, and <strong>Tutorials</strong>.
       Tutorials are split by difficulty so each audience has a clear lane.
@@ -53,7 +53,7 @@
           href="/tag/{{ tag.slug }}/"
           class="rounded-full border border-slate-300 bg-white px-3 py-1 transition-colors duration-200 hover:border-indigo-300 hover:text-indigo-700 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-indigo-500 dark:hover:text-indigo-300"
         >
-          #{{ tag.name }} <span class="text-xs text-slate-500">({{ articles_for_tag|count }})</span>
+          #{{ tag.name|replace('[','')|replace(']','') }} <span class="text-xs text-slate-500">({{ articles_for_tag|count }})</span>
         </a>
       {% endfor %}
     </div>

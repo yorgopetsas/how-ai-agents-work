@@ -33,7 +33,7 @@
       {% if article.tags %}
         {% for tag in article.tags %}
           <a href="/tag/{{ tag.slug }}/" class="px-2 py-1 rounded-lg bg-cyan-50 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-200 text-xs font-medium hover:underline underline-offset-4">
-            {{ tag }}
+            {{ tag|replace('[','')|replace(']','') }}
           </a>
         {% endfor %}
       {% endif %}
@@ -55,9 +55,36 @@
       {% endif %}
     {% endif %}
 
-    <div class="prose prose-slate dark:prose-invert max-w-none mt-8">
+    {% if article.section == "news" %}
+      {% set hero = article.cover_image if article.cover_image else 'https://picsum.photos/seed/' ~ article.slug ~ '/1440/860' %}
+      <figure class="mt-6 overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/70">
+        <img src="{{ hero }}" alt="{{ article.title }}" class="h-auto w-full object-cover" loading="eager" />
+        <figcaption class="border-t border-slate-200/70 bg-slate-50 px-4 py-2 text-xs text-slate-600 dark:border-slate-800/70 dark:bg-slate-900/60 dark:text-slate-300">
+          Visual context for this news story.
+        </figcaption>
+      </figure>
+    {% endif %}
+
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md">
       {{ article.content }}
     </div>
+
+    {% if article.section == "news" %}
+      <section class="mt-10 rounded-2xl border border-slate-200/70 bg-white p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">More in news</p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {% for a in articles if a.lang == article.lang and a.section == "news" and a.slug != article.slug %}
+            {% if loop.index <= 2 %}
+              {% set thumb = a.cover_image if a.cover_image else 'https://picsum.photos/seed/' ~ a.slug ~ '/640/400' %}
+              <a href="/{{ a.lang }}/{{ a.slug }}/" class="group block overflow-hidden rounded-xl border border-slate-200/70 bg-slate-50 dark:border-slate-800/70 dark:bg-slate-900/60">
+                <img src="{{ thumb }}" alt="" class="h-32 w-full object-cover" loading="lazy" />
+                <p class="p-3 text-sm font-medium group-hover:underline">{{ a.title }}</p>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
   </div>
 {% endblock %}
 

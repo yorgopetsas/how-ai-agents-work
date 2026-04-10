@@ -7,6 +7,7 @@ section: news
 category: News
 tags: [OpenAI, ChatGPT, API, Cloude]
 summary: Anthropic's 2026 leak exposed system-level AI engineering details and accelerated debate on security, governance, and operational risk.
+cover_image: https://picsum.photos/seed/claude-leak-main/1600/900
 status: published
 ---
 
@@ -19,6 +20,8 @@ The leak quickly spread across platforms like GitHub, where developers mirrored 
 At the same time, separate disclosures and leaks around a powerful internal model—Claude Mythos—raised even deeper concerns. This model demonstrated the ability to autonomously identify and exploit software vulnerabilities, leading Anthropic to restrict its release due to potential misuse.
 
 Together, these events have triggered intense debate about AI transparency, security risks, and the future of software development.
+
+![Security and AI systems newsroom visual](https://picsum.photos/seed/claude-leak-security/1200/680)
 
 ## 2) In-Depth Analysis: What the Leak Revealed
 
@@ -76,6 +79,8 @@ Developers worldwide began reconstructing and experimenting with the system
 Financial markets reacted negatively to the disruptive potential of advanced AI
 
 In short, the leak accelerated knowledge diffusion across the AI ecosystem.
+
+![Engineering operations and AI governance visual](https://picsum.photos/seed/ai-governance-ops/1200/680)
 
 ## 3) Practical Conclusions: What You Should Take Away
 

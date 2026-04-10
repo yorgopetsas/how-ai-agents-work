@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/60 md:p-10">
+    <p class="text-xs uppercase tracking-[0.24em] text-pink-500">Editorial Tutorials</p>
+    <h1 class="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-5xl">{{ page.title }}</h1>
+    {% if page.summary %}
+      <p class="mt-4 max-w-3xl text-base text-slate-700 dark:text-slate-200">{{ page.summary|striptags }}</p>
+    {% endif %}
+  </section>
+
+  {% set ns = namespace(main_tutorial=None) %}
+  {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+    {% if a.slug == 'tutorial-build-your-first-ai-agent' %}
+      {% set ns.main_tutorial = a %}
+    {% endif %}
+  {% endfor %}
+  {% if not ns.main_tutorial %}
+    {% for a in articles if a.lang == page.lang and a.section == 'tutorial' %}
+      {% if loop.first %}
+        {% set ns.main_tutorial = a %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <section class="mt-6 grid gap-4 md:grid-cols-12">
+    <article class="md:col-span-7 overflow-hidden rounded-2xl border border-slate-200/70 bg-white dark:border-slate-800/70 dark:bg-slate-900/50">
+      <img src="https://picsum.photos/seed/raspberry-pi-tutorial/1200/760" alt="Raspberry setup for first tutorial" class="h-64 w-full object-cover md:h-full" />
+    </article>
+    <article class="md:col-span-5 rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+      <p class="text-xs uppercase tracking-wider text-slate-500">Featured Tutorial</p>
+      {% if ns.main_tutorial %}
+        <h2 class="mt-2 text-3xl font-bold tracking-tight">
+          <a class="hover:underline underline-offset-4" href="/{{ ns.main_tutorial.lang }}/{{ ns.main_tutorial.slug }}/">{{ ns.main_tutorial.title }}</a>
+        </h2>
+        {% if ns.main_tutorial.summary %}
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">{{ ns.main_tutorial.summary|striptags }}</p>
+        {% endif %}
+      {% else %}
+        <h2 class="mt-2 text-3xl font-bold tracking-tight">First tutorial coming soon</h2>
+      {% endif %}
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <article class="overflow-hidden rounded-2xl border border-emerald-200/70 bg-emerald-50/50 dark:border-emerald-900/50 dark:bg-emerald-950/25">
+      <img src="https://picsum.photos/seed/tutorial-lane-beginner/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">Beginner Lane</p>
+        <h3 class="mt-2 text-lg font-semibold">No technical background</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Dummy content for now. You will add non-technical tutorials here.</p>
+      </div>
+    </article>
+
+    <article class="overflow-hidden rounded-2xl border border-amber-200/70 bg-amber-50/50 dark:border-amber-900/50 dark:bg-amber-950/25">
+      <img src="https://picsum.photos/seed/tutorial-lane-it/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">IT Practitioner Lane</p>
+        <h3 class="mt-2 text-lg font-semibold">IT experience, low coding</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Dummy content for now. You will add IT-ops style tutorials here.</p>
+      </div>
+    </article>
+
+    <article class="overflow-hidden rounded-2xl border border-indigo-200/70 bg-indigo-50/50 dark:border-indigo-900/50 dark:bg-indigo-950/25">
+      <img src="https://picsum.photos/seed/tutorial-lane-dev/900/480" alt="" class="h-36 w-full object-cover" />
+      <div class="p-4">
+        <p class="text-xs uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">Developer Lane</p>
+        <h3 class="mt-2 text-lg font-semibold">Developers new to AI</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">This lane already starts with your first tutorial at the top.</p>
+      </div>
+    </article>
+  </section>
+
+  <div class="prose prose-slate dark:prose-invert mt-8 max-w-none">
+    {{ page.content }}
+  </div>
+{% endblock %}

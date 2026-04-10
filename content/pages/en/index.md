@@ -1,7 +1,7 @@
 ---
 lang: en
 slug: index
-template: home
+template: home_variant_glass
 title: How AI Agents Work
 summary: Learn the theory behind agent systems and build intuition for local, open-source implementations.
 ---

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/60 md:p-10">
+    <p class="text-xs uppercase tracking-[0.24em] text-pink-500">Variant C · Editorial Contrast</p>
+    <h1 class="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-6xl">How AI Agents Work</h1>
+    <p class="mt-4 max-w-3xl text-base text-slate-700 dark:text-slate-200">Bold typography inspired by editorial systems from the design skill, paired with image-heavy modules and clear hierarchy.</p>
+  </section>
+
+  <section class="mt-6 grid gap-4 md:grid-cols-12">
+    <article class="md:col-span-7 overflow-hidden rounded-2xl border border-slate-200/70 bg-white dark:border-slate-800/70 dark:bg-slate-900/50">
+      <img src="https://picsum.photos/seed/editorial-main/1200/760" alt="" class="h-64 w-full object-cover md:h-full" />
+    </article>
+    <article class="md:col-span-5 rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+      <p class="text-xs uppercase tracking-wider text-slate-500">Lead Analysis</p>
+      <h2 class="mt-2 text-3xl font-bold tracking-tight">AI Systems Are Editorially Rich, Not Just Technical</h2>
+      <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Large headline rhythm, image context, and modular story blocks improve scanability and trust.</p>
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-4 sm:grid-cols-2">
+    {% for i in range(1,5) %}
+      <article class="overflow-hidden rounded-2xl border border-slate-200/70 bg-white dark:border-slate-800/70 dark:bg-slate-900/50">
+        <img src="https://picsum.photos/seed/editorial-card-{{ i }}/900/480" alt="" class="h-40 w-full object-cover" />
+        <div class="p-4">
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Section {{ i }}</p>
+          <h3 class="mt-2 text-xl font-semibold">Modern story card {{ i }}</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Use these modules for News highlights, Blog picks, and Tutorial pathways.</p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}
