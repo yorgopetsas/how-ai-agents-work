@@ -193,7 +193,7 @@
       </figure>
     {% endif %}
 
-    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md {% if article.section == 'agent-type' %}agent-type-content prose-headings:font-semibold prose-h2:mt-10 prose-h2:mb-4 prose-h2:scroll-mt-24 prose-h2:text-2xl prose-h2:tracking-tight prose-h3:mt-7 prose-h3:mb-3 prose-h3:text-lg prose-h3:text-slate-800 dark:prose-h3:text-slate-100 prose-p:leading-relaxed prose-li:leading-relaxed{% endif %}">
+    <div class="prose prose-slate dark:prose-invert max-w-none mt-8 prose-img:rounded-xl prose-img:shadow-md {% if article.section == 'agent-type' %}agent-type-content prose-headings:font-semibold prose-h3:mt-10 prose-h3:mb-4 prose-h3:scroll-mt-24 prose-h3:text-xl prose-h3:tracking-tight prose-h3:text-slate-900 dark:prose-h3:text-slate-100 prose-p:leading-relaxed prose-li:leading-relaxed{% endif %}">
       {{ article.content }}
     </div>
 
@@ -244,6 +244,9 @@
         background: rgba(255, 255, 255, 0.82);
         padding: 1rem 1rem 0.75rem;
         box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+      }
+      .agent-type-content .agent-section > h3:first-child {
+        margin-top: 0;
       }
       .dark .agent-type-content .agent-section {
         border-color: rgba(51, 65, 85, 0.7);
@@ -309,9 +312,14 @@
             node = next;
           }
 
+          const h3 = document.createElement("h3");
+          h3.id = h2.id;
+          h3.innerHTML = h2.innerHTML;
+          h2.replaceWith(h3);
+
           const link = document.createElement("a");
-          link.href = "#" + h2.id;
-          link.textContent = h2.textContent || "Section";
+          link.href = "#" + h3.id;
+          link.textContent = (h3.textContent && h3.textContent.trim()) || "Section";
           toc.appendChild(link);
         });
       })();
