@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% set L = page.lang | default('en') %}
   <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/50 md:p-8">
     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">UI UX Pro Max</p>
     <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{{ page.title }}</h1>
@@ -10,7 +11,7 @@
   </section>
 
   <section class="mt-8 grid gap-4 md:grid-cols-3">
-    <a href="/en/home-variant-neon/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-fuchsia-400 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <a href="/{{ L }}/home-variant-neon/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-fuchsia-400 dark:border-slate-800/70 dark:bg-slate-900/50">
       <img src="https://picsum.photos/seed/neon-home/900/560" alt="Neon variant preview" class="h-44 w-full object-cover" />
       <div class="p-4">
         <p class="text-xs uppercase tracking-wider text-fuchsia-500">Variant A</p>
@@ -19,7 +20,7 @@
       </div>
     </a>
 
-    <a href="/en/home-variant-glass/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-cyan-400 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <a href="/{{ L }}/home-variant-glass/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-cyan-400 dark:border-slate-800/70 dark:bg-slate-900/50">
       <img src="https://picsum.photos/seed/glass-home/900/560" alt="Glass variant preview" class="h-44 w-full object-cover" />
       <div class="p-4">
         <p class="text-xs uppercase tracking-wider text-cyan-500">Variant B</p>
@@ -28,7 +29,7 @@
       </div>
     </a>
 
-    <a href="/en/home-variant-editorial/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-pink-400 dark:border-slate-800/70 dark:bg-slate-900/50">
+    <a href="/{{ L }}/home-variant-editorial/" class="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200/70 bg-white transition hover:border-pink-400 dark:border-slate-800/70 dark:bg-slate-900/50">
       <img src="https://picsum.photos/seed/editorial-home/900/560" alt="Editorial variant preview" class="h-44 w-full object-cover" />
       <div class="p-4">
         <p class="text-xs uppercase tracking-wider text-pink-500">Variant C</p>

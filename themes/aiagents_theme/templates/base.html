@@ -52,32 +52,42 @@
   </head>
 
   <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    {% set P_LANG = page.lang if page is defined and page and page.lang else (article.lang if article is defined and article and article.lang else 'en') %}
+
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-slate-900 text-white px-3 py-2 rounded" href="#content">
-      Skip to content
+      {% if P_LANG == 'es' %}Ir al contenido{% else %}Skip to content{% endif %}
     </a>
 
     <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70">
-      <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
-        <a href="/en/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
-          <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
+      <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between gap-3">
+        <a href="/{{ P_LANG }}/" class="flex min-w-0 items-center gap-3 hover:opacity-90 transition-opacity" aria-label="{{ SITENAME }} — {% if P_LANG == 'es' %}inicio{% else %}home{% endif %}">
+          <div class="h-9 w-9 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-semibold">
             AI
           </div>
-          <div>
+          <div class="min-w-0">
             <div class="text-sm text-slate-600 dark:text-slate-400">AI Agents</div>
-            <div class="font-semibold leading-tight">{{ SITENAME }}</div>
+            <div class="font-semibold leading-tight truncate">{{ SITENAME }}</div>
           </div>
         </a>
 
-        <div class="flex items-center gap-3">
-          <nav class="hidden sm:flex items-center gap-2 text-sm">
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/news/">News</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/blog/">Blog</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tutorials/">Tutorials</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/agent-types-proposition/">Agent Types</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/tags/">Tags</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/get-the-free-version-of-the-book/">AI Agents Free Book</a>
-            <a class="rounded-lg border border-slate-200 px-3 py-2 text-sm dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/en/">{% if (page is defined and page.lang == 'en') or (article is defined and article.lang == 'en') %}EN{% else %}English{% endif %}</a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <nav class="hidden sm:flex flex-wrap items-center justify-end gap-1.5 text-sm">
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/news/">{% if P_LANG == 'es' %}Noticias{% else %}News{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/blog/">Blog</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/tutorials/">{% if P_LANG == 'es' %}Tutoriales{% else %}Tutorials{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/agent-types-proposition/">{% if P_LANG == 'es' %}Tipos de agentes{% else %}Agent Types{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/tags/">{% if P_LANG == 'es' %}Etiquetas{% else %}Tags{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="/{{ P_LANG }}/get-the-free-version-of-the-book/">{% if P_LANG == 'es' %}Libro gratuito{% else %}Free Book{% endif %}</a>
+            <a class="rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800" href="https://theaiagentsbook.com/{{ P_LANG }}/" rel="noopener noreferrer">{% if P_LANG == 'es' %}El libro{% else %}Book site{% endif %}</a>
+            <span class="inline-flex items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <a class="rounded-md px-2 py-1 {% if P_LANG == 'en' %}bg-white dark:bg-slate-800 font-medium{% else %}opacity-70 hover:opacity-100{% endif %}" href="/en/">EN</a>
+              <a class="rounded-md px-2 py-1 {% if P_LANG == 'es' %}bg-white dark:bg-slate-800 font-medium{% else %}opacity-70 hover:opacity-100{% endif %}" href="/es/">ES</a>
+            </span>
           </nav>
+          <div class="flex sm:hidden items-center gap-1 rounded-lg border border-slate-200 p-0.5 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-xs font-medium">
+            <a class="rounded-md px-2 py-1 {% if P_LANG == 'en' %}bg-white dark:bg-slate-800{% endif %}" href="/en/">EN</a>
+            <a class="rounded-md px-2 py-1 {% if P_LANG == 'es' %}bg-white dark:bg-slate-800{% endif %}" href="/es/">ES</a>
+          </div>
         </div>
       </div>
     </header>
@@ -88,21 +98,23 @@
 
     <footer class="mx-auto max-w-5xl px-4 pb-10 text-sm text-slate-600 dark:text-slate-400">
       <div class="border-t border-slate-200/70 pt-6">
-        <div class="flex flex-wrap items-center justify-between gap-3">
-          <div>© 2026 {{ SITENAME }}</div>
-          <div class="flex items-center gap-3">
-            <a class="hover:underline underline-offset-4" href="/en/news/">News</a>
-            <a class="hover:underline underline-offset-4" href="/en/blog/">Blog</a>
-            <a class="hover:underline underline-offset-4" href="/en/tutorials/">Tutorials</a>
-            <a class="hover:underline underline-offset-4" href="/en/agent-types-proposition/">Agent Types</a>
-            <a class="hover:underline underline-offset-4" href="/en/tags/">Tags</a>
-            <a class="hover:underline underline-offset-4" href="/en/get-the-free-version-of-the-book/">Free AI Agents Book</a>
-            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/en/" rel="noopener noreferrer">The AI Agents Book</a>
-            <a class="hover:underline underline-offset-4" href="/en/">EN</a>
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <div>
+            <a href="/{{ P_LANG }}/" class="font-semibold text-slate-800 hover:text-indigo-600 dark:text-slate-100 dark:hover:text-indigo-400">© 2026 {{ SITENAME }}</a>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/news/">{% if P_LANG == 'es' %}Noticias{% else %}News{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/blog/">Blog</a>
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/tutorials/">{% if P_LANG == 'es' %}Tutoriales{% else %}Tutorials{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/agent-types-proposition/">{% if P_LANG == 'es' %}Tipos de agentes{% else %}Agent Types{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/tags/">{% if P_LANG == 'es' %}Etiquetas{% else %}Tags{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="/{{ P_LANG }}/get-the-free-version-of-the-book/">{% if P_LANG == 'es' %}Libro gratuito{% else %}Free book{% endif %}</a>
+            <a class="hover:underline underline-offset-4" href="https://theaiagentsbook.com/{{ P_LANG }}/" rel="noopener noreferrer">The AI Agents Book</a>
+            <a class="hover:underline underline-offset-4" href="/en/">English</a>
+            <a class="hover:underline underline-offset-4" href="/es/">Español</a>
           </div>
         </div>
       </div>
     </footer>
   </body>
 </html>
-

@@ -1,85 +1,90 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% set L = page.lang | default('en') %}
   <section class="relative overflow-hidden rounded-3xl border border-cyan-200/70 bg-gradient-to-br from-white/80 via-cyan-50/60 to-indigo-50/70 p-6 shadow-xl dark:border-cyan-900/40 dark:from-slate-900/70 dark:via-cyan-950/30 dark:to-indigo-950/30 md:p-10">
     <img src="https://picsum.photos/seed/glass-hero-wide/1600/520" alt="" class="absolute inset-0 h-full w-full object-cover opacity-20" />
     <div class="relative">
-      <p class="text-xs uppercase tracking-[0.22em] text-cyan-600 dark:text-cyan-300">Glass Homepage</p>
-      <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{{ page.title if page and page.title else "How AI Agents Work" }}</h1>
-      <p class="mt-3 max-w-3xl text-sm text-slate-700 dark:text-slate-200">{{ page.summary|striptags if page and page.summary else "A layered newsroom with translucent cards, timeline strips, and visual section anchors." }}</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-cyan-600 dark:text-cyan-300">{% if L == 'es' %}Inicio «cristal»{% else %}Glass Homepage{% endif %}</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{{ page.title if page and page.title else ('Cómo funcionan los agentes de IA' if L == 'es' else 'How AI Agents Work') }}</h1>
+      <p class="mt-3 max-w-3xl text-sm text-slate-700 dark:text-slate-200">{{ page.summary|striptags if page and page.summary else ('Capas tipo sala de prensa, tarjetas translúcidas y anclas visuales por sección.' if L == 'es' else 'A layered newsroom with translucent cards, timeline strips, and visual section anchors.') }}</p>
     </div>
   </section>
 
   <section class="mt-6 grid gap-4 lg:grid-cols-3">
-    <a href="/en/news/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+    <a href="/{{ L }}/news/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-news/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
-      <h2 class="mt-3 text-lg font-semibold">News Stream</h2>
-      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Breaking updates with strong visuals and short takeaways.</p>
+      <h2 class="mt-3 text-lg font-semibold">{% if L == 'es' %}Flujo de noticias{% else %}News Stream{% endif %}</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Actualidad con imágenes fuertes y conclusiones breves.{% else %}Breaking updates with strong visuals and short takeaways.{% endif %}</p>
     </a>
-    <a href="/en/blog/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+    <a href="/{{ L }}/blog/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-blog/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
-      <h2 class="mt-3 text-lg font-semibold">Blog Analysis</h2>
-      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Deep-dive stories in Self-hosted, Cloud, and Hybrid tracks.</p>
+      <h2 class="mt-3 text-lg font-semibold">{% if L == 'es' %}Análisis en blog{% else %}Blog Analysis{% endif %}</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Historias en profundidad: self-hosted, nube e híbrido.{% else %}Deep-dive stories in Self-hosted, Cloud, and Hybrid tracks.{% endif %}</p>
     </a>
-    <a href="/en/tutorials/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
+    <a href="/{{ L }}/tutorials/" class="block rounded-2xl border border-white/70 bg-white/70 p-4 backdrop-blur transition hover:border-cyan-400/60 dark:border-white/10 dark:bg-slate-900/50 dark:hover:border-cyan-500/60">
       <img src="https://picsum.photos/seed/glass-tutorial/700/420" alt="" class="h-36 w-full rounded-xl object-cover" />
-      <h2 class="mt-3 text-lg font-semibold">Tutorial Paths</h2>
-      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Audience-separated difficulty lanes with clear onboarding.</p>
+      <h2 class="mt-3 text-lg font-semibold">{% if L == 'es' %}Rutas de tutorial{% else %}Tutorial Paths{% endif %}</h2>
+      <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Carril por dificultad con onboarding claro.{% else %}Audience-separated difficulty lanes with clear onboarding.{% endif %}</p>
     </a>
   </section>
 
   <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
-    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Visual Timeline</p>
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">{% if L == 'es' %}Línea temporal visual{% else %}Visual Timeline{% endif %}</p>
     <div class="mt-4 grid gap-3 md:grid-cols-4">
       <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
         <img src="https://picsum.photos/seed/glass-time-1/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
-        <p class="mt-2 text-sm font-medium">Milestone 1 - Understand the Basics</p>
+        <p class="mt-2 text-sm font-medium">{% if L == 'es' %}Hito 1 — Entender lo básico{% else %}Milestone 1 - Understand the Basics{% endif %}</p>
       </article>
       <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
         <img src="https://picsum.photos/seed/glass-time-2/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
-        <p class="mt-2 text-sm font-medium">Milestone 2 - Build the first AI Agent</p>
+        <p class="mt-2 text-sm font-medium">{% if L == 'es' %}Hito 2 — Tu primer agente de IA{% else %}Milestone 2 - Build the first AI Agent{% endif %}</p>
       </article>
       <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
         <img src="https://picsum.photos/seed/glass-time-3/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
-        <p class="mt-2 text-sm font-medium">Milestone 3 - Setup the first repetive Task</p>
+        <p class="mt-2 text-sm font-medium">{% if L == 'es' %}Hito 3 — Primera tarea repetitiva{% else %}Milestone 3 - Setup the first repetive Task{% endif %}</p>
       </article>
       <article class="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-900/70">
         <img src="https://picsum.photos/seed/glass-time-4/420/260" alt="" class="h-24 w-full rounded-md object-cover" />
-        <p class="mt-2 text-sm font-medium">Milestone 4 - Build the first group of AI Agents</p>
+        <p class="mt-2 text-sm font-medium">{% if L == 'es' %}Hito 4 — Grupo de agentes{% else %}Milestone 4 - Build the first group of AI Agents{% endif %}</p>
       </article>
     </div>
   </section>
 
   <section class="mt-6 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
-    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">New Section</p>
-    <h2 class="mt-2 text-xl font-semibold">Types of AI Agents</h2>
-    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Understand the main agent families: simple reflex, model-based, goal-based, utility-based, learning, and multi-agent systems.</p>
-    <a href="/en/agent-types-proposition/" class="mt-4 inline-flex items-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:border-cyan-400 hover:text-cyan-700 dark:border-slate-700 dark:hover:border-cyan-500 dark:hover:text-cyan-300">
-      Explore Agent Types →
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">{% if L == 'es' %}Nueva sección{% else %}New Section{% endif %}</p>
+    <h2 class="mt-2 text-xl font-semibold">{% if L == 'es' %}Tipos de agentes de IA{% else %}Types of AI Agents{% endif %}</h2>
+    <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Reflejo simple, basado en modelo, orientado a objetivos, utilidad, aprendizaje y multiagente.{% else %}Understand the main agent families: simple reflex, model-based, goal-based, utility-based, learning, and multi-agent systems.{% endif %}</p>
+    <a href="/{{ L }}/agent-types-proposition/" class="mt-4 inline-flex items-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:border-cyan-400 hover:text-cyan-700 dark:border-slate-700 dark:hover:border-cyan-500 dark:hover:text-cyan-300">
+      {% if L == 'es' %}Explorar tipos de agentes →{% else %}Explore Agent Types →{% endif %}
     </a>
   </section>
 
   <section class="mt-8 rounded-2xl border border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-white/90 to-violet-50/70 p-6 shadow-sm dark:border-indigo-900/50 dark:from-indigo-950/40 dark:via-slate-900/80 dark:to-violet-950/30 md:p-8" aria-labelledby="book-teaser-heading">
     <div class="grid items-center gap-8 md:grid-cols-2 md:gap-10">
       <div class="min-w-0">
-        <p class="text-xs uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">Companion book</p>
+        <p class="text-xs uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">{% if L == 'es' %}Libro complementario{% else %}Companion book{% endif %}</p>
         <h2 id="book-teaser-heading" class="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">The AI Agents Book</h2>
         <p class="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+          {% if L == 'es' %}
+          El hub del libro en <span class="font-medium text-slate-800 dark:text-slate-200">theaiagentsbook.com</span>: capítulos, hoja de construcción y recursos alineados con este sitio.
+          {% else %}
           The full book hub on <span class="font-medium text-slate-800 dark:text-slate-200">theaiagentsbook.com</span> — structured chapters, build track, and resources that pair with this site. Start there for the complete narrative and downloadable materials.
+          {% endif %}
         </p>
         <a
-          href="https://theaiagentsbook.com/en/"
+          href="https://theaiagentsbook.com/{{ L }}/"
           class="mt-5 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-400"
         >
-          Visit The AI Agents Book
+          {% if L == 'es' %}Visitar The AI Agents Book{% else %}Visit The AI Agents Book{% endif %}
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
         </a>
       </div>
       <div class="flex justify-center md:justify-end">
-        <a href="https://theaiagentsbook.com/en/" class="group block max-w-[280px] shrink-0 md:max-w-none md:w-full">
+        <a href="https://theaiagentsbook.com/{{ L }}/" class="group block max-w-[280px] shrink-0 md:max-w-none md:w-full">
           <img
             src="/images/The_AI_Agents_Bbook_Cover.png"
-            alt="The AI Agents Book cover"
+            alt="{% if L == 'es' %}Portada de The AI Agents Book{% else %}The AI Agents Book cover{% endif %}"
             width="440"
             height="620"
             loading="lazy"

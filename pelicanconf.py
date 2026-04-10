@@ -29,6 +29,9 @@ PAGE_URL = "{lang}/"
 
 # Ensure language-prefixed output paths are created.
 ARTICLE_SAVE_AS = "{lang}/{slug}/index.html"
+# Non-default lang must match the same tree (Pelican defaults to "{slug}-{lang}.html" otherwise).
+ARTICLE_LANG_URL = "{lang}/{slug}/"
+ARTICLE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
 PAGE_SAVE_AS = "{lang}/index.html"
 
 # Taxonomy pages
@@ -37,8 +40,8 @@ TAG_SAVE_AS = "tag/{slug}/index.html"
 CATEGORY_URL = "category/{slug}/"
 CATEGORY_SAVE_AS = "category/{slug}/index.html"
 
-# Copy Spanish placeholder from ./es to the output (so it appears at /es/).
-STATIC_PATHS = ["es", "images"]
+# Do not copy content/es/ into output — it overwrites Pelican-generated /es/ (see theaiagentsbook fix).
+STATIC_PATHS = ["images"]
 
 # Restrict Pelican content discovery (so static HTML isn't treated as a page/article).
 ARTICLE_PATHS = ["posts"]

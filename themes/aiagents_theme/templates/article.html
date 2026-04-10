@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% set L = article.lang | default('en') %}
   {% set theme = namespace(
     ring='border-sky-200/70 dark:border-sky-900/40',
     bg='from-sky-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900/90 dark:to-cyan-950/30',
@@ -79,11 +80,44 @@
       {% set agent_info.stack = 'Orchestrator + specialist agents' %}
     {% endif %}
   {% endif %}
+  {% if L == 'es' and article.section == 'agent-type' %}
+    {% if article.slug == 'agent-type-simple-reflex' %}
+      {% set agent_info.best_for = 'Automatización disparador–acción determinista' %}
+      {% set agent_info.complexity = 'Baja' %}
+      {% set agent_info.latency = 'Muy baja' %}
+      {% set agent_info.stack = 'Motor de reglas + webhooks' %}
+    {% elif article.slug == 'agent-type-model-based-reflex' %}
+      {% set agent_info.best_for = 'Soporte y operaciones con estado' %}
+      {% set agent_info.complexity = 'Baja–media' %}
+      {% set agent_info.latency = 'Baja' %}
+      {% set agent_info.stack = 'Estado de sesión + llamadas a herramientas' %}
+    {% elif article.slug == 'agent-type-goal-based' %}
+      {% set agent_info.best_for = 'Planificación y ejecución multipaso' %}
+      {% set agent_info.complexity = 'Media–alta' %}
+      {% set agent_info.latency = 'Media' %}
+      {% set agent_info.stack = 'Planificador + herramientas + hitos' %}
+    {% elif article.slug == 'agent-type-utility-based' %}
+      {% set agent_info.best_for = 'Optimizar coste/calidad/riesgo' %}
+      {% set agent_info.complexity = 'Alta' %}
+      {% set agent_info.latency = 'Media' %}
+      {% set agent_info.stack = 'Modelo de puntuación + telemetría' %}
+    {% elif article.slug == 'agent-type-learning' %}
+      {% set agent_info.best_for = 'Sistemas adaptativos que mejoran con el tiempo' %}
+      {% set agent_info.complexity = 'Alta' %}
+      {% set agent_info.latency = 'Variable' %}
+      {% set agent_info.stack = 'Bucle de feedback + conjunto de evaluación' %}
+    {% elif article.slug == 'agent-type-multi-agent-systems' %}
+      {% set agent_info.best_for = 'Flujos complejos con roles especializados' %}
+      {% set agent_info.complexity = 'Muy alta' %}
+      {% set agent_info.latency = 'Media–alta' %}
+      {% set agent_info.stack = 'Orquestador + agentes especialistas' %}
+    {% endif %}
+  {% endif %}
 
   <div class="max-w-3xl">
     <div class="mb-6">
       <a class="text-sm text-slate-600 dark:text-slate-400 hover:underline underline-offset-4" href="/{{ article.lang }}/">
-        ← Back to {{ article.lang | upper }}
+        ← {% if L == 'es' %}Volver al inicio{% else %}Back to {{ article.lang | upper }}{% endif %}
       </a>
     </div>
 
@@ -91,7 +125,7 @@
       <section class="relative overflow-hidden rounded-3xl border {{ theme.ring }} bg-gradient-to-br {{ theme.bg }} p-6 md:p-8">
         <div class="agent-orb" style="--orb-color: {{ theme.orb }}"></div>
         <div class="agent-orb agent-orb-small" style="--orb-color: {{ theme.orb }}"></div>
-        <p class="relative text-xs font-semibold uppercase tracking-[0.22em] {{ theme.text }}">Agent Type</p>
+        <p class="relative text-xs font-semibold uppercase tracking-[0.22em] {{ theme.text }}">{% if L == 'es' %}Tipo de agente{% else %}Agent Type{% endif %}</p>
         <div class="relative mt-4 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-300 bg-white/80 text-slate-800 dark:border-slate-700 dark:bg-slate-900/80 dark:text-white">
           {% if article.slug == 'agent-type-simple-reflex' %}
             <svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -108,7 +142,7 @@
           {% endif %}
         </div>
         <h1 class="relative mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-          {{ article.title|replace('AI Agent Type - ','') }}
+          {{ article.title|replace('AI Agent Type - ','')|replace('Tipo de agente de IA - ','') }}
         </h1>
         {% if article.summary %}
           <p class="relative mt-3 max-w-3xl text-sm leading-relaxed text-slate-700 dark:text-slate-300">{{ article.summary|striptags }}</p>
@@ -116,23 +150,23 @@
       </section>
       <section class="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
-          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Best For</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">{% if L == 'es' %}Ideal para{% else %}Best For{% endif %}</p>
           <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{{ agent_info.best_for }}</p>
         </article>
         <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
-          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Complexity</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">{% if L == 'es' %}Complejidad{% else %}Complexity{% endif %}</p>
           <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{{ agent_info.complexity }}</p>
         </article>
         <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
-          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Typical Latency</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">{% if L == 'es' %}Latencia típica{% else %}Typical Latency{% endif %}</p>
           <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{{ agent_info.latency }}</p>
         </article>
         <article class="rounded-2xl border border-slate-200/80 bg-white/90 p-4 dark:border-slate-800/70 dark:bg-slate-900/60">
-          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">Reference Stack</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">{% if L == 'es' %}Stack de referencia{% else %}Reference Stack{% endif %}</p>
           <p class="mt-2 text-sm font-semibold text-slate-900 dark:text-white">{{ agent_info.stack }}</p>
         </article>
       </section>
-      <nav id="agent-toc" class="mt-4 flex flex-wrap gap-2 rounded-2xl border border-slate-200/80 bg-white/90 p-3 dark:border-slate-800/70 dark:bg-slate-900/60" aria-label="Agent type page sections">
+      <nav id="agent-toc" class="mt-4 flex flex-wrap gap-2 rounded-2xl border border-slate-200/80 bg-white/90 p-3 dark:border-slate-800/70 dark:bg-slate-900/60" aria-label="{% if L == 'es' %}Secciones del tipo de agente{% else %}Agent type page sections{% endif %}">
       </nav>
     {% else %}
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
@@ -154,7 +188,7 @@
 
       {% if article.difficulty %}
         <span class="px-2 py-1 rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-200 text-xs font-medium">
-          Difficulty: {{ article.difficulty }}
+          {% if L == 'es' %}Dificultad{% else %}Difficulty{% endif %}: {{ article.difficulty }}
         </span>
       {% endif %}
 
@@ -170,15 +204,15 @@
     {% if article.section == "tutorial" and article.difficulty %}
       {% if article.difficulty == "beginner" %}
         <div class="mt-5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 text-sm text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200">
-          Beginner lane: no technical background required.
+          {% if L == 'es' %}Carril principiante: no se requiere formación técnica.{% else %}Beginner lane: no technical background required.{% endif %}
         </div>
       {% elif article.difficulty == "it-ops" %}
         <div class="mt-5 rounded-xl border border-amber-200 bg-amber-50/70 p-4 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
-          IT practitioner lane: suited for people with IT experience and minimal coding.
+          {% if L == 'es' %}Carril IT: para perfiles con experiencia IT y poca práctica de código.{% else %}IT practitioner lane: suited for people with IT experience and minimal coding.{% endif %}
         </div>
       {% elif article.difficulty == "dev-no-ai" %}
         <div class="mt-5 rounded-xl border border-indigo-200 bg-indigo-50/70 p-4 text-sm text-indigo-800 dark:border-indigo-900/50 dark:bg-indigo-950/30 dark:text-indigo-200">
-          Developer lane: assumes development experience but no prior AI-agent background.
+          {% if L == 'es' %}Carril desarrollador: asume experiencia en desarrollo, no en agentes de IA.{% else %}Developer lane: assumes development experience but no prior AI-agent background.{% endif %}
         </div>
       {% endif %}
     {% endif %}
@@ -188,7 +222,7 @@
       <figure class="mt-6 overflow-hidden rounded-2xl border border-slate-200/70 dark:border-slate-800/70">
         <img src="{{ hero }}" alt="{{ article.title }}" class="h-auto w-full object-cover" loading="eager" />
         <figcaption class="border-t border-slate-200/70 bg-slate-50 px-4 py-2 text-xs text-slate-600 dark:border-slate-800/70 dark:bg-slate-900/60 dark:text-slate-300">
-          Visual context for this news story.
+          {% if L == 'es' %}Contexto visual para esta noticia.{% else %}Visual context for this news story.{% endif %}
         </figcaption>
       </figure>
     {% endif %}
@@ -199,7 +233,7 @@
 
     {% if article.section == "news" %}
       <section class="mt-10 rounded-2xl border border-slate-200/70 bg-white p-4 dark:border-slate-800/70 dark:bg-slate-900/40">
-        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">More in news</p>
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">{% if L == 'es' %}Más noticias{% else %}More in news{% endif %}</p>
         <div class="mt-4 grid gap-3 sm:grid-cols-2">
           {% for a in articles if a.lang == article.lang and a.section == "news" and a.slug != article.slug %}
             {% if loop.index <= 2 %}

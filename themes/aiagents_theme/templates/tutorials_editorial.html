@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+  {% set L = page.lang | default('en') %}
   <section class="rounded-3xl border border-slate-200/70 bg-white p-6 dark:border-slate-800/70 dark:bg-slate-900/60 md:p-10">
-    <p class="text-xs uppercase tracking-[0.24em] text-pink-500">Editorial Tutorials</p>
+    <p class="text-xs uppercase tracking-[0.24em] text-pink-500">{% if L == 'es' %}Tutoriales editoriales{% else %}Editorial Tutorials{% endif %}</p>
     <h1 class="mt-2 text-4xl font-black leading-tight tracking-tight sm:text-5xl">{{ page.title }}</h1>
     {% if page.summary %}
       <p class="mt-4 max-w-3xl text-base text-slate-700 dark:text-slate-200">{{ page.summary|striptags }}</p>
@@ -39,7 +40,7 @@
       <img src="https://picsum.photos/seed/raspberry-pi-tutorial/1200/760" alt="Raspberry setup for first tutorial" class="h-64 w-full object-cover md:h-full" />
     </article>
     <article class="md:col-span-5 rounded-2xl border border-slate-200/70 bg-white p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
-      <p class="text-xs uppercase tracking-wider text-slate-500">Featured Tutorial</p>
+      <p class="text-xs uppercase tracking-wider text-slate-500">{% if L == 'es' %}Tutorial destacado{% else %}Featured Tutorial{% endif %}</p>
       {% if ns.main_tutorial %}
         <h2 class="mt-2 text-3xl font-bold tracking-tight">
           <a class="hover:underline underline-offset-4" href="/{{ ns.main_tutorial.lang }}/{{ ns.main_tutorial.slug }}/">{{ ns.main_tutorial.title }}</a>
@@ -48,36 +49,36 @@
           <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">{{ ns.main_tutorial.summary|striptags }}</p>
         {% endif %}
       {% else %}
-        <h2 class="mt-2 text-3xl font-bold tracking-tight">First tutorial coming soon</h2>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight">{% if L == 'es' %}Primer tutorial muy pronto{% else %}First tutorial coming soon{% endif %}</h2>
       {% endif %}
     </article>
   </section>
 
   <section class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    <a href="{{ '/%s/%s/'|format(lanes.beginner.lang, lanes.beginner.slug) if lanes.beginner else '/en/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-emerald-200/70 bg-emerald-50/50 transition hover:border-emerald-400 dark:border-emerald-900/50 dark:bg-emerald-950/25 dark:hover:border-emerald-500">
+    <a href="{{ '/%s/%s/'|format(lanes.beginner.lang, lanes.beginner.slug) if lanes.beginner else '/' ~ L ~ '/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-emerald-200/70 bg-emerald-50/50 transition hover:border-emerald-400 dark:border-emerald-900/50 dark:bg-emerald-950/25 dark:hover:border-emerald-500">
       <img src="https://picsum.photos/seed/tutorial-lane-beginner/900/480" alt="" class="h-36 w-full object-cover" />
       <div class="p-4">
-        <p class="text-xs uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">Beginner Lane</p>
-        <h3 class="mt-2 text-lg font-semibold">No technical background</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Dummy content for now. You will add non-technical tutorials here.</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">{% if L == 'es' %}Carril principiante{% else %}Beginner Lane{% endif %}</p>
+        <h3 class="mt-2 text-lg font-semibold">{% if L == 'es' %}Sin base técnica{% else %}No technical background{% endif %}</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Contenido de ejemplo; aquí irán tutoriales no técnicos.{% else %}Dummy content for now. You will add non-technical tutorials here.{% endif %}</p>
       </div>
     </a>
 
-    <a href="{{ '/%s/%s/'|format(lanes.it_ops.lang, lanes.it_ops.slug) if lanes.it_ops else '/en/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-amber-200/70 bg-amber-50/50 transition hover:border-amber-400 dark:border-amber-900/50 dark:bg-amber-950/25 dark:hover:border-amber-500">
+    <a href="{{ '/%s/%s/'|format(lanes.it_ops.lang, lanes.it_ops.slug) if lanes.it_ops else '/' ~ L ~ '/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-amber-200/70 bg-amber-50/50 transition hover:border-amber-400 dark:border-amber-900/50 dark:bg-amber-950/25 dark:hover:border-amber-500">
       <img src="https://picsum.photos/seed/tutorial-lane-it/900/480" alt="" class="h-36 w-full object-cover" />
       <div class="p-4">
-        <p class="text-xs uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">IT Practitioner Lane</p>
-        <h3 class="mt-2 text-lg font-semibold">IT experience, low coding</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Dummy content for now. You will add IT-ops style tutorials here.</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">{% if L == 'es' %}Carril IT{% else %}IT Practitioner Lane{% endif %}</p>
+        <h3 class="mt-2 text-lg font-semibold">{% if L == 'es' %}Experiencia IT, poco código{% else %}IT experience, low coding{% endif %}</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Contenido de ejemplo; tutoriales estilo operaciones IT.{% else %}Dummy content for now. You will add IT-ops style tutorials here.{% endif %}</p>
       </div>
     </a>
 
-    <a href="{{ '/%s/%s/'|format(lanes.dev_no_ai.lang, lanes.dev_no_ai.slug) if lanes.dev_no_ai else '/en/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-indigo-200/70 bg-indigo-50/50 transition hover:border-indigo-400 dark:border-indigo-900/50 dark:bg-indigo-950/25 dark:hover:border-indigo-500">
+    <a href="{{ '/%s/%s/'|format(lanes.dev_no_ai.lang, lanes.dev_no_ai.slug) if lanes.dev_no_ai else '/' ~ L ~ '/tutorials/' }}" class="block overflow-hidden rounded-2xl border border-indigo-200/70 bg-indigo-50/50 transition hover:border-indigo-400 dark:border-indigo-900/50 dark:bg-indigo-950/25 dark:hover:border-indigo-500">
       <img src="https://picsum.photos/seed/tutorial-lane-dev/900/480" alt="" class="h-36 w-full object-cover" />
       <div class="p-4">
-        <p class="text-xs uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">Developer Lane</p>
-        <h3 class="mt-2 text-lg font-semibold">Developers new to AI</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">This lane already starts with your first tutorial at the top.</p>
+        <p class="text-xs uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">{% if L == 'es' %}Carril desarrollador{% else %}Developer Lane{% endif %}</p>
+        <h3 class="mt-2 text-lg font-semibold">{% if L == 'es' %}Devs nuevos en IA{% else %}Developers new to AI{% endif %}</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{% if L == 'es' %}Este carril enlaza con el tutorial principal arriba.{% else %}This lane already starts with your first tutorial at the top.{% endif %}</p>
       </div>
     </a>
   </section>
